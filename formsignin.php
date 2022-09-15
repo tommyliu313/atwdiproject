@@ -13,5 +13,6 @@
 <!--PasswordValidation-->
 
 <!--resetbutton-->
-
+button.btn.btn-danger[type="button reset" name="reset"]{Reset}
 <!--submitbutton-->
+button.btn.btn-success[type="button submit" name="submit"]{Submit}
