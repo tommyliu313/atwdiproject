@@ -13,9 +13,13 @@
 <!--PasswordValidation-->
 <!--form start-->
 <form action="" method="post">
-<!--resetbutton-->
+<!--username-->
+<!---->
+<!--resetbuttonstart-->
 <button class="btn btn-danger" type="button reset" name="reset">Reset</button>
-<!--submitbutton-->
+<!--resetbuttonend-->
+<!--submitbuttonstart-->
 <button class="btn btn-success" type="button submit" name="submit">Submit</button>
+<!--submitbuttonend-->
 <!--formend-->
 </form>
