@@ -11,8 +11,11 @@
 </head>
 <!--compulsorypartend-->
 <!--PasswordValidation-->
-
+<!--form start-->
+<form action="" method="post">
 <!--resetbutton-->
-button.btn.btn-danger[type="button reset" name="reset"]{Reset}
+<button class="btn btn-danger" type="button reset" name="reset">Reset</button>
 <!--submitbutton-->
-button.btn.btn-success[type="button submit" name="submit"]{Submit}
+<button class="btn btn-success" type="button submit" name="submit">Submit</button>
+<!--formend-->
+</form>
