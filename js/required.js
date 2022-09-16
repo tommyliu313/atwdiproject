@@ -1,4 +1,4 @@
-//Password//
+//Password
 //Validation
 function passwordvalidation(){
     var x = document.getElementById("passwordfirst").value;
@@ -6,5 +6,9 @@ function passwordvalidation(){
     
 }
 //Password Format
-
+function password(){
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    
+}
 //VisiblePassword

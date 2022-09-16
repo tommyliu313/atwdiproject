@@ -15,9 +15,9 @@
 <form action="" method="post">
 <!--username-->
 <!--input username-->
-<input type="text" class="form-control" name="username" required>
+<input type="text" class="form-control" name="username" required id="username">
 <!--input password-->
-<input type="password" class="form-control" name="password" required>
+<input type="password" class="form-control" name="password" required id="password">
 <!--resetbuttonstart-->
 <button class="btn btn-danger" type="button reset" name="reset">Reset</button>
 <!--resetbuttonend-->
