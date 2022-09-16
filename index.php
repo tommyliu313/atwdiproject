@@ -14,7 +14,9 @@
     <!--navbarstart-->
     nav.navbar.has-background
     <!--navbarend-->
-
+    
+    <!--carouselstart-->
+    <!--carouselend-->
 
     div.card>div.card-title>
 
