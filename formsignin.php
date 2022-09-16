@@ -14,7 +14,10 @@
 <!--form start-->
 <form action="" method="post">
 <!--username-->
-<!---->
+<!--input username-->
+<input type="text" class="form-control" name="username" required>
+<!--input password-->
+<input type="password" class="form-control" name="password" required>
 <!--resetbuttonstart-->
 <button class="btn btn-danger" type="button reset" name="reset">Reset</button>
 <!--resetbuttonend-->
@@ -23,3 +26,5 @@
 <!--submitbuttonend-->
 <!--formend-->
 </form>
+<!--Connect to the database start-->
+<!--Connect to the database end-->
