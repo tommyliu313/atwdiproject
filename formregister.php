@@ -33,4 +33,13 @@
 </body>
 </html>
 <!--Connect to the database start-->
+<!--
+$dbhost = "";
+$dbuser = "",
+$dbpass = "";
+$db = "";
+
+$conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
+
+-->
 <!--Connect to the database end-->
