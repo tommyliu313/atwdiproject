@@ -12,7 +12,7 @@
 <!--compulsorypartend-->
 <body>
     <!--navbarstart-->
-    nav.navbar.has-background
+    nav.navbar.bg-warning#top>div.navbar-brand
     <!--navbarend-->
     
     <!--carouselstart-->
