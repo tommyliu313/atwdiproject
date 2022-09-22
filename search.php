@@ -40,4 +40,7 @@ button.btn.modal-button {
 <a href="#"><button class="btn modal-button" aria-haspopup="true"><strong>Back to top</strong></button></a>
 <!--Connect to the database start-->
 <!--Connect to the database end-->
+<!--redirect-->
+header("location:.php");
+
 </body>

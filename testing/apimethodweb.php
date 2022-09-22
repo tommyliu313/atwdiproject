@@ -1,12 +1,12 @@
 <?php
-define('STDIN',fopen("php://stdin",'r'));
 
-$requestapimethod = trim(fgets(STDIN,1024));
 echo "Give an API method:";
 
 $apimethod = array("get","post","put","delete");
 
 $url = "localhost";
+
+
 if($requestapimethod == $apimethod[0]){
     
     $obj = (object)$apimethod[0];

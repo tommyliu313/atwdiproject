@@ -30,6 +30,7 @@ Password : <input type="password" required id="password" class="form-control" na
 </form>
 <input type="checkbox" name="seepassword" onClick="turnpasswordvisible();"> Turn the password visible <br>
 <!--Connect to the database start-->
+
 <!--Connect to the database end-->
 </body>
 </html>

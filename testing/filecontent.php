@@ -2,19 +2,23 @@
 
 
 <?php
-header('Content-Type: text/plain; charset=utf-8');
+	header('Content-Type: text/plain; charset=utf-8');
 #引入xml資源
-$data = file_get_contents('https://www.fehd.gov.hk/english/pleasant_environment/tidy_market/marketInfo.xml');
+	$data = file_get_contents('https://www.fehd.gov.hk/english/pleasant_environment/tidy_market/marketInfo.xml');
 #轉化為object
-$dataobject = simplexml_load_string($data);
+	$dataobject = simplexml_load_string($data);
 
 #$utf8data = utf8_decode($data);
 #echo $utf8data;
 #json序列化
-$jsonencodeddata = json_encode($dataobject);
+	$jsonencodeddata = json_encode($dataobject);
 
 #另存json檔案
-$json = file_put_contents("data.json",$jsonencodeddata);
+	$json = file_put_contents("data.json",$jsonencodeddata);
+
+	echo pathinfo($json);
+
+
 
 ?>
 <!---Reference:https://www.geeksforgeeks.org/how-to-convert-xml-data-into-json-using-php/

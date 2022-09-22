@@ -13,7 +13,7 @@
 <body>
     <!--navbarstart-->
     nav.navbar.navbar-expand-lg.bg-warning#top>div.navbar-brand
-    div.collapse.navbar-collapse#navbarNavDropdown>ul.navbar-nav>li.nav-item
+    div.collapse.navbar-collapse#navbarNavDropdown>ul.navbar-nav>li.nav-item>a.nav-link
     div.dropdown-menu>a.dropdown-item
     <!--navbarend-->
     
@@ -24,6 +24,7 @@
 
     <!--footerstart-->
     footer.
+    div.card
     <!--footerend-->
 
     <!--cookiesetting-->
