@@ -12,7 +12,9 @@
 <!--compulsorypartend-->
 <body>
     <!--navbarstart-->
-    nav.navbar.bg-warning#top>div.navbar-brand
+    nav.navbar.navbar-expand-lg.bg-warning#top>div.navbar-brand
+    div.collapse.navbar-collapse#navbarNavDropdown>ul.navbar-nav>li.nav-item
+    div.dropdown-menu>a.dropdown-item
     <!--navbarend-->
     
     <!--carouselstart-->
