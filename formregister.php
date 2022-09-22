@@ -13,7 +13,10 @@
 <!--compulsorypartend-->
 <body>
     <!--navbarstart-->
-    nav.navbar.has-background
+    nav.navbar.navbar-expand-lg.bg-warning#top>div.navbar-brand{Title}>
+    button.navbar-toggler[type="button"]>
+    div.collapse.navbar-collapse#navbarNavDropdown>ul.navbar-nav>li.nav-item>a.nav-link>
+    div.dropdown-menu>a.dropdown-item
     <!--navbarend-->
 
 

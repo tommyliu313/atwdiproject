@@ -18,6 +18,9 @@
     <!--navbarend-->
     
     <!--carouselstart-->
+    div.carousel.slide>div.carousel-inner>carousel-item>img>div.carousel-caption
+    a.carousel-control-prev
+    a.carousel-control-next
     <!--carouselend-->
 
     div.card>div.card-title>
