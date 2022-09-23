@@ -1,8 +1,8 @@
-CREATE TABLE `MarketInformation.detail`(
+CREATE TABLE MarketInformation.detail(
     marketid int(10) NOT NULL AUTO_INCREMENT,
-     timemod int(10) NOT NULL UNIQUE,
-     telone int(8) NOT NULL UNIQUE,
-     teltwo int(8) NOT NULL UNIQUE,
+    timemod int(10) NOT NULL UNIQUE,
+    telone int(8) NOT NULL UNIQUE,
+    teltwo int(8) NOT NULL UNIQUE,
     locationlocatid int(6) NOT NULL,
     marketname char(20) NOT NULL UNIQUE,
     PRIMARY KEY (marketid));
