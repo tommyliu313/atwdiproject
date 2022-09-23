@@ -3,9 +3,10 @@ CREATE TABLE MarketInformation.detail(
     timemod int(10) NOT NULL UNIQUE,
     telone int(8) NOT NULL UNIQUE,
     teltwo int(8) NOT NULL UNIQUE,
-    locationlocatid int(6) NOT NULL,
     marketname char(20) NOT NULL UNIQUE,
-    PRIMARY KEY (marketid));
+    PRIMARY KEY (marketid),
+    FOREIGN KEY (locatid) REFERENCES LOCATION(locatid)
+    );
 
 
 CREATE TABLE location (
@@ -15,7 +16,9 @@ CREATE TABLE location (
  Regionregid smallint(5) NOT NULL,
  Districtdistrictid int(10) NOT NULL,
  addressname char(20),
- PRIMARY KEY (locatid));
+ PRIMARY KEY (locatid)
+ 
+ );
 
 CREATE TABLE businesstime (
  busintid int(10),
