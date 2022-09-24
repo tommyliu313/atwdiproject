@@ -15,9 +15,9 @@
 
 #另存json檔案
 	$json = file_put_contents("data.json",$jsonencodeddata);
-	for (){
+	#for (){
 		
-	}
+	#}
 
 
 ?>
