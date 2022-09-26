@@ -8,7 +8,7 @@
 </head>
 <body>
     <form action="updatefile.php" method="post">
-        <input type="text" name="test"><br>
+        select#district>option[value=""]
         <input type="submit" name="submit" value="submit">
         </form>
 </body>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2022-09-23 18:43:05
+-- 產生時間： 2022-09-26 06:07:01
 -- 伺服器版本： 10.4.24-MariaDB
 -- PHP 版本： 8.1.6
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- 資料庫： `marketpublic`
 --
+CREATE DATABASE IF NOT EXISTS `marketpublic` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `marketpublic`;
 
 -- --------------------------------------------------------
 
@@ -40,7 +42,7 @@ CREATE TABLE `businesstime` (
 --
 
 CREATE TABLE `district` (
-  `districtid` int(10) NOT NULL,
+  `districtid` varchar(20) NOT NULL,
   `districteng` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -55,7 +57,8 @@ CREATE TABLE `marketinfodetail` (
   `timemod` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `telone` int(8) NOT NULL,
   `teltwo` int(8) NOT NULL,
-  `marketname` char(20) NOT NULL
+  `marketname` char(20) NOT NULL,
+  `locatid` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -68,7 +71,9 @@ CREATE TABLE `marketinfolocate` (
   `locatid` int(10) NOT NULL,
   `coordlat` float NOT NULL,
   `coordlon` float NOT NULL,
-  `addressname` char(20) NOT NULL
+  `addressname` char(20) NOT NULL,
+  `districtid` varchar(20) NOT NULL,
+  `regid` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -87,10 +92,54 @@ CREATE TABLE `region` (
 --
 
 --
+-- 資料表索引 `businesstime`
+--
+ALTER TABLE `businesstime`
+  ADD PRIMARY KEY (`busintid`);
+
+--
 -- 資料表索引 `district`
 --
 ALTER TABLE `district`
   ADD PRIMARY KEY (`districtid`);
+
+--
+-- 資料表索引 `marketinfodetail`
+--
+ALTER TABLE `marketinfodetail`
+  ADD PRIMARY KEY (`marketid`),
+  ADD KEY `locatid` (`locatid`);
+
+--
+-- 資料表索引 `marketinfolocate`
+--
+ALTER TABLE `marketinfolocate`
+  ADD PRIMARY KEY (`locatid`),
+  ADD KEY `districtid` (`districtid`),
+  ADD KEY `regid` (`regid`);
+
+--
+-- 資料表索引 `region`
+--
+ALTER TABLE `region`
+  ADD PRIMARY KEY (`regid`);
+
+--
+-- 已傾印資料表的限制式
+--
+
+--
+-- 資料表的限制式 `marketinfodetail`
+--
+ALTER TABLE `marketinfodetail`
+  ADD CONSTRAINT `locatid` FOREIGN KEY (`locatid`) REFERENCES `marketinfolocate` (`locatid`);
+
+--
+-- 資料表的限制式 `marketinfolocate`
+--
+ALTER TABLE `marketinfolocate`
+  ADD CONSTRAINT `districtid` FOREIGN KEY (`districtid`) REFERENCES `district` (`districtid`),
+  ADD CONSTRAINT `regid` FOREIGN KEY (`regid`) REFERENCES `region` (`regid`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

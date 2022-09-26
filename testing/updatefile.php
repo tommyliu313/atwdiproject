@@ -1,27 +1,40 @@
 <?php
 
 //接收傳過來的東西
-$test = $_POST["test"];
+$value1 = $_POST["test"];
+$value2 = $_POST["test"];
+$value3 = $_POST["test"];
+$value4 = $_POST["test"];
+$value5 = $_POST["test"];
+$value6 = $_POST["test"];
+
+
 
 //數據庫設定
 $servername = 'localhost';
 $databaseuser = 'root';
 $datapassword = '';
-$databasename = 'test';
+$databasename = 'marketpublic';
 
 //建立連結
 $connection = new mysqli($servername, $databaseuser, $datapassword, $databasename);
 
-$querysql = 'SELECT * FROM test';
+$querysql = "INSERT INTO `marketinfodetail`(`marketid`, `timemod`, `telone`, `teltwo`, `marketname`, `districtid`) VALUES ('$value1','$value2','$value3','$value4','$value5','$value6')";
 
 if($result = $connection->query($querysql)){
 
     $resultarr = array();
 
-    $resultarr['test'] = $
+   while ($row = $dbresult->fetch_object()){
+    $insrecord = array();
+
+
+   }
 }
 
 
 
 
 ?>
+
+<!--https://stackoverflow.com/questions/9761239/parse-json-to-create-sql-insert-statements-in-php-->
