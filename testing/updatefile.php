@@ -1,10 +1,10 @@
 <?php
 
 //接收傳過來的東西
-$value1 = $_POST["test"];
-$value2 = $_POST["test"];
-$value3 = $_POST["test"];
-$value4 = $_POST["test"];
+$value1 = $_POST["marketid"];
+$value2 = $_POST["telone"];
+$value3 = $_POST["teltwo"];
+$value4 = $_POST["marketname"];
 $value5 = $_POST["test"];
 $value6 = $_POST["test"];
 
@@ -30,6 +30,11 @@ if($result = $connection->query($querysql)){
 
 
    }
+}
+
+switch (){
+    case 1:
+    
 }
 
 

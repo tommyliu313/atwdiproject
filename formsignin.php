@@ -14,7 +14,7 @@
 <!--compulsorypartend-->
 <!--PasswordValidation-->
 <!--form start-->
-<form action="" method="post">
+<form action="submit.php" method="post">
 <!--username-->
 <!--input username-->
 Username : <input type="text" class="form-control" name="username" required id="username" placeholder="Username">
