@@ -1,3 +1,3 @@
 <?php
-$_
+include_once('database.php');
 ?>
