@@ -1,5 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<style>
+    nav#top a.navbar-brand {
+  color: white; }
+
+nav#top #navbarNavDropdown ul.navbar-nav li.nav-item {
+  align-items: center; }
+  nav#top #navbarNavDropdown ul.navbar-nav li.nav-item a.nav-link {
+    color: white; }
+
+</style>
     <!--compulsorypartstart-->
 <head>
     <meta charset="UTF-8">
@@ -12,13 +23,18 @@
 
 <!--compulsorypartend-->
 <body>
-    <?php
-    include_once(".php");
-    ?>
     <!--navbarstart-->
-    nav.navbar.navbar-expand-lg.bg-primary#top>div.navbar-brand
-    div.collapse.navbar-collapse#navbarNavDropdown>ul.navbar-nav>li.nav-item>a.nav-link
-    div.dropdown-menu>a.dropdown-item
+    <nav class="navbar navbar-expand-lg bg-primary" id="top"><a class="navbar-brand"> Our Public Market</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon" style="#00FF00"></span></button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active"><a class="nav-link" href=""> Index</a></li>
+        <li class="nav-item"><a class="nav-link" href=""> Search </a></li>
+        <li class="nav-item"><a class="nav-link" href=""> Insert New Record</a></li>
+        <li class="nav-item"><a class="nav-link" href=""> Your Record History</a></li>
+      </ul>
+    </div>
+  </nav>
     <!--navbarend-->
     
     <!--carouselstart-->
@@ -32,8 +48,11 @@
     <!--footerstart-->
     footer.bg-info
     div.container-fluid>div.row>div.col-lg-4
+    
     div.container-fluid>div.row>div.col-lg-4
+
     div.container-fluid>div.row>div.col-lg-4
+
     <!--footerend-->
 
     <!--cookiesetting-->
