@@ -49,28 +49,42 @@ center {
 
     <!--Formstart-->
     <center>Insert Record</center>
-    <form action="/index.php" method="POST">
+    <form action="/index.php" method="POST" class="">
       <div class="form-group mb-3">
         <label for="districtcol" class="form-label"> District</label>
-          <select name="" id="" class="form-select" required>
+          <select name="" id="" class="form-select custom-select" required>
+            <option selected="selected">Choose the following option where the market district is</option>
             <option value=""></option>
           </select>
           
           <label for="location" class="form-label">Location</label>
-            <select name="" id="" class="form-select" required >
+            <select name="" id="" class="form-select custom-select" required>
+              <option selected="selected">Choose the following option where the market location is</option>
               <option value=""></option>
             </select>
             
           <label for="" class="form-label bg-info">Market Name</label><br>
-              <input type="text" name="marketname" id="" required>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <input type="text" name="marketname" id="marketname" required class="form-control form-control-lg" aria-label="large">
+            </div>
+          </div>
             <br>
 
           <label for="tel1" class="form-label bg-info">Telephone 1</label><br>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend"><span class="input-group-text">+852</span>
+            </div>
             <input type="tel" name="tel1" id="" pattern="[0-9]{4}-[0-9]{4}" required="required"><br>
+          </div>
           
           <label for="tel2" class="form-label">Telephone 2</label>
             <br>
-          <input type="tel" name="tel2" id="" pattern="[0-9]{4}-[0-9]{4}" required="required">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend"><span class="input-group-text">+852</span>
+              </div>
+              <input type="tel" name="tel2" id="" pattern="[0-9]{4}-[0-9]{4}" required="required">
+            </div>
 
       </div>
       <input type="reset" value="Reset" name="Reset" class="btn btn-danger">

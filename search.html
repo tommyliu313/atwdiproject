@@ -14,16 +14,15 @@
 <style>
 button.btn.modal-button {
   background-color: #E17070;
-  position: fixed;
+  position: absolute;
   left: 92%;
-  right: 73%;
   top: 93.41%;
   bottom: 2.53%;
-  border-radius: 30px; 
+  border-radius: 100px; 
 }
 
-    nav#top a.navbar-brand {
-  color: white; }
+nav#top a.navbar-brand {
+color: white; }
 
 nav#top #navbarNavDropdown ul.navbar-nav li.nav-item {
   align-items: center; }
@@ -47,20 +46,30 @@ nav#top #navbarNavDropdown ul.navbar-nav li.nav-item {
 <!-- navbar end -->
 <p class="text-center font-weight-bold">Searching Page</p>
 <!---table start-->
-
+<form action="showresult.php">
 <table class="table table-success table-border table-striped">
     <tr>
-        <th><select name="" id="" class="select"><option value=""></option></select></th>
-        <th>123</th>
-        <th>123</th>
-    </tr>
-    <tr>
-        <td>123</td>
-        <td>
-            <button class="btn btn-success"></button>
-        </td>
+        <th>
+          <select name="" id="" class="form-select">
+            <option selected="selected"> Please select the </option>
+            <option value=""></option>
+          </select></th>
+        <th>
+          <select name="" id="" class="form-select">
+            <option value="" selected="selected">Please select the</option>
+          </select>
+        </th>
+        <th>
+          <select name="" id="" class="form-select">
+            <option selected="selected"> Please select the </option>
+            <option value=""></option>
+          </select></th>
+        </th>
     </tr>
 </table>
+</form>
+
+
 <a href="#"><button class="btn modal-button" aria-haspopup="true"><strong>Back to top</strong></button></a>
 
 <!--table end-->
@@ -101,7 +110,9 @@ nav#top #navbarNavDropdown ul.navbar-nav li.nav-item {
               <h3>Refernece</h3>
             </div>
           </div>
-          <div class="col-lg-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam sit accusantium, amet esse numquam, quis ea quisquam labore necessitatibus soluta autem tenetur, consectetur qui nostrum omnis praesentium vel itaque ratione!</div>
+          <div class="col-lg-4">
+            <div class="row"><h1 class="font-weight-bold">Copyright</h1></div>
+            <div class="row"> ©2022 Liu Chak Tin All rights reserved</div>
         </div>
       </div>
       </div></footer>
