@@ -46,8 +46,6 @@ center {
   </nav>
     <!--navbarend-->
 
-    div.card>div.card-title>
-
 
     <!--Formstart-->
     <center>Insert Record</center>
@@ -57,17 +55,26 @@ center {
           <select name="" id="" class="form-select" required>
             <option value=""></option>
           </select>
-          <label for="locationid" class="form-label">Location</label>
-            <select name="" id="" class="form-select" required>
+          
+          <label for="location" class="form-label">Location</label>
+            <select name="" id="" class="form-select" required >
               <option value=""></option>
             </select>
-          <label for="tel1" class="form-label">Telephone 1</label><br>
-            <input type="tel" name="tel1" id="" pattern="[0-9]{4}-[0-9]{4}" required="required"><br>
-            <label for="tel2" class="form-label">Telephone 2</label>
+            
+          <label for="" class="form-label bg-info">Market Name</label><br>
+              <input type="text" name="marketname" id="" required>
             <br>
-            <input type="tel" name="tel2" id="" pattern="[0-9]{4}-[0-9]{4}" required="required">
+
+          <label for="tel1" class="form-label bg-info">Telephone 1</label><br>
+            <input type="tel" name="tel1" id="" pattern="[0-9]{4}-[0-9]{4}" required="required"><br>
+          
+          <label for="tel2" class="form-label">Telephone 2</label>
+            <br>
+          <input type="tel" name="tel2" id="" pattern="[0-9]{4}-[0-9]{4}" required="required">
+
       </div>
-      <d></d>
+      <input type="reset" value="Reset" name="Reset" class="btn btn-danger">
+      <input type="submit" value="Submit" name="Submit" class="btn btn-success">
     </form>
     <!--Formend-->
     <!--footerstart-->
