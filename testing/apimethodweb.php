@@ -1,5 +1,6 @@
 <?php
 
+
 echo "Give an API method:";
 
 $apimethod = array("get","post","put","delete");
