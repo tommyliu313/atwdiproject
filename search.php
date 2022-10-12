@@ -37,22 +37,29 @@ nav#top #navbarNavDropdown ul.navbar-nav li.nav-item {
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
       <li class="nav-item active"><a class="nav-link" href="index.html"> Index</a></li>
-        <li class="nav-item"><a class="nav-link" href="search.html"> Search </a></li>
+        <li class="nav-item"><a class="nav-link" href="search.php"> Search </a></li>
         <li class="nav-item"><a class="nav-link" href="insert.html"> Insert New Record</a></li>
         <li class="nav-item"><a class="nav-link" href=""> Your Record History</a></li>
       </ul>
     </div>
   </nav>
 <!-- navbar end -->
-<p class="text-center font-weight-bold">Searching Page</p>
+
+<!--connect to database script start-->
+<?php
+  include_once("dbsetting.php");
+?>
+<!--connect to database script end-->
+<center class="bg-warning">Searching Page</center>
 <!---table start-->
 <form action="showresult.php">
 <table class="table table-success table-border table-striped">
     <tr>
         <th>
           <select name="" id="" class="form-select">
-            <option selected="selected"> Please select the </option>
-            <option value=""></option>
+            <option selected="selected"> District</option>
+            <option> Please select the </option>
+            <option value="<?php echo $district ?>"></option>
           </select></th>
         <th>
           <select name="" id="" class="form-select">
@@ -117,6 +124,14 @@ nav#top #navbarNavDropdown ul.navbar-nav li.nav-item {
       </div>
       </div></footer>
     <!--footerend-->
-
+<!--https://codingstatus.com/how-to-insert-select-option-value-in-database-using-php-mysql/-->
 </body>
 </html>
+
+<!--php script
+
+            $query = "SELECT districteng FROM district";
+            $release = $
+            
+
+-->
