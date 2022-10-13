@@ -18,7 +18,7 @@
 	#for (){
 		
 	#}
-
+	var_dump
 
 ?>
 <!---Reference:https://www.geeksforgeeks.org/how-to-convert-xml-data-into-json-using-php/
