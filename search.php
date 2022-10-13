@@ -79,6 +79,7 @@
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
+    li.page-item>a.page-link[href="#"]
     <li class="page-item">
       <a href="" class="page-link" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
