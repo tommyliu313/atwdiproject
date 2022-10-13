@@ -2,6 +2,7 @@
 
 
 <?php
+	include_once()
 	header('Content-Type: text/plain; charset=utf-8');
 #引入xml資源
 	$data = file_get_contents('https://www.fehd.gov.hk/english/pleasant_environment/tidy_market/marketInfo.xml');
@@ -18,7 +19,7 @@
 	#for (){
 		
 	#}
-	var_dump
+	
 
 ?>
 <!---Reference:https://www.geeksforgeeks.org/how-to-convert-xml-data-into-json-using-php/
