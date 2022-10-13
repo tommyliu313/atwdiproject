@@ -1,0 +1,16 @@
+button.btn.modal-button {
+    background-color: #E17070;
+    position: fixed;
+    left: 92%;
+    top: 93.41%;
+    bottom: 2.53%;
+    border-radius: 100px; 
+  }
+  
+  nav#top a.navbar-brand {
+  color: white; }
+  
+  nav#top #navbarNavDropdown ul.navbar-nav li.nav-item {
+    align-items: center; }
+    nav#top #navbarNavDropdown ul.navbar-nav li.nav-item a.nav-link {
+      color: white; }

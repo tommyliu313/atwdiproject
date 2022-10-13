@@ -6,30 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/bootstrap-5.2.1-dist/css/bootstrap.min.css"></link>
+    <link rel="stylesheet" href="./css/own.css"></link>
     <script src="./css/bootstrap-5.2.1-dist/js/bootstrap.min.js"></script>
     <title>Document</title>
 </head>
 <!--error handling-->
 <body>
-<style>
-button.btn.modal-button {
-  background-color: #E17070;
-  position: absolute;
-  left: 92%;
-  top: 93.41%;
-  bottom: 2.53%;
-  border-radius: 100px; 
-}
-
-nav#top a.navbar-brand {
-color: white; }
-
-nav#top #navbarNavDropdown ul.navbar-nav li.nav-item {
-  align-items: center; }
-  nav#top #navbarNavDropdown ul.navbar-nav li.nav-item a.nav-link {
-    color: white; }
-
-</style>
 <!--message-->
 <!-- navbar start -->
 <nav class="navbar navbar-expand-lg bg-primary" id="top"><a class="navbar-brand"> Our Public Market</a>
@@ -50,9 +32,11 @@ nav#top #navbarNavDropdown ul.navbar-nav li.nav-item {
   include_once("dbsetting.php");
 ?>
 <!--connect to database script end-->
-<center class="bg-warning">Searching Page</center>
+<div class="mt-4 p-5 bg-warning text-black rounded">
+  <h1>Searching Page</h1></div>
+
 <!---table start-->
-<form action="showresult.php">
+<form action="showresult.php" method="post" enctype="multipart/form-data">
 <table class="table table-success table-border table-striped">
     <tr>
         <th>
@@ -76,13 +60,48 @@ nav#top #navbarNavDropdown ul.navbar-nav li.nav-item {
 </table>
 </form>
 
+<table class="table table-secondary" id="targettable">
+  <tr>
+    <th>Market No</th>
+    <th>Market Name</th>
+  </tr>
+
+</table>
 
 <a href="#"><button class="btn modal-button" aria-haspopup="true"><strong>Back to top</strong></button></a>
 
 <!--table end-->
+<!--paginationstart-->
+<nav aria-label="Page navigation">
+  <ul class="pagination">
+    <li class="page-item">
+      <a href="" class="page-link" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li class="page-item">
+      <a href="" class="page-link" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+<!--paginationend-->
 
-<!--overlaywindowstart-->
-<!--overlaywindowend-->
+<!--modalwindowstart-->
+<div class="modal fade" tabindex="-1" style="">
+  <div class="modal-dialog">
+    <div class="modal-content"> 123
+      <div class="modal-header">
+        <div class="modal-body">
+          123
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--modalwindowend-->
 
 <!--redirect-->
 
