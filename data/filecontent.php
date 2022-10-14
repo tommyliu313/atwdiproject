@@ -2,7 +2,7 @@
 
 
 <?php
-	include_once()
+	include_once("dbsetting.php");
 	header('Content-Type: text/plain; charset=utf-8');
 #引入xml資源
 	$data = file_get_contents('https://www.fehd.gov.hk/english/pleasant_environment/tidy_market/marketInfo.xml');
@@ -17,9 +17,9 @@
 #另存json檔案
 	$json = file_put_contents("data.json",$jsonencodeddata);
 	#for (){
-		
+		$connection
 	#}
-	
+
 
 ?>
 <!---Reference:https://www.geeksforgeeks.org/how-to-convert-xml-data-into-json-using-php/

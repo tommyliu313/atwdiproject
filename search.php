@@ -22,10 +22,22 @@
         <li class="nav-item"><a class="nav-link" href="search.php"> Search </a></li>
         <li class="nav-item"><a class="nav-link" href="insert.html"> Insert New Record</a></li>
         <li class="nav-item"><a class="nav-link" href=""> Your Record History</a></li>
+        <li class="nav-item"><a href="" class="nav-link">Web Map</a></li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a href="#" class="dropdown-item">
+              Whole New Market Record</a></li>
+              <li><a href="#" class="dropdown-item">
+                Whole New Market Record</a></li>
+          </ul>
+        </li>
       </ul>
     </div>
   </nav>
-<!-- navbar end -->
+  <!-- navbar end -->
 
 <!--connect to database script start-->
 <?php

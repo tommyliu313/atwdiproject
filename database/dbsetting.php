@@ -6,5 +6,4 @@ $databasename = 'marketpublic';
 
 $connection = new mysqli($servername, $databaseuser, $datapassword, $databasename);
 
-$url = "SELECT * FROM"
 ?>
