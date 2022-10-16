@@ -20,6 +20,9 @@
 		$connection
 	#}
 
+#處理 contact1 載入至 table marketinfo 中 marketonetel 的欄位
+
+#處理 contact2 載入至 table marketinfo 中 markettwotel 的欄位
 
 ?>
 <!---Reference:https://www.geeksforgeeks.org/how-to-convert-xml-data-into-json-using-php/
