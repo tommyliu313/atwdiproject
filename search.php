@@ -20,7 +20,7 @@
       <ul class="navbar-nav">
       <li class="nav-item active"><a class="nav-link" href="index.html"> Index</a></li>
         <li class="nav-item"><a class="nav-link" href="search.php"> Search </a></li>
-        <li class="nav-item"><a class="nav-link" href="insert.html"> Insert New Record</a></li>
+        <li class="nav-item"><a class="nav-link" href="/insert/insert.html"> Insert New Record</a></li>
         <li class="nav-item"><a class="nav-link" href=""> Your Record History</a></li>
         <li class="nav-item"><a href="" class="nav-link">Web Map</a></li>
         <li class="nav-item dropdown">
