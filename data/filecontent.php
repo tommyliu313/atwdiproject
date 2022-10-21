@@ -16,6 +16,8 @@
 
 #另存json檔案
 #$json = file_put_contents("data.json",$jsonencodeddata);
+
+#載入json資訊到空序列
 	$array = array();
 	function assignvalue(){
 		$array['Region_e'] = $
@@ -32,10 +34,18 @@
 		$array['Tenancy_Commodity_c'] = $
 	}
 
+
+
 	print_r(array_map('assignvalue', $json))
+
+#載入序列到數據庫
+
+#資料庫
+#SQL查詢語句
+
+
 	#for (){
 	#}
-
 
 ?>
 <!---Reference:https://www.geeksforgeeks.org/how-to-convert-xml-data-into-json-using-php/

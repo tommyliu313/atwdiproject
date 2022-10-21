@@ -161,7 +161,9 @@
 </html>
 
 <!--php script
-
+#載入結果
+#查詢結果
+#得出結果
             $query = "SELECT districteng FROM district";
             $release = $
             
