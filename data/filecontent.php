@@ -15,14 +15,27 @@
 	$jsonencodeddata = json_encode($dataobject);
 
 #另存json檔案
-	$json = file_put_contents("data.json",$jsonencodeddata);
+#$json = file_put_contents("data.json",$jsonencodeddata);
+	$array = array();
+	function assignvalue(){
+		$array['Region_e'] = $
+		$array['Region_c'] = $
+		$array['District_e'] = $
+		$array['District_c'] = $
+		$array['Market_e'] = $
+		$array['Market_c'] = $
+		$array['Address_e'] = $
+		$array['Address_c'] = $
+		$array['Business_Hours_e'] = $
+		$array['Business_Hours_c'] = $
+		$array['Tenancy_Commodity_e'] = $
+		$array['Tenancy_Commodity_c'] = $
+	}
+
+	print_r(array_map('assignvalue', $json))
 	#for (){
-		$connection
 	#}
 
-#處理 contact1 載入至 table marketinfo 中 marketonetel 的欄位
-
-#處理 contact2 載入至 table marketinfo 中 markettwotel 的欄位
 
 ?>
 <!---Reference:https://www.geeksforgeeks.org/how-to-convert-xml-data-into-json-using-php/
