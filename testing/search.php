@@ -1,6 +1,0 @@
-<?php
-
-
-
-$db->exec("Updat")
-?>
