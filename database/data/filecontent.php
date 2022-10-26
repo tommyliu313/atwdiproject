@@ -2,38 +2,57 @@
 
 
 <?php
-	include_once("dbsetting.php");
-	header('Content-Type: text/plain; charset=utf-8');
-#引入xml資源
-	$data = file_get_contents('https://www.fehd.gov.hk/english/pleasant_environment/tidy_market/marketInfo.xml');
-#轉化為object
-	$dataobject = simplexml_load_string($data);
-
-#$utf8data = utf8_decode($data);
-#echo $utf8data;
-#json序列化
-	$jsonencodeddata = json_encode($dataobject);
-
-#另存json檔案
-#$json = file_put_contents("data.json",$jsonencodeddata);
-#載入json資訊到空序列
-	$servername = 'localhost';
+#database
+    $servername = 'localhost';
 	$databaseuser = 'root';
 	$datapassword = '';
 	$databasename = 'testing';
 
-	$connection = new mysqli($servername, $databaseuser, $datapassword, $databasename);
+	$connection = new mysqli($servername, $databaseuser, $datapassword, $databasename);	
+#引入xml資源
+	$data = file_get_contents('https://www.fehd.gov.hk/english/pleasant_environment/tidy_market/marketInfo.xml');
+#轉化為object
+	$dataobject = simplexml_load_file($data);
 
-	try{
+#$utf8data = utf8_decode($data);
+#echo $utf8data;
+#json序列化
+
+	$jsonencodeddata = json_encode($dataobject);
+
+
+#另存json檔案
+	$json = file_put_contents("data.json",$jsonencodeddata);
+
+	$decodejson = json_decode($jsonencodeddata,TRUE);
+	
+	$listitem = $decodejson['map'];
+
+#載入json資訊到空序列
+
+	foreach($listitem as $things){
+
+		print_r($things);
+
+		$Region_e = $things['Region_e'];
+		$Region_c = $things['Region_c'];
+		$District_e  = $things['District_e'];
+		$District_c  = $things['District_c'];
+		$Market_e  = $things['Market_e'];
+		$Market_c  = $things['Market_c'];
+		$Address_e  = $things['Address_e'];
+		$Address_c  = $things['Address_c'];
+		$Business_Hours_e  = $things['Business_Hours_e'];
+		$Business_Hours_c  = $things['Business_Hours_c'];
+		$Tenancy_Commodity_e  = $things['Tenancy_Commodity_e'];
+		$Tenancy_Commodity_c = $things['Tenancy_Commodity_c'];
+		$nos_stall  = $things['nos_stall'];
 
 	}
-	catch(Exception){
-		echo "Database is not found."
-	}
+	
+	
+	
 
-
-
-	print_r(array_map('assignvalue', $json))
 
 #載入序列到數據庫
 
@@ -49,27 +68,3 @@
 
 	
 ?>
-<!---Reference:https://www.geeksforgeeks.org/how-to-convert-xml-data-into-json-using-php/
-https://blog.csdn.net/m0_38099607/article/details/70306034?spm=1001.2101.3001.6650.4&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EOPENSEARCH%7ERate-4-70306034-blog-105249838.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EOPENSEARCH%7ERate-4-70306034-blog-105249838.pc_relevant_default&utm_relevant_index=5
--->
-
-<!--
-	$array = array();
-	function assignvalue(){
-		$array['Region_e'] = $
-		$array['Region_c'] = $
-		$array['District_e'] = $
-		$array['District_c'] = $
-		$array['Market_e'] = $
-		$array['Market_c'] = $
-		$array['Address_e'] = $
-		$array['Address_c'] = $
-		$array['Business_Hours_e'] = $
-		$array['Business_Hours_c'] = $
-		$array['Tenancy_Commodity_e'] = $
-		$array['Tenancy_Commodity_c'] = $
-	}
-
-
-
--->
