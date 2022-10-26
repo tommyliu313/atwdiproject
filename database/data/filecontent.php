@@ -16,22 +16,19 @@
 
 #另存json檔案
 #$json = file_put_contents("data.json",$jsonencodeddata);
-
 #載入json資訊到空序列
-	$array = array();
-	function assignvalue(){
-		$array['Region_e'] = $
-		$array['Region_c'] = $
-		$array['District_e'] = $
-		$array['District_c'] = $
-		$array['Market_e'] = $
-		$array['Market_c'] = $
-		$array['Address_e'] = $
-		$array['Address_c'] = $
-		$array['Business_Hours_e'] = $
-		$array['Business_Hours_c'] = $
-		$array['Tenancy_Commodity_e'] = $
-		$array['Tenancy_Commodity_c'] = $
+	$servername = 'localhost';
+	$databaseuser = 'root';
+	$datapassword = '';
+	$databasename = 'testing';
+
+	$connection = new mysqli($servername, $databaseuser, $datapassword, $databasename);
+
+	try{
+
+	}
+	catch(Exception){
+		echo "Database is not found."
 	}
 
 
@@ -50,7 +47,29 @@
 	#for (){
 	#}
 
+	
 ?>
 <!---Reference:https://www.geeksforgeeks.org/how-to-convert-xml-data-into-json-using-php/
 https://blog.csdn.net/m0_38099607/article/details/70306034?spm=1001.2101.3001.6650.4&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EOPENSEARCH%7ERate-4-70306034-blog-105249838.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EOPENSEARCH%7ERate-4-70306034-blog-105249838.pc_relevant_default&utm_relevant_index=5
+-->
+
+<!--
+	$array = array();
+	function assignvalue(){
+		$array['Region_e'] = $
+		$array['Region_c'] = $
+		$array['District_e'] = $
+		$array['District_c'] = $
+		$array['Market_e'] = $
+		$array['Market_c'] = $
+		$array['Address_e'] = $
+		$array['Address_c'] = $
+		$array['Business_Hours_e'] = $
+		$array['Business_Hours_c'] = $
+		$array['Tenancy_Commodity_e'] = $
+		$array['Tenancy_Commodity_c'] = $
+	}
+
+
+
 -->
