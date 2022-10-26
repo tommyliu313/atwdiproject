@@ -1,13 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
+<style>
+    nav#top a.navbar-brand {
+  color: white; }
+
+nav#top #navbarNavDropdown ul.navbar-nav li.nav-item {
+  align-items: center; }
+  nav#top #navbarNavDropdown ul.navbar-nav li.nav-item a.nav-link {
+    color: white; }
+
+center {
+  border: 1px solid #000;
+  background-color: #ff00ff;
+  font-size: 30px; }
+    
+
+</style>
     <!--compulsorypartstart-->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/bootstrap-5.2.1-dist/css/bootstrap.min.css"></link>
+    <link rel="stylesheet" href="./stylescript/css/bootstrap-5.2.1-dist/css/bootstrap.min.css"></link>
+    <script src="./stylescript/css/bootstrap-5.2.1-dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./css/own.css"></link>
-    <script src="./css/bootstrap-5.2.1-dist/js/bootstrap.min.js"></script>
     <title>Document</title>
 </head>
 <!--error handling-->
