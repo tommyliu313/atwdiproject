@@ -1,17 +1,20 @@
 <?php
   class apimethodservice{
 
-    function getapi(){}
+    function getapi(){
+    $ = html_entries
+      echo "";
+    }
 
   }
 
     function postapi(){
-
+      echo "";
     }
     function deleteapi(){
-
+      echo "";
     }
     function putapi(){
-
+      echo "";
     }
 ?>
