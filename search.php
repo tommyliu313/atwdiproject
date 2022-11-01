@@ -25,6 +25,8 @@ center {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/css/bootstrap-5.2.1-dist/css/bootstrap.min.css"></link>
     <script src="static/css/bootstrap-5.2.1-dist/js/bootstrap.min.js"></script>
+    <script src="static/js/jquery-3.6.1.min.js"></script>
+    <script src="static/js/navbartoggle.js"></script>
     <link rel="stylesheet" href="static/css/own.css"></link>
     <title>Document</title>
 </head>
@@ -74,10 +76,11 @@ center {
             <option selected="selected"> District</option>
             <option> Please select the </option>
             <option value="<?php echo $district ?>"></option>
+            <!--get the district item from database-->
           </select></th>
         <th>
           <select name="" id="" class="form-select">
-            <option value="" selected="selected">Please select the</option>
+            <option value="" selected="selected">Market Name</option>
           </select>
         </th>
         <th>
@@ -94,11 +97,31 @@ center {
   <tr>
     <th>Market No</th>
     <th>Market Name</th>
+    <th>Market Address</th>
+    <th>Market Contact</th>
+    <th>Market Opening</th>
+    <th>Options</th>
+    
+  </tr>
+  
+  <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td><button class="btn btn-danger"> Delete?</button><br>
+      <button class="btn btn-warning"> Modify? </button>
+      <br>
+      <button class="btn btn-primary"> Check Map! </button>
+    </td>
   </tr>
 
 </table>
 
 <a href="#"><button class="btn modal-button" aria-haspopup="true"><strong>Back to top</strong></button></a>
+
+<!--table end-->
 
 <!--table end-->
 <!--paginationstart-->
