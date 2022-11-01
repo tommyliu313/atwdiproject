@@ -3,18 +3,37 @@
 
     function getapi(){
     $ = html_entries
-      echo "";
-    }
+      if(state="200"){
+        echo "You have successfully retrieve the information";
+      }
+      else{
+        echo "Failed to retrieve";
+      }
 
   }
 
     function postapi(){
-      echo "";
+      if(state="200"){
+        echo "You have successfully submit the information";
+      }
+      else{
+        echo "Submission Failure";  
+    }
+    
     }
     function deleteapi(){
-      echo "";
+      if(state="200"){
+        echo "You have successfully delete the information";
+      }
+      else{
+        echo "Failed to Delete";
+      }
     }
     function putapi(){
-      echo "";
+     if(state="200"){
+       echo "You have successfully update the information"; }
+     else {
+       echo "Failed to Update";
+     }
     }
 ?>
