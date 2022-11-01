@@ -1,8 +1,10 @@
 <?php
   class apimethodservice{
 
+    # description: retrieve the record
+
     function getapi(){
-    $ = html_entries
+
       if(state="200"){
         echo "You have successfully retrieve the information";
       }
@@ -11,16 +13,22 @@
       }
 
   }
+    # description: pass the record
 
     function postapi(){
-      if(state="200"){
-        echo "You have successfully submit the information";
-      }
-      else{
-        echo "Submission Failure";  
+
+      
+    #when the success code is 200, response as:
+    if(state="200"){
+      echo "You have successfully submit the information";
+    }
+    else{
+      echo "Submission Failure";  
     }
     
     }
+
+    # description: delete the record
     function deleteapi(){
       if(state="200"){
         echo "You have successfully delete the information";
@@ -29,11 +37,20 @@
         echo "Failed to Delete";
       }
     }
+
+    #description: update the record
     function putapi(){
-     if(state="200"){
+
+    #query the database and insert the record
+
+
+    #when the success code is 200, response as:
+    if(state="200"){
        echo "You have successfully update the information"; }
      else {
        echo "Failed to Update";
      }
+
+     #error code response
     }
 ?>
