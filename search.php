@@ -23,9 +23,9 @@ center {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./stylescript/css/bootstrap-5.2.1-dist/css/bootstrap.min.css"></link>
-    <script src="./stylescript/css/bootstrap-5.2.1-dist/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="./css/own.css"></link>
+    <link rel="stylesheet" href="static/css/bootstrap-5.2.1-dist/css/bootstrap.min.css"></link>
+    <script src="static/css/bootstrap-5.2.1-dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="static/css/own.css"></link>
     <title>Document</title>
 </head>
 <!--error handling-->
@@ -38,7 +38,7 @@ center {
       <ul class="navbar-nav">
       <li class="nav-item active"><a class="nav-link" href="index.html"> Index</a></li>
         <li class="nav-item"><a class="nav-link" href="search.php"> Search </a></li>
-        <li class="nav-item"><a class="nav-link" href="/insert/newrecord/insertrecord.html"> Insert New Record</a></li>
+        <li class="nav-item"><a class="nav-link" href="insert/newrecord/insertrecord.html"> Insert New Record</a></li>
         <li class="nav-item"><a class="nav-link" href=""> Your Record History</a></li>
         <li class="nav-item"><a href="" class="nav-link">Web Map</a></li>
         <li class="nav-item dropdown">
