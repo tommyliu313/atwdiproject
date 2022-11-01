@@ -32,11 +32,6 @@ if($result = $connection->query($querysql)){
    }
 }
 
-switch (){
-    case 1:
-    
-}
-
 
 
 

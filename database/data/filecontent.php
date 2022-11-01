@@ -69,12 +69,6 @@
 			'".$value['nos_stall']."'
 			) ";
 		
-		if(str_contains($value['Address_e'], "'")){
-			str_replace()
-		}
-		else{
-
-		}
 		if(mysqli_query($connection,$sql)){
 			echo 'Insert Record to Database Successfully \n';
 		}
