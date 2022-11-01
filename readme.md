@@ -13,7 +13,7 @@ Index.html is the main page of the project.
 User can modify (add, delete, update) the market record.
 
 1) They should install xampp (https://www.apachefriends.org/download.html) to build up a local php server.
-2) When the installation is completed, they should open the application to start the Apache and MySQL server. Please notice that you have entered http://localhost/phpmyadmin/ in the browser.
+2) When the installation is completed, user should open the application to start the Apache and MySQL server. Please notice that you have entered http://localhost/phpmyadmin/ in the browser.
 3) Please select import marketpublic.sql from database folder.
 4) Please 
 
