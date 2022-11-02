@@ -42,7 +42,7 @@ center {
         <li class="nav-item active"><a class="nav-link" href="index.html"> Index</a></li>
           <li class="nav-item"><a class="nav-link" href="search.php"> Search </a></li>
           <li class="nav-item"><a class="nav-link" href=""> Your Record History</a></li>
-          <li class="nav-item"><a href="" class="nav-link">Web Map</a></li>
+          <li class="nav-item"><a href="webmap.html" class="nav-link">Web Map</a></li>
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Insert
@@ -113,7 +113,7 @@ center {
     <td><button class="btn btn-danger"> Delete?</button><br>
       <button class="btn btn-warning"> Modify? </button>
       <br>
-      <button class="btn btn-primary"> Check Map! </button>
+      <button class="btn btn-primary" onclick="CallMapFunction()" id="CallMapFunction"> Check Map! </button>
     </td>
   </tr>
 
@@ -122,8 +122,9 @@ center {
 <a href="#"><button class="btn modal-button" aria-haspopup="true"><strong>Back to top</strong></button></a>
 
 <!--table end-->
-
-<!--table end-->
+<!--popup window start-->
+div
+<!--popup window end-->
 <!--paginationstart-->
 <nav aria-label="Page navigation">
   <ul class="pagination">
