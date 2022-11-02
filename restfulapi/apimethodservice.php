@@ -6,10 +6,14 @@
 
     # description: retrieve the record
 
-    function getapi(){
+    function getapi($params){
 
+      echo "Using PUT Method";
 
-    $sql = "SELECT FROM WHERE";
+      create_connection = $db->connection;
+      $sql = "SELECT FROM WHERE";
+
+      #when the success code is 200, response as:
 
       if(state == "200"){
         echo "You have successfully retrieve the information";
@@ -18,10 +22,20 @@
         echo "Failed to retrieve";
       }
 
+      #check whether:
+      #if parameter is missed
+      if()
+
+
+      #if parameter is missed
+
+      #if parameter is missed
+      
+
     }
     # description: pass the record
 
-    function postapi(){
+    function postapi($params){
       
     #query the database
 
@@ -46,7 +60,7 @@
     }
 
     # description: delete the record
-    function deleteapi(){
+    function deleteapi($params){
 
     
     $sql = "DELETE FROM table WHERE";
@@ -64,7 +78,7 @@
     }
 
     #description: update the record
-    function putapi(){
+    function putapi($params) {
 
     #query the database and insert the record
     
