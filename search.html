@@ -30,9 +30,10 @@ center {
     <script src="static/css/bootstrap-5.2.1-dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="static/css/own.css"></link>
     <script src="static/js/ajaxxhr.js"></script>
-    <title>Document</title>
+    <title>Public Market - Search Page</title>
 </head>
-<!--error handling-->
+
+<style></style>
 <body>
 <!--message-->
     <!--navbarstart-->
@@ -60,16 +61,12 @@ center {
     </nav>
     <!--navbarend-->
 
-<!--connect to database script start-->
-<?php
-  include_once("dbsetting.php");
-?>
-<!--connect to database script end-->
+
 <div class="mt-4 p-5 bg-warning text-black rounded">
   <h1>Searching Page</h1></div>
 
 <!---table start-->
-<form action="showresult.php" method="post" enctype="multipart/form-data">
+<form action="php" method="post" enctype="multipart/form-data">
 <table class="table table-success table-border table-striped">
     <tr>
         <th>
@@ -81,15 +78,12 @@ center {
           </select></th>
         <th>
           <select name="" id="" class="form-select">
-            <option value="" selected="selected">Market Name</option>
+            <option value="" selected="selected">Region</option>
           </select>
         </th>
         <th>
-          <select name="" id="" class="form-select">
-            <option selected="selected"> Please select the </option>
-            <option value=""></option>
-          </select></th>
-        </th>
+        <button class="btn btn-success"> Submit</button>
+      </th>
     </tr>
 </table>
 </form>
@@ -101,8 +95,7 @@ center {
     <th>Market Address</th>
     <th>Market Contact</th>
     <th>Market Opening</th>
-    <th>Options</th>
-    
+    <th>Option</th>
   </tr>
   
   <tr>
@@ -111,8 +104,8 @@ center {
     <td>3</td>
     <td>4</td>
     <td>5</td>
-    <td><button class="btn btn-danger"> Delete?</button><br>
-      <button class="btn btn-warning"> Modify? </button>
+    <td><button class="btn btn-danger" id="delete"> Delete?</button><br>
+      <button class="btn btn-warning" id="update"> Modify? </button>
       <br>
       <button class="btn btn-primary" onclick="CallMapFunction()" id="CallMapFunction"> Check Map! </button>
     </td>
