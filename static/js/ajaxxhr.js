@@ -5,6 +5,7 @@ function action(){
     XHR.onreadystatechange = function(){
 
     };
+    XHR.send();
 }
 
 function modify(){
@@ -14,8 +15,7 @@ function modify(){
     XHR.onreadystatechange = function(){
 
     };
-
-
+    XHR.send();
 }
 
 function remove(){
@@ -25,6 +25,7 @@ function remove(){
     XHR.onreadystatechange = function(){
 
     };
+    XHR.send();
 }
 
 
@@ -35,7 +36,7 @@ function insert(){
     XHR.onreadystatechange = function(){
 
     };
-    
+    XHR.send();
 }
 
 var deletebutton = document.getElementById("delete");

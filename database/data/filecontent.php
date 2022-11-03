@@ -36,9 +36,17 @@
 	
 	$array = $decodejson['Market'];
 
+	for(){
+
+	};
+
+	
+
 	#把$array的每一個項目逐一當成Value看待
 	#$sql 
 	foreach($array as $value){
+
+
 		$sql = "INSERT INTO `testing` (
 			`Region_e`,
 			`Region_c`,
@@ -74,9 +82,13 @@
 			'".$value['Tenancy_Commodity_c']."',
 			'".$value['nos_stall']."'
 			) ";
+
+		if(isset()){
+
+		}
 		
 		if(mysqli_query($connection,$sql)){
-			echo 'Insert Record to Database Successfully \n';
+			echo nl2br('Insert Record to Database Successfully \r\n');
 		}
 		else{
 			echo 'Fail to Insert Record to Database. Please modify the php script';
