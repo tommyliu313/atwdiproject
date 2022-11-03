@@ -4,6 +4,10 @@
 
     private $state;
 
+    function __construct(){
+      
+    }
+
     # description: retrieve the record
 
     function getapi($params){
