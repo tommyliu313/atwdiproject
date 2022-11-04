@@ -36,8 +36,7 @@
 	
 	$array = $decodejson['Market'];
 
-	for(){
-
+	for($array as){
 	};
 
 	
