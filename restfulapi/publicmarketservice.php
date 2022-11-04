@@ -1,12 +1,6 @@
 <?php
   include_once('database/dbsetting.php');
-  class apimethodservice{
-
-    private $state;
-
-    function __construct(){
-      
-    }
+  class publicmarketservice{
 
     # description: retrieve the record
 
