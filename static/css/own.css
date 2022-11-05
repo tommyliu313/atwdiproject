@@ -8,9 +8,16 @@ button.btn.modal-button {
   }
   
   nav#top a.navbar-brand {
-  color: white; }
+    color: white; }
   
   nav#top #navbarNavDropdown ul.navbar-nav li.nav-item {
     align-items: center; }
     nav#top #navbarNavDropdown ul.navbar-nav li.nav-item a.nav-link {
       color: white; }
+  
+  center {
+    border: 1px solid #000;
+    background-color: #ff00ff;
+    font-size: 30px; }
+
+      

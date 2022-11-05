@@ -4,28 +4,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<style>
-    nav#top a.navbar-brand {
-  color: white; }
-
-nav#top #navbarNavDropdown ul.navbar-nav li.nav-item {
-  align-items: center; }
-  nav#top #navbarNavDropdown ul.navbar-nav li.nav-item a.nav-link {
-    color: white; }
-
-center {
-  border: 1px solid #000;
-  background-color: #ff00ff;
-  font-size: 30px; }
-    
-
-</style>
     <!--compulsorypartstart-->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../static/css/bootstrap-5.2.1-dist/css/bootstrap.min.css"></link>
+    <link rel="stylesheet" href="../../static/css/own.css">
     <script src="../../static/css/bootstrap-5.2.1-dist/js/bootstrap.min.js"></script>
     <script src="../../static/js/jquery-3.6.1.min.js"></script>
     <script src="../../static/js/navbartoggle.js"></script>
