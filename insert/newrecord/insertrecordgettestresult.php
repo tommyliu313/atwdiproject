@@ -62,57 +62,11 @@ center {
     <!--navbarend-->
 
 
-    <!--Formstart-->
-    <div class="mt-4 p-5 bg-info text-black rounded">
-      <h1>Insert New Record</h1></div>
-    <form action="/insert.php" method="POST" enctype="multipart/form-data">
-      <div class="form-group mb-3">
-        <label for="districtcol" class="form-label"> District</label>
-          <select name="" id="" class="form-select custom-select" required>
-            <option selected="selected">Choose the following option where the market district is</option>
-            <option value=""></option>
-          </select>
-          
-          <label for="location" class="form-label">Location</label>
-            <select name="" id="" class="form-select custom-select" required>
-              <option selected="selected">Choose the following option where the market location is</option>
-              <option value=""></option>
-            </select>
-            
-          <label for="" class="form-label bg-info">Market Name</label><br>
-          <div class="input-group mb-3 form-group">
-            <div class="input-group-prepend">
-              <input type="text" name="marketname" id="marketname" required class="form-control form-control-lg" aria-label="large">
-            </div>
-          </div>
-            <br>
-            <label for="" class="form-label bg-info">Address</label><br>
-            <div class="input-group mb-3 form-group">
-              <div class="input-group-prepend">
-                <input type="text" name="address" id="address" required class="form-control form-control-lg" aria-label="large" maxlength="120" placeholder="For Example: xxxxxxxxx Public Market">
-              </div>
-            </div>
-              <br>
-          <label for="tel1" class="form-label bg-info">Telephone 1</label><br>
-          <div class="input-group mb-3 form-group">
-            <div class="input-group-prepend"><span class="input-group-text">+852</span>
-            </div>
-            <input type="tel" name="tel1" id="" pattern="[0-9]{4}-[0-9]{4}" required="required" class="form-control" placeholder="For Example: 0000-0000"><br>
-          </div>
-          
-          <label for="tel2" class="form-label">Telephone 2</label>
-            <br>
-            <div class="input-group mb-3 form-group">
-              <div class="input-group-prepend"><span class="input-group-text">+852</span>
-              </div>
-              <input type="tel" name="tel2" id="" pattern="[0-9]{4}-[0-9]{4}" required="required" class="form-control" placeholder="For Example: 0000-0000">
-            </div>
-            div.input-group.form-group>div
-      </div>
-      <input type="reset" value="Reset" name="Reset" class="btn btn-danger">
-      <input type="submit" value="Submit" name="Submit" class="btn btn-success">
-    </form>
-    <!--Formend-->
+    <!--resultstart-->
+    <?php
+        print_r($_GET);
+    ?>
+    <!--resultend-->
     <!--footerstart-->
     <footer class="bg-info">
       <div class="container-fluid">
