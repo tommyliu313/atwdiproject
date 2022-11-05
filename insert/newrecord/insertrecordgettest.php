@@ -67,8 +67,8 @@ center {
       <h1>Insert New Record</h1></div>
     <form action="insertrecordgettestresult.php" method="get" enctype="multipart/form-data">
       <div class="form-group mb-3">
-        <label for="districtcol" class="form-label"> District</label>
-          <select name="" id="" class="form-select custom-select" required>
+        <label for="district" class="form-label"><h1>District</h1></label>
+        <select name="district" id="" class="form-select custom-select" required>
             <option selected="selected">Choose the following option where the market district is</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -76,8 +76,8 @@ center {
             <option value="4">4</option>
           </select>
           
-          <label for="location" class="form-label">Location</label>
-            <select name="" id="" class="form-select custom-select" required>
+          <label for="region" class="form-label"><h1>Region</h1></label>
+            <select name="region" id="" class="form-select custom-select" required>
               <option selected="selected">Choose the following option where the market location is</option>
               <option value="1">1</option>
             <option value="2">2</option>
@@ -85,7 +85,7 @@ center {
             <option value="4">4</option>
             </select>
             
-          <label for="" class="form-label bg-info">Market Name</label><br>
+          <label for="marketname" class="form-label bg-info"><h1>Market Name</h1></label><br>
           <div class="input-group mb-3 form-group">
             <div class="input-group">
               <input name="marketname" id="marketname" required class="form-control form-control-lg" aria-label="large">
@@ -93,7 +93,7 @@ center {
             </div>
           </div>
             <br>
-            <label for="" class="form-label bg-info">Address</label><br>
+            <label for="address" class="form-label bg-info"><h1>Address</h1></label><br>
             <div class="input-group mb-3 form-group">
               <div class="input-group">
                 <input name="address" id="address" required class="form-control form-control-lg" aria-label="large" maxlength="120" placeholder="For Example: xxxxxxxxx Public Market">
