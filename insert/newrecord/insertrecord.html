@@ -67,13 +67,13 @@ center {
       <h1>Insert New Record</h1></div>
     <form action="/post.php" method="POST" enctype="multipart/form-data">
       <div class="form-group mb-3">
-        <label for="districtcol" class="form-label"> District</label>
+        <label for="districtcol" class="form-label"> <h1>District</h1></label>
           <select name="District" id="" class="form-select custom-select" required>
             <option selected="selected">Choose the following option where the market district is</option>
             <option value=""></option>
           </select>
           
-          <label for="region" class="form-label">Region</label>
+          <label for="region" class="form-label"><h1>Region</h1></label>
             <select name="region" id="" class="form-select custom-select" required>
               <option selected="selected">Choose the following option where the market region is</option>
               <option value=""></option>
@@ -86,7 +86,7 @@ center {
             </div>
           </div>
             <br>
-            <label for="" class="form-label"> <h1>Address</h1></label><br>
+            <label for="address" class="form-label"> <h1>Address</h1></label><br>
             <div class="input-group mb-3 form-group">
               <div class="input-group">
                 <input type="text" name="address" id="address" required class="form-control form-control-lg" aria-label="large" maxlength="120" placeholder="For Example: xxxxxxxxx Public Market">
@@ -94,23 +94,22 @@ center {
             </div>
               <br>
 
-          <label for="tel1" class="form-label">
-            <h1>Telephone 1</h1></label><br>
+          <label for="tel1" class="form-label"><h1>Telephone 1</h1></label><br>
           <div class="input-group mb-3 form-group">
             <div class="input-group-prepend"><span class="input-group-text">+852</span>
             </div>
             <input type="tel" name="tel1" id="" pattern="[0-9]{4}-[0-9]{4}" required="required" class="form-control" placeholder="For Example: 0000-0000"><br>
           </div>
           
-          <label for="tel2" class="form-label">Telephone 2</label>
-            <br>
+          <label for="tel2" class="form-label"><h1>Telephone 2</h1></label><br>
             <div class="input-group mb-3 form-group">
               <div class="input-group-prepend"><span class="input-group-text">+852</span>
               </div>
               <input type="tel" name="tel2" id="" pattern="[0-9]{4}-[0-9]{4}" required="required" class="form-control" placeholder="For Example: 0000-0000">
             </div>
 
-          label[for="Map"].form-label
+          <label for="Map" class="form-label"><h1>Map Location</h1></label>
+          <br>
       </div>
       <input type="reset" value="Reset" name="Reset" class="btn btn-danger">
       <input type="submit" value="Submit" name="Submit" class="btn btn-success">
@@ -133,10 +132,10 @@ center {
           <div class="col-lg-4">
             <div class="row"><h1>Web Map</h1></div>
             <div class="row">
-              <h3><a href="index.html">Index</a></h3>
+              <h3><a href="../../index.html">Index</a></h3>
             </div>
             <div class="row">
-              <h3><a href="search.php">Search</a></h3>
+              <h3><a href="../../search.php">Search</a></h3>
             </div>
             <div class="row">
               <h3><a href="insert.html">Insert New Record</a></h3>

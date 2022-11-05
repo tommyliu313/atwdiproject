@@ -101,20 +101,24 @@ center {
               </div>
             </div>
               <br>
-          <label for="tel1" class="form-label bg-info">Telephone 1</label><br>
+          <label for="tel1" class="form-label bg-info"><h1>Telephone 1</h1></label><br>
           <div class="input-group mb-3 form-group">
             <div class="input-group-prepend"><span class="input-group-text">+852</span>
             </div>
-            <input type="tel" name="tel1" id="" pattern="[0-9]{4}-[0-9]{4}" required="required" class="form-control" placeholder="For Example: 0000-0000"><br>
+            <input type="tel" name="tel1" pattern="[0-9]{4}-[0-9]{4}" required="required" class="form-control" placeholder="For Example: 0000-0000"><br>
           </div>
           
-          <label for="tel2" class="form-label">Telephone 2</label>
+          <label for="tel2" class="form-label"><h1>Telephone 2</h1></label>
             <br>
             <div class="input-group mb-3 form-group">
               <div class="input-group-prepend"><span class="input-group-text">+852</span>
               </div>
               <input type="tel" name="tel2" id="" pattern="[0-9]{4}-[0-9]{4}" required="required" class="form-control" placeholder="For Example: 0000-0000">
             </div>
+
+            <label for="Map" class="form-label">
+              <h1>Map Location</h1>
+            </label><br>
       </div>
       <input type="reset" value="Reset" name="Reset" class="btn btn-danger">
       <input type="submit" value="Submit" name="Submit" class="btn btn-success">
@@ -137,10 +141,10 @@ center {
           <div class="col-lg-4">
             <div class="row"><h1>Web Map</h1></div>
             <div class="row">
-              <h3><a href="index.html">Index</a></h3>
+              <h3><a href="../../index.html">Index</a></h3>
             </div>
             <div class="row">
-              <h3><a href="search.php">Search</a></h3>
+              <h3><a href="../../search.php">Search</a></h3>
             </div>
             <div class="row">
               <h3><a href="insert.html">Insert New Record</a></h3>
