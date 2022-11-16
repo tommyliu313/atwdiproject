@@ -87,7 +87,7 @@
 
 <!--table end-->
 <!--popup window start-->
-div.modal>div.modal-dialog>div.modal-content>div.modal-header
+div.modal>div.modal-dialog>div.modal-content>div.modal-header>div.modal
 <!--popup window end-->
 <!--paginationstart-->
 <nav aria-label="Page navigation">
