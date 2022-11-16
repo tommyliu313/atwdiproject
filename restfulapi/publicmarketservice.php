@@ -1,14 +1,15 @@
 <?php
-  include_once('database/dbsetting.php');
+  include_once('database/data/dbsetting.php');
   class publicmarketservice{
 
     # description: retrieve the record
-
+    
     function getapi($params){
+
 
       echo "Using PUT Method";
 
-      create_connection = $db->connection;
+      $d->connection;
       $sql = "SELECT FROM WHERE";
 
       #when the success code is 200, response as:
@@ -61,17 +62,9 @@
     function deleteapi($params){
 
     
-    $sql = "DELETE FROM table WHERE";
-    
-      if(state == "200"){
-        echo "You have successfully delete the information";
-      }
-      elseif(state == "500"){
-        echo ""
-      }
-      else{
-        echo "Failed to Delete";
-      }
+    $sql = "DELETE FROM table WHERE ";
+
+      if(!is)
       
     }
 

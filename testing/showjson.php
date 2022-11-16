@@ -9,8 +9,8 @@
 <body>
     <?php
     
-    echo nl2br(file_get_contents("data.json"))
-    
+    $datasource = file_get_contents('../database/data/data.json');
+    $array = $decodejson['Market'];    
     ?>    
 
 </body>

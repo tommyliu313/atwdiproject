@@ -1,7 +1,10 @@
+const url = "http://localhost/atwdiproject/index.php";
+
 function action(){
 
     var XHR = createXMLHttpRequest();
-    XHR.open("GET","../../../restfulapi/apimethodservice.php");
+    var actionurl= url + '/';
+    XHR.open("GET",actionurl,true);
     XHR.onreadystatechange = function(){
 
     };
@@ -11,7 +14,8 @@ function action(){
 function modify(){
 
     var XHR = createXMLHttpRequest();
-    XHR.open("PUT","../../../restfulapi/apimethodservice.php");
+    var modifyurl= url + '/';
+    XHR.open("PUT",modifyurl,true);
     XHR.onreadystatechange = function(){
 
     };
@@ -21,7 +25,8 @@ function modify(){
 function remove(){
 
     var XHR = createXMLHttpRequest();
-    XHR.open("DELETE","../../../restfulapi/apimethodservice.php");
+    var removeurl= url + '/';
+    XHR.open("DELETE",removeurl,true);
     XHR.onreadystatechange = function(){
 
     };
@@ -30,9 +35,9 @@ function remove(){
 
 
 function insert(){
-    var 
     var XHR = createXMLHttpRequest();
-    XHR.open("POST","../../../restfulapi/apimethodservice.php");
+    var inserturl= url + '/insert';
+    XHR.open("POST",inserturl,true);
     XHR.onreadystatechange = function(){
 
     };

@@ -15,6 +15,7 @@
     <script src="static/css/bootstrap-5.2.1-dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="static/css/own.css"></link>
     <script src="static/js/ajaxxhr.js"></script>
+    <script src="static/js/jqueryown.js"></script>
     <title>Public Market - Search Page</title>
 </head>
 
@@ -27,20 +28,9 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
         <li class="nav-item active"><a class="nav-link" href="index.html"> Index</a></li>
-        <li class="nav-item"><a class="nav-link" href="search.html"> Search </a></li>
+        <li class="nav-item"><a class="nav-link" href="search.php">  Search and Insert Page</a></li>
           <li class="nav-item"><a class="nav-link" href=""> Your Record History</a></li>
           <li class="nav-item"><a href="webmap.html" class="nav-link">Web Map</a></li>
-          <li class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Insert
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="./insert/newrecord/insertrecord.html">
-                New Record</a></li>
-                <li><a href="#" class="dropdown-item">
-                  New Tenancy</a></li>
-            </ul>
-          </li>
         </ul>
       </div>
     </nav>
@@ -50,28 +40,31 @@
 <div class="mt-4 p-5 bg-warning text-black rounded">
   <h1>Searching Page</h1></div>
 
-<!---table start-->
-<form action="php" method="post" enctype="multipart/form-data">
+<!--maybe delete start-->
+<form action="search.php" method="post" enctype="multipart/form-data">
 <table class="table table-success table-border table-striped">
     <tr>
         <th>
           <select name="" id="" class="form-select">
             <option selected="selected"> District</option>
-            <option> Please select the </option>
+            <option> Please select the district</option>
             <option value="<?php echo $district ?>"></option>
             <!--get the district item from database-->
           </select></th>
         <th>
           <select name="" id="" class="form-select">
-            <option value="" selected="selected">Region</option>
+          <option selected="selected"> Region</option>
+            <option> Please select the region</option>
           </select>
         </th>
         <th>
-        <button class="btn btn-success"> Submit</button>
+        <button class="btn btn-success" > Submit</button>
+        <button class="btn btn-info" id="popupinsert">Insert Market</button>
       </th>
     </tr>
 </table>
 </form>
+<!--maybe delete end-->
 
 <table class="table table-secondary" id="targettable">
   <tr>
@@ -84,13 +77,8 @@
   </tr>
   
   <tr>
-    <div id="showtable"></div>
-    <td>
-      <button class="btn btn-danger" id="delete" onclick="remove()"> Delete?</button><br>
-      <button class="btn btn-warning" id="update" onclick="modify()"> Modify? </button>
-      <br>
-      <button class="btn btn-primary" onclick="CallMapFunction()" id="CallMapFunction"> Check Map! </button>
-    </td>
+  <td>
+    <button class="btn btn-success" id="popupinsert"> Insert</button></td>
   </tr>
 
 </table>
@@ -99,7 +87,7 @@
 
 <!--table end-->
 <!--popup window start-->
-div
+div.modal>div.modal-dialog>div.modal-content>div.modal-header
 <!--popup window end-->
 <!--paginationstart-->
 <nav aria-label="Page navigation">
@@ -109,7 +97,6 @@ div
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
-    li.page-item>a.page-link[href="#"]
     <li class="page-item">
       <a href="" class="page-link" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>

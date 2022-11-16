@@ -9,7 +9,7 @@
         $array = json_decode($data, true);
 
         foreach($array as $row){
-            $sql = "INSERT INTO "
+            $sql = "INSERT INTO ";
         }
 
 

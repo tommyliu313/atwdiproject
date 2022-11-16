@@ -1,22 +1,5 @@
-<!DOCTYPE html>
-
-
 <?php
-#數據庫
-    $servername = 'localhost';
-	$databaseuser = 'root';
-	$datapassword = '';
-	$databasename = 'testing';
-#建立連結
-	$connection = new mysqli($servername, $databaseuser, $datapassword, $databasename);	
-#針對connection失誤建立行動
-	if($connection->connect_error){
-		die("Connection Failure. Please edit the php script. \n" . $connection->connect_error);
-	}
-	else{
-		echo "Connection Established.";
-	}
-
+	require_once('dbsetting.php');
 #引入xml資源
 	$data = file_get_contents('https://www.fehd.gov.hk/english/pleasant_environment/tidy_market/marketInfo.xml');
 #轉化為object
@@ -36,55 +19,49 @@
 	
 	$array = $decodejson['Market'];
 
-	for($array as){
-	};
-
-	
-
 	#把$array的每一個項目逐一當成Value看待
 	#$sql 
 	foreach($array as $value){
 
+		$Region_e = $value['Region_e'];
+		$District_e = $value['District_e'];
+		$Address_e = $value['Address_e'];
+		$Market_e = $value['Market_e'];
+		$Contact_1 = $value['Contact_1'];
+		$Contact_2 = $value['Contact_2'];
+		$Coordinate = $value['Coordinate'];
+		$Business_Hours_e = $value['Business_Hours_e'];
+		$Tenancy_Commodity_e = $value['Tenancy_Commodity_e'];
+		$nos_stall = $value['nos_stall'];
 
-		$sql = "INSERT INTO `testing` (
-			`Region_e`,
-			`Region_c`,
-			`District_e` ,
-			`District_c` ,
-			`Market_e` ,
-			`Market_c` ,
-			`Address_e` ,
-			`Address_c`,
-			`Contact_1`,
-			`Contact_2`,
-			`Coordinate`,
-			`Business_Hours_e`,
-			`Business_Hours_c`,
-			`Tenancy_Commodity_e`,
-			`Tenancy_Commodity_c`,
-			`nos_stall`
+		$Address_e = str_replace("'"," ",$Address_e);
+		
+		
+
+		$sql = "INSERT INTO market (
+			`regionname`,
+			`districtname`,
+			`address` ,
+			`marketname` ,
+			`contact1`,
+			`contact2`,
+			`coordinate`,
+			`openinghour`,
+			`tenancycomd`,
+			`nosstall`
 			) VALUES(
-			'".$value['Region_e']."',
-			'".$value['Region_c']."',
-			'".$value['District_e']."',
-			'".$value['District_c']."',
-			'".$value['Market_e']."',
-			'".$value['Market_c']."',
-			'".$value['Address_e']."',
-			'".$value['Address_c']."',
-			'".$value['Contact_1']."',
-			'".$value['Contact_2']."',
-			'".$value['Coordinate']."',
-			'".$value['Business_Hours_e']."',
-			'".$value['Business_Hours_c']."',
-			'".$value['Tenancy_Commodity_e']."',
-			'".$value['Tenancy_Commodity_c']."',
-			'".$value['nos_stall']."'
+			'$Region_e',
+			'$District_e',
+			'$Address_e',
+			'$Market_e',
+			'$Contact_1',
+			'$Contact_2',
+			POINT($Coordinate),
+			'$Business_Hours_e',
+			'$Tenancy_Commodity_e',
+			'$nos_stall'
 			) ";
 
-		if(isset()){
-
-		}
 		
 		if(mysqli_query($connection,$sql)){
 			echo nl2br('Insert Record to Database Successfully \r\n');
@@ -94,12 +71,10 @@
 		}
 	}
 
-#載入json資訊到空序列
+
 
 
 	
-#for (){
-	#}
 
 	
 ?>
