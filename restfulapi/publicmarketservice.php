@@ -1,90 +1,36 @@
 <?php
-  include_once('database/data/dbsetting.php');
-  class publicmarketservice{
 
-    # description: retrieve the record
-    
-    function getapi($params){
+class publicmarketservice{
 
+    function serviceget($param){
 
-      echo "Using PUT Method";
+        require_once 'database.php';
 
-      $d->connection;
-      $sql = "SELECT FROM WHERE";
+        $split= array_shift($param);
+        if($split ==='market'){
+            $districtID = array_shift($parameters);
+            $sql = "SELECT * FROM market WHERE districtID = '$districtID'";
+            $dbResult = $conn->query($sql);
 
-      #when the success code is 200, response as:
+            if($dbresult){
 
-      if(state == "200"){
-        echo "You have successfully retrieve the information";
-      }
-      else{
-        echo "Failed to retrieve";
-      }
-
-      #check whether:
-      #if parameter is missed
-      if()
+            }else{
+                $output = array();
+                $output['status'] = 'error';
+                $output['code'] = '2001';
+                $output['message'] = 'SQL execution failure';
+            }
 
 
-      #if parameter is missed
+        }elseif($apiType ==='maptype'){
 
-      #if parameter is missed
-      
+        }elseif($apiType === 'openhour'){
 
-    }
-    # description: pass the record
-
-    function postapi($params){
-      
-    #query the database
-
-    $sql = "INSERT INTO VALUES()";
-
-    while($){
-
-    }
-    #if the relative record has already exist, response as:
-
-    #if some parameters are missing, response as:
-    
-
-    #when the success code is 200, response as:
-    if(state == "200"){
-      echo "You have successfully submit the information";
-    }
-    else{
-      echo "Submission Failure";  
-    }
-    
+        }
     }
 
-    # description: delete the record
-    function deleteapi($params){
-
-    
-    $sql = "DELETE FROM table WHERE ";
-
-      if(!is)
-      
-    }
-
-    #description: update the record
-    function putapi($params) {
-
-    #query the database and insert the record
-    
-    #sql
-    $sql = "UPDATE FROM WHERE  ";
-
-    #when the success code is 200, response as:
-      if(state == "200"){
-       echo "You have successfully update the information"; }
-      else {
-       echo "Failed to Update";
-     }
-
-     #error code response
-    }
 
 }
 ?>
+
+function apiarray($)

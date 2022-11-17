@@ -62,12 +62,13 @@
     $sql = "SELECT * FROM market";
     $result = mysqli_query($connection,$sql);
     echo "<table border='1' class='table table-success table-border table-striped table-repsonsive'>";
-    echo "<tr><th scope='col'>Market No</th><th scope='col'>Market Name</th>
+    echo "<thead><tr>
+    <th scope='col'>Market No</th><th scope='col'>Market Name</th>
           <th scope='col'>Region</th> <th scope='col'>Market District</th>
           <th scope='col'>Market Address</th><th scope='col'>Market Contact</th>
           <th scope='col'>Openinghours</th>
           <th scope='col'>211</th>
-          </tr>";
+          </tr></thead>";
     while($row = mysqli_fetch_object($result)){
         $content = "<tr>";
         $content .= "<td>$row->marketId</td>";
@@ -76,7 +77,7 @@
         $content .= "<td>$row->districtname</td>";
         $content .= "<td>$row->address</td>";
         $content .= "<td colspan='2'>$row->contact1<br>$row->contact2</td>";
-        $content .= "<td colspan='3'>$row->openinghour</td>";
+        $content .= "<td >$row->openinghour</td>";
         $content .= "</tr>";
 
         echo $content;

@@ -2,18 +2,19 @@
 
 require_once('database/data/dbsetting.php');
 
-function deletemarket(){
+function deletemarket($parameters){
  
 
     if($_SERVER['REQUEST_METHOD'] == 'DELETE'){
 
     }
 
-    if($_SERVER[''])
 
 }
 
-function deletetenancy(){
-    
+function deletetenancy($parameters){
+    if($_SERVER['REQUEST_METHOD'] == 'DELETE'){
+
+    }
 }
 ?>

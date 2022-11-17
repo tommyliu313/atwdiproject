@@ -4,6 +4,9 @@
 $(function () {
 
 $("#popupinsert").click(function (){
-    $(document).("")
+    $().("")
 })
 });
+
+
+$
