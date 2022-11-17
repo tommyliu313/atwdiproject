@@ -40,17 +40,10 @@
 <div class="mt-4 p-5 bg-warning text-black rounded">
   <h1>Searching Page</h1></div>
 
-<!--maybe delete start-->
-<form action="search.php" method="post" enctype="multipart/form-data">
-<table class="table table-success table-border table-striped">
+  <table class="table table-success table-border table-striped">
     <tr>
         <th>
-          <select name="" id="" class="form-select">
-            <option selected="selected"> District</option>
-            <option> Please select the district</option>
-            <option value="<?php echo $district ?>"></option>
-            <!--get the district item from database-->
-          </select></th>
+          </th>
         <th>
           <select name="" id="" class="form-select">
           <option selected="selected"> Region</option>
@@ -63,29 +56,37 @@
       </th>
     </tr>
 </table>
-</form>
-<!--maybe delete end-->
+<!--mysqlifearray.php start-->
+<?php
+    require_once('database/data/dbsetting.php');
+    $sql = "SELECT * FROM market";
+    $result = mysqli_query($connection,$sql);
+    echo "<table border='1' class='table table-success table-border table-striped table-repsonsive'>";
+    echo "<tr><th scope='col'>Market No</th><th scope='col'>Market Name</th>
+          <th scope='col'>Region</th> <th scope='col'>Market District</th>
+          <th scope='col'>Market Address</th><th scope='col'>Market Contact</th>
+          <th scope='col'>Openinghours</th>
+          <th scope='col'>211</th>
+          </tr>";
+    while($row = mysqli_fetch_object($result)){
+        $content = "<tr>";
+        $content .= "<td>$row->marketId</td>";
+        $content .= "<td>$row->marketname</td>";
+        $content .= "<td>$row->regionname</td>";
+        $content .= "<td>$row->districtname</td>";
+        $content .= "<td>$row->address</td>";
+        $content .= "<td colspan='2'>$row->contact1<br>$row->contact2</td>";
+        $content .= "<td colspan='3'>$row->openinghour</td>";
+        $content .= "</tr>";
 
-<table class="table table-secondary" id="targettable">
-  <tr>
-    <th>Market No</th>
-    <th>Market Name</th>
-    <th>Market Address</th>
-    <th>Market Contact</th>
-    <th>Market Opening</th>
-    <th>Option</th>
-  </tr>
-  
-  <tr>
-  <td>
-    <button class="btn btn-success" id="popupinsert"> Insert</button></td>
-  </tr>
-
-</table>
+        echo $content;
+    }
+    echo "</table>";
+?>
 
 <a href="#"><button class="btn modal-button" aria-haspopup="true"><strong>Back to top</strong></button></a>
 
-<!--table end-->
+
 <!--popup window start-->
 div.modal>div.modal-dialog>div.modal-content>div.modal-header>div.modal
 <!--popup window end-->

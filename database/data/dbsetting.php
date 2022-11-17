@@ -3,7 +3,7 @@
     $servername = 'localhost';
 	$databaseuser = 'root';
 	$datapassword = '';
-	$databasename = 'testing';
+	$databasename = 'market';
 #建立連結
 	$connection = new mysqli($servername, $databaseuser, $datapassword, $databasename);	
 #針對connection失誤建立行動
