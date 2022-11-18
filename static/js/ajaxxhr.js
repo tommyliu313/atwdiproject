@@ -44,8 +44,4 @@ function insert(){
     XHR.send();
 }
 
-var deletebutton = document.getElementById("delete");
-var updatebutton = document.getElementById("update");
 
-deletebutton.addEventListener("click",remove);
-updatebutton.addEventListener("click",modify);
