@@ -7,7 +7,7 @@ class publicmarketservice{
         require_once 'database.php';
 
         $split= array_shift($param);
-        if($split ==='market'){
+        if($split ==='marketid'){
             $districtID = array_shift($parameters);
             $sql = "SELECT * FROM market WHERE districtID = '$districtID'";
             $dbResult = $conn->query($sql);

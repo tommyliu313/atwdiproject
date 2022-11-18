@@ -40,19 +40,47 @@
 <div class="mt-4 p-5 bg-warning text-black rounded">
   <h1>Searching Page</h1></div>
 
+ 
   <table class="table table-success table-border table-striped">
     <tr>
         <th>
           </th>
         <th>
-          <select name="" id="" class="form-select">
-          <option selected="selected"> Region</option>
-            <option> Please select the region</option>
-          </select>
+          <?php
+            require_once('database/data/dbsetting.php');
+            
+            echo "<select class='form-select'><option selected='selected'>Region</option><option> Please select the region</option>";
+            $sql = "SELECT DISTINCT regionname FROM market";
+            $result = mysqli_query($connection,$sql);
+
+            while($row = mysqli_fetch_object($result)){
+              $option = "<option value='.$row->regionname.'>$row->regionname";
+              $option .= "</option>";
+              echo $option;}
+              ?>
+            </select>
+        </th>
+        <th>
+          <?php
+            require_once('database/data/dbsetting.php');
+            
+            echo "<select class='form-select'><option selected='selected'>District</option><option> Please select the District</option>";
+            
+            $sql = "SELECT DISTINCT districtname FROM market";
+            $result = mysqli_query($connection,$sql);
+      
+            while($row = mysqli_fetch_object($result)){
+            
+              $option = "<option value='.$row->districtname.'>$row->districtname";
+              $option .= "</option>";
+              echo $option;}
+            
+            ?>
+            </select>
         </th>
         <th>
         <button class="btn btn-success" > Submit</button>
-        <button class="btn btn-info" id="popupinsert">Insert Market</button>
+        <button class="btn btn-info" id="popupinsert" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Insert Market</button>
       </th>
     </tr>
 </table>
@@ -67,7 +95,6 @@
           <th scope='col'>Region</th> <th scope='col'>Market District</th>
           <th scope='col'>Market Address</th><th scope='col'>Market Contact</th>
           <th scope='col'>Openinghours</th>
-          <th scope='col'>211</th>
           </tr></thead>";
     while($row = mysqli_fetch_object($result)){
         $content = "<tr>";
@@ -77,7 +104,7 @@
         $content .= "<td>$row->districtname</td>";
         $content .= "<td>$row->address</td>";
         $content .= "<td colspan='2'>$row->contact1<br>$row->contact2</td>";
-        $content .= "<td >$row->openinghour</td>";
+        $content .= "<td>$row->openinghour</td>";
         $content .= "</tr>";
 
         echo $content;
@@ -89,39 +116,90 @@
 
 
 <!--popup window start-->
-div.modal>div.modal-dialog>div.modal-content>div.modal-header>div.modal
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Insert New Market</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <form action="/" method="POST" enctype="multipart/form-data">
+      <div class="form-group mb-3">
+        <label for="districtcol" class="form-label"> District</label>
+          <select name="District" id="" class="form-select custom-select" required>
+            <?php ?>
+            <option selected="selected">Choose the following option where the market district is</option>
+            <option value=""></option>
+          </select>
+          
+          <label for="region" class="form-label">Region</label>
+            <select name="region" id="" class="form-select custom-select" required>
+              <option selected="selected">Choose the following option where the market region is</option>
+              <option value=""></option>
+            </select>
+            
+          <label for="marketname" class="form-label"> Market Name</label><br>
+          <div class="input-group mb-3 form-group">
+            <div class="input-group">
+              <input type="text" name="marketname" id="marketname" required class="form-control form-control-lg" aria-label="large" placeholder="For Example: ShaTin Public Market">
+            </div>
+          </div>
+            <br>
+            <label for="address" class="form-label"> Address</label><br>
+            <div class="input-group mb-3 form-group">
+              <div class="input-group">
+                <input type="text" name="address" id="address" required class="form-control form-control-lg" aria-label="large" maxlength="120" placeholder="For Example: 160 TSAT TSZ MUI ROAD, NORTH POINT, HK">
+              </div>
+            </div>
+              <br>
+
+          <label for="tel1" class="form-label">Telephone 1</label><br>
+          <div class="input-group mb-3 form-group">
+            <div class="input-group-prepend"><span class="input-group-text">+852</span>
+            </div>
+            <input type="tel" name="tel1" id="" pattern="[0-9]{4}-[0-9]{4}" required="required" class="form-control" placeholder="For Example: 0000-0000"><br>
+          </div>
+          
+          <label for="tel2" class="form-label">Telephone 2</label><br>
+            <div class="input-group mb-3 form-group">
+              <div class="input-group-prepend"><span class="input-group-text">+852</span>
+              </div>
+              <input type="tel" name="tel2" id="" pattern="[0-9]{4}-[0-9]{4}" required="required" class="form-control" placeholder="For Example: 0000-0000">
+            </div>
+
+          <label for="Map" class="form-label">Map Location</label>
+          <br>
+      </div>
+      <input type="reset" value="Reset" name="Reset" class="btn btn-danger">
+      <input type="submit" value="Submit" name="Submit" class="btn btn-success">
+    </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 <!--popup window end-->
+
 <!--paginationstart-->
 <nav aria-label="Page navigation">
   <ul class="pagination">
     <li class="page-item">
-      <a href="" class="page-link" aria-label="Previous">
+      <a href="search.php?page=" class="page-link" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
     <li class="page-item">
-      <a href="" class="page-link" aria-label="Next">
+      <a href="search.php?page=" class="page-link" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
       </a>
     </li>
   </ul>
 </nav>
 <!--paginationend-->
-
-<!--modalwindowstart-->
-<div class="modal fade" tabindex="-1" style="">
-  <div class="modal-dialog">
-    <div class="modal-content"> 123
-      <div class="modal-header">
-        <div class="modal-body">
-          123
-          <div class="modal-footer"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!--modalwindowend-->
 
 <!--redirect-->
 
@@ -145,14 +223,9 @@ div.modal>div.modal-dialog>div.modal-content>div.modal-header>div.modal
               <h3><a href="index.html">Index</a></h3>
             </div>
             <div class="row">
-              <h3><a href="search.html">Search</a></h3>
+              <h3><a href="search.php">Search and Insert Page</a></h3>
             </div>
-            <div class="row">
-              <h3>
-              <a href="insert.html">Insert New Record</a>
-              </h3>
-            </div>
-            <div class="row">
+           <div class="row">
               <h3>Refernece</h3>
             </div>
           </div>

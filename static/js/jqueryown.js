@@ -4,7 +4,7 @@
 $(function () {
 
 $("#popupinsert").click(function (){
-    $().("")
+    $(".modal").modal("show");
 })
 });
 
