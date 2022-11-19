@@ -6,10 +6,10 @@ class publicmarketservice{
 
         require_once 'database.php';
 
-        $split= array_shift($param);
+        $split = array_shift($param);
         if($split ==='marketid'){
             $districtID = array_shift($parameters);
-            $sql = "SELECT * FROM market WHERE districtID = '$districtID'";
+            $sql = "SELECT * FROM market WHERE marketID = '$marketID'";
             $dbResult = $conn->query($sql);
 
             if($dbresult){
@@ -20,12 +20,7 @@ class publicmarketservice{
                 $output['code'] = '2001';
                 $output['message'] = 'SQL execution failure';
             }
-
-
-        }elseif($apiType ==='maptype'){
-
-        }elseif($apiType === 'openhour'){
-
+        if($split === ''){
         }
     }
 

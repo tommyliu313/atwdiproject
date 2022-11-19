@@ -1,5 +1,5 @@
 <?php
-require_once('databasr/data/dbsetting.php')
+require_once('database/data/dbsetting.php')
 
 ?><form action="submit.php" method="post">
 District:

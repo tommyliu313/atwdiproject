@@ -93,8 +93,9 @@
     echo "<thead><tr>
     <th scope='col'>Market No</th><th scope='col'>Market Name</th>
           <th scope='col'>Region</th> <th scope='col'>Market District</th>
-          <th scope='col'>Market Address</th><th scope='col'>Market Contact</th>
-          <th scope='col'>Openinghours</th>
+          <th scope='col'>Market Address</th><th scope='col' colspan='2'>Market Contact</th>
+          <th scope='col'>Openinghours</th></th><th scope='col'>Tenancy Type</th></th>
+          <th scope='col'>Stall Number</th>
           </tr></thead>";
     while($row = mysqli_fetch_object($result)){
         $content = "<tr>";
@@ -105,6 +106,8 @@
         $content .= "<td>$row->address</td>";
         $content .= "<td colspan='2'>$row->contact1<br>$row->contact2</td>";
         $content .= "<td>$row->openinghour</td>";
+        $content .= "<td>$row->tenancycomd</td>";
+        $content .= "<td>$row->nosstall</td>";
         $content .= "</tr>";
 
         echo $content;
@@ -112,7 +115,7 @@
     echo "</table>";
 ?>
 
-<a href="#"><button class="btn modal-button" aria-haspopup="true"><strong>Back to top</strong></button></a>
+<a href="#"><button class="btn modal-button" aria-haspopup="true"><strong>Top</strong></button></a>
 
 
 <!--popup window start-->
@@ -165,20 +168,19 @@
             <div class="input-group mb-3 form-group">
               <div class="input-group-prepend"><span class="input-group-text">+852</span>
               </div>
-              <input type="tel" name="tel2" id="" pattern="[0-9]{4}-[0-9]{4}" required="required" class="form-control" placeholder="For Example: 0000-0000">
+              <input type="tel" name="tel2" id="" pattern="[0-9]{4}[0-9]{4}" required="required" class="form-control" placeholder="For Example: 0000-0000">
             </div>
 
           <label for="Map" class="form-label">Map Location</label>
+          iframe
           <br>
       </div>
-      <input type="reset" value="Reset" name="Reset" class="btn btn-danger">
-      <input type="submit" value="Submit" name="Submit" class="btn btn-success">
-    </form>
+   
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+      <input type="reset" value="Reset" name="Reset" class="btn btn-danger">
+      <input type="submit" value="Submit" name="Submit" class="btn btn-success">
+      </div>   </form>
     </div>
   </div>
 </div>
