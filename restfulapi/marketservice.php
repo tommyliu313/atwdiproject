@@ -12,12 +12,15 @@ class marketservice{
         require_once '../database/data/dbsetting.php';
  
         $genre = array_shift($param);
- 
+        
+        //Search the market by MarketID
         if($genre ==='marketId'){
  
             $marketId = array_shift($param);
             if(!isset($marketId) && !is_numeric($marketId)){
+                http_response_code(400);
                 $error = array();
+                $error['code'] = '1990';
                 $error['message'] ='missing parameter';
                 echo json_encode($error);
             }
@@ -46,10 +49,45 @@ class marketservice{
                 var_dump(http_response_code(404));
                 $output = array();
                 $output['status'] = 'error';
-                $output['code'] = '1001';
+                $output['code'] = '1991';
                 $output['message'] = 'SQL execution failure';
             }}
     }   
+
+        //Search the market by district
+        if($genre === 'district'){
+            $district = array_shift($param);
+            if(!isset($district)){
+                http_response_code(400);
+                $error = array();
+                $error['code'] = '1990';
+                $error['message'] ='missing parameter';
+                echo json_encode($error);
+            }
+            else{
+                $sql = "SELECT DISTINCT districtname, marketname FROM market WHERE districtname = '$district'";
+           
+            try{
+                $result = $connection->query($sql);
+                while($row = mysqli_fetch_object($result)){
+                    http_response_code(200);
+                    $content = array();
+                    $content['districtname'] = $row->districtname;
+                    $content['marketname'] = $row->marketname;
+                    echo json_encode($content);
+                }
+                
+            }
+            //Error Handling
+            catch(Exception $e){
+                var_dump(http_response_code(404));
+                $output = array();
+                $output['status'] = 'error';
+                $output['code'] = '1991';
+                $output['message'] = 'SQL execution failure';
+            }
+
+        }
         if(empty($genre)){
             http_response_code(424);
             $error = array();
@@ -62,6 +100,6 @@ class marketservice{
 }
 
 
-}
+}}
 ?>
 

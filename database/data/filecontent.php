@@ -35,6 +35,7 @@
 		$nos_stall = $value['nos_stall'];
 
 		$Address_e = str_replace("'"," ",$Address_e);
+		$District_e = str_replace("/"," ",$District_e);
 		
 		
 
