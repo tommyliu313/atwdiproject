@@ -44,4 +44,9 @@ function insert(){
     XHR.send();
 }
 
+function search(){
+    var 
+}
 
+const search = document.getElementById('search');
+search.addEventListener('click',search());

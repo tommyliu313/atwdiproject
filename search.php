@@ -71,7 +71,7 @@
       
             while($row = mysqli_fetch_object($result)){
             
-              $option = "<option value='.$row->districtname.'>$row->districtname";
+              $option = "<option value='$row->districtname'>$row->districtname";
               $option .= "</option>";
               echo $option;}
             
@@ -79,7 +79,7 @@
             </select>
         </th>
         <th>
-        <button class="btn btn-success" > Submit</button>
+        <button class="btn btn-success" id="search"> Submit</button>
         <button class="btn btn-info" id="popupinsert" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Insert Market</button>
       </th>
     </tr>
@@ -171,8 +171,8 @@
               <input type="tel" name="tel2" id="" pattern="[0-9]{4}[0-9]{4}" required="required" class="form-control" placeholder="For Example: 0000-0000">
             </div>
 
-          <label for="Map" class="form-label">Map Location</label>
-          iframe
+          <label for="Map" class="form-label">Map Location</label><br>
+          <iframe src="http://maps.google.com/maps?q=&output=embed" frameborder="0" width="400" height="500"></iframe>
           <br>
       </div>
    
