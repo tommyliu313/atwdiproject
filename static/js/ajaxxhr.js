@@ -1,5 +1,6 @@
-const url = "http://localhost/atwdiproject/index.php";
+const url = "http://localhost/atwdiproject/restfulphp";
 
+var = document.
 function action(){
 
     var XHR = createXMLHttpRequest();

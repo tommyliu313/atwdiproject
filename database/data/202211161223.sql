@@ -20,21 +20,21 @@ SET time_zone = "+00:00";
 --
 -- 資料庫： `testing`
 --
-CREATE DATABASE IF NOT EXISTS `testing`;
+CREATE DATABASE IF NOT EXISTS `market`;
 -- --------------------------------------------------------
 
 --
 -- 資料表結構 `market`
 --
 
-USE `testing`;
+USE `market`;
 
 CREATE TABLE IF NOT EXISTS  `market` (
   `marketId` int(4) NOT NULL,
   `marketname` varchar(256) NOT NULL,
   `regionname` varchar(256) NOT NULL,
   `districtname` varchar(256) NOT NULL,
-  `address` varchar(256) NOT NULL,
+  `marketaddress` varchar(256) NOT NULL,
   `coordinate` varchar(256) NOT NULL,
   `contact1` varchar(20) NOT NULL,
   `contact2` varchar(20) NOT NULL,

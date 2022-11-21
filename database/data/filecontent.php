@@ -34,15 +34,15 @@
 		$Tenancy_Commodity_e = $value['Tenancy_Commodity_e'];
 		$nos_stall = $value['nos_stall'];
 
-		$Address_e = str_replace("'"," ",$Address_e);
-		$District_e = str_replace("/"," ",$District_e);
+		$Address_e = str_replace("'","",$Address_e);
+		$District_e = str_replace("/","_",$District_e);
 		
 		
 
 		$sql = "INSERT INTO market (
 			`regionname`,
 			`districtname`,
-			`address` ,
+			`marketaddress` ,
 			`marketname` ,
 			`contact1`,
 			`contact2`,
@@ -57,7 +57,7 @@
 			'$Market_e',
 			'$Contact_1',
 			'$Contact_2',
-			POINT($Coordinate),
+			'$Coordinate',
 			'$Business_Hours_e',
 			'$Tenancy_Commodity_e',
 			'$nos_stall'

@@ -22,14 +22,14 @@ class urlprocess{
         $serviceName = lcfirst($serviceName);
         echo '<br>'.'ServiceName: '. $serviceName . '<br>';
 
-        $serviceFileName = $serviceName.".php";
-        echo "ServiceFileName: " . $serviceFileName;
+        $servicefile = $serviceName.".php";
+        echo "servicefile: " . $servicefile;
 
-        if(!file_exists($serviceFileName)){
+        if(!file_exists($servicefile)){
             echo 'No such resource';
             exit;
         }else{
-            require_once $serviceFileName;
+            require_once $servicefile;
             $provider = new $serviceName;
 
             $method = "restservice".$_SERVER['REQUEST_METHOD'];
@@ -37,6 +37,7 @@ class urlprocess{
         }
 
     }
+
 }
 
 $urlprocess = new urlprocess();
