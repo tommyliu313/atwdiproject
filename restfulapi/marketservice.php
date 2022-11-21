@@ -249,7 +249,7 @@ class marketservice{
     }
 
     function restservicePUT($param){
-        echo "restGET function is called";
+        echo "restservicePUT is triggered";
         echo "<br>";
         echo "You have reached the service";
 
@@ -397,7 +397,7 @@ class marketservice{
     }
     
     function restservicePOST($param){
-        echo "restGET function is called";
+        echo "restservicePOST is triggered";
         echo "<br>";
         echo "You have reached the service";
 
@@ -408,9 +408,9 @@ class marketservice{
         $genre = array_shift($param);
     
         //Search the market by MarketID
-        if($genre ==='marketId'){
+        if($genre ==='marketname'){
 
-            $marketId = array_shift($param);
+            $marketname = array_shift($param);
             
             if(!isset($marketId) && !is_numeric($marketId)){
                 http_response_code(400);
@@ -420,7 +420,7 @@ class marketservice{
                 echo json_encode($error);
             }
             else{
-                $sql = "SELECT * FROM market WHERE marketId = '$marketId'";
+                $sql = "UPDATE market SET $column = $newvalue WHERE marketId = '$marketId'";
        
             try{
                 $result = $connection->query($sql);
