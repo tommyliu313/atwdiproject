@@ -89,9 +89,11 @@
 <div class="mt-4 p-5 bg-warning text-black rounded">
   <h1>Searching Page</h1></div>
 
-    <table>
-<select class='form-select' id='inputvalue'><option selected='selected'>District</option><option> Please select the district</option>
-<?php
+    <table class="table table-striped table">
+        <tr><td>District</td><td>
+        <select class='form-select' id='inputvalue'>
+    <option selected='selected'>District</option><option> Please select the district</option>
+        <?php
             require_once('database/data/dbsetting.php');
             
             $sql = "SELECT DISTINCT districtname FROM market";
@@ -103,8 +105,9 @@
               echo $option;}
               ?>
               </select>
+              </td><td>Region</td><td>
               <select class='form-select' id='inputvalue'><option selected='selected'>Region</option><option> Please select the Region</option>
-<?php
+        <?php
             require_once('database/data/dbsetting.php');
             
             $sql = "SELECT DISTINCT regionname FROM market";
@@ -116,8 +119,13 @@
               echo $option;}
               ?>
               </select>
-<button onclick="startsearch(); return false;">Click</button>
+            </td></tr>
+             <tr><td>Click to see Result</td><td>
+<button class="btn btn-primary"onclick="startsearch(); return false;">Click</button>
+            </td></tr>
 </table>
-    <div id="resultrevealed"></div>
+    <div id="resultrevealed">
+        div
+    </div>
 </body>
 </html>
