@@ -26,7 +26,7 @@ function update(){
             display += "<th scope='col'>Openinghours</th><th scope='col'>Coordinate</th><th scope='col'>Tenancy Type</th></th>";
             display += "<th scope='col'>Stall Number</th></tr></thead>";
             
-            outputArray.forEach(displaythis)
+            outputArray.forEach(displaythese)
             display += "</table>";
 
             showresult.innerHTML =  display;
@@ -34,7 +34,7 @@ function update(){
     }
 };
 
-function displaythis(data){
+function displaythese(data){
     display += '<tr>';
     display += '<td>' + data['marketId'] + '</td>';
     display += '<td>' + data['marketname'] + '</td>';

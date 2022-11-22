@@ -15,6 +15,7 @@
     <script src="static/css/bootstrap-5.2.1-dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="static/css/own.css"></link>
     <script src="static/js/jqueryown.js"></script>
+
     
     <title>Public Market - Search Page</title>
     
@@ -39,7 +40,7 @@
 
 <div class="mt-4 p-5 bg-warning text-black rounded">
   <h1>Searching Page</h1></div>
-
+<!--Select Column-->
     <table class="table table-striped table">
         <tr><td>District</td><td>
         <select class='form-select' id='inputvalue'>
@@ -71,12 +72,102 @@
               ?>
               </select>
             </td></tr>
-             <tr><td>Click to see Result</td><td>
-<button class="btn btn-primary"onclick="find(); return false;">Click</button>
-            </td></tr>
+             <tr><td>Option</td><td>
+<button class="btn btn-primary"onclick="find(); return false;">Click to see Result</button>
+            </td>
+          <td>
+          <button class="btn btn-info" id="popupinsert" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Insert New Market</button>
+          </td>
+          </tr>
 </table>
+<!--Selection Column-->
+<!--Demonstrate the result Start-->
     <div id="resultrevealed">
-        div
+      <div class="container-fluid">
+        <figure class="figure">
+          <img src="static/pics/lookingforsomething.png" alt="" class="figure-img img-fluid rounded" width="200">
+          <figcaption class="figure-caption">
+            <h1>Hmm.....</h1>
+            It seems that you haven't start searching.
+          </figcaption>
+            </div>
+        </figure>
+        
     </div>
+<!--Demonstrate the result End-->
+ <!--Popup Modal Start-->
+ <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Insert New Market</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <form action="/" method="POST" enctype="multipart/form-data">
+      <div class="form-group mb-3">
+        <label for="districtcol" class="form-label"> District</label>
+          <select name="District" id="" class="form-select custom-select" required>
+            <?php
+              require_once('database/data/dbsetting.php');
+              
+              $sql = "SELECT DISTINCT regionname FROM market";
+              $result = mysqli_query($connection,$sql);
+              
+              ?>
+
+            <option selected="selected">Choose the following option where the market district is</option>
+            <option value=""></option>
+          </select>
+          
+          <label for="region" class="form-label">Region</label>
+            <select name="region" id="" class="form-select custom-select" required>
+              <option selected="selected">Choose the following option where the market region is</option>
+              <option value=""></option>
+            </select>
+            
+          <label for="marketname" class="form-label"> Market Name</label><br>
+          <div class="input-group mb-3 form-group">
+            <div class="input-group">
+              <input type="text" name="marketname" id="marketname" required class="form-control form-control-lg" aria-label="large" placeholder="For Example: ShaTin Public Market">
+            </div>
+          </div>
+            <br>
+            <label for="address" class="form-label"> Address</label><br>
+            <div class="input-group mb-3 form-group">
+              <div class="input-group">
+                <input type="text" name="address" id="address" required class="form-control form-control-lg" aria-label="large" maxlength="120" placeholder="For Example: 160 TSAT TSZ MUI ROAD, NORTH POINT, HK">
+              </div>
+            </div>
+              <br>
+
+          <label for="tel1" class="form-label">Telephone 1</label><br>
+          <div class="input-group mb-3 form-group">
+            <div class="input-group-prepend"><span class="input-group-text">+852</span>
+            </div>
+            <input type="tel" name="tel1" id="" pattern="[0-9]{4}-[0-9]{4}" required="required" class="form-control" placeholder="For Example: 0000-0000"><br>
+          </div>
+          
+          <label for="tel2" class="form-label">Telephone 2</label><br>
+            <div class="input-group mb-3 form-group">
+              <div class="input-group-prepend"><span class="input-group-text">+852</span>
+              </div>
+              <input type="tel" name="tel2" id="" pattern="[0-9]{4}[0-9]{4}" required="required" class="form-control" placeholder="For Example: 0000-0000">
+            </div>
+
+          <label for="Map" class="form-label">Map Location</label><br>
+          <iframe src="http://maps.google.com/maps?q=&output=embed" frameborder="0" width="400" height="500"></iframe>
+          <br>
+      </div>
+   
+      </div>
+      <div class="modal-footer">
+      <input type="reset" value="Reset" name="Reset" class="btn btn-danger">
+      <input type="submit" value="Submit" name="Submit" class="btn btn-success">
+      </div>   </form>
+    </div>
+  </div>
+</div>
+ <!--Popup Modal End-->
 </body>
 </html>

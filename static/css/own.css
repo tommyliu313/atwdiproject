@@ -20,4 +20,8 @@ button.btn.modal-button {
     background-color: #ff00ff;
     font-size: 30px; }
 
-      
+  
+  figure{
+    margin-left: 30;
+    margin-right: auto;
+  }
