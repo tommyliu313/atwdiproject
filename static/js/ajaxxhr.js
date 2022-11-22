@@ -1,10 +1,10 @@
-const url = "http://localhost/atwdiproject/restfulphp";
+const url = "http://localhost/atwdiproject/restfulphp/index.php";
 
 var = document.
 function action(){
 
     var XHR = createXMLHttpRequest();
-    var actionurl= url + '/';
+    var actionurl= url + '/market/';
     XHR.open("GET",actionurl,true);
     XHR.onreadystatechange = function(){
 

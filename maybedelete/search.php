@@ -7,15 +7,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static/css/bootstrap-5.2.1-dist/css/bootstrap.min.css"></link>
-    <link rel="stylesheet" href="static/css/own.css">
-    <script src="static/css/bootstrap-5.2.1-dist/js/bootstrap.min.js"></script>
-    <script src="static/js/jquery-3.6.1.min.js"></script>
-    <script src="static/js/navbartoggle.js"></script>
-    <script src="static/css/bootstrap-5.2.1-dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="static/css/own.css"></link>
-    <script src="static/js/ajaxxhr.js"></script>
-    <script src="static/js/jqueryown.js"></script>
+    <link rel="stylesheet" href="../static/css/bootstrap-5.2.1-dist/css/bootstrap.min.css"></link>
+    <link rel="stylesheet" href="../static/css/own.css">
+    <script src="../static/css/bootstrap-5.2.1-dist/js/bootstrap.min.js"></script>
+    <script src="../static/js/jquery-3.6.1.min.js"></script>
+    <script src="../static/js/navbartoggle.js"></script>
+    <script src="../static/css/bootstrap-5.2.1-dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../static/css/own.css"></link>
+    <script src="../static/js/ajaxxhr.js"></script>
+    <script src="../static/js/jqueryown.js"></script>
     <title>Public Market - Search Page</title>
 </head>
 
@@ -47,7 +47,7 @@
           </th>
         <th>
           <?php
-            require_once('database/data/dbsetting.php');
+            require_once('../database/data/dbsetting.php');
             
             echo "<select class='form-select'><option selected='selected'>Region</option><option> Please select the region</option>";
             $sql = "SELECT DISTINCT regionname FROM market";
@@ -62,7 +62,7 @@
         </th>
         <th>
           <?php
-            require_once('database/data/dbsetting.php');
+            require_once('../database/data/dbsetting.php');
             
             echo "<select class='form-select'><option selected='selected'>District</option><option> Please select the District</option>";
             
@@ -86,7 +86,7 @@
 </table>
 <!--mysqlifearray.php start-->
 <?php
-    require_once('database/data/dbsetting.php');
+    require_once('../database/data/dbsetting.php');
     $sql = "SELECT * FROM market";
     $result = mysqli_query($connection,$sql);
     echo "<table border='1' class='table table-success table-border table-striped table-repsonsive'>";
