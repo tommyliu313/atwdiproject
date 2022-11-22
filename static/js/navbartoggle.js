@@ -5,4 +5,10 @@ $(function(){
   $("#navbarDropdown").dbClick(function(){
     $(".dropdown-menu").hide();
   });
+  $(".accordion-button").click(function(){
+    $(".accordion").addClass("open");
+  });
+  $(".accordion-button").dbclick(function(){
+    $(".accordion").removeClass("open");
+  });
 });
