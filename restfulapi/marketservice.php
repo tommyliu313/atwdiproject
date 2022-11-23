@@ -16,20 +16,29 @@ class marketservice{
  
         $genre = array_shift($param);
         
+        if(is_null($genre) || is_numeric($genre)){
+            http_response_code(404);
+            $output = array();
+            $output['status'] = 'error';
+            $output['code'] = '1990';
+            $output['message'] ='Invalid Input.';
+            echo json_encode($output);
+        }
         //Search the market by marketname
         if($genre ==='marketname'){
  
             $marketname = array_shift($param);
-            if(!isset($marketname) && !is_numeric($marketname)){
-                http_response_code(400);
+            if(!isset($marketname) || is_numeric($marketname)){
+                http_response_code(404);
                 $error = array();
-                $error['code'] = '1990';
+                $error['code'] = '1991';
                 $error['message'] ='missing parameter';
                 echo json_encode($error);
+                exit();
             }
             else{
                 $sql = "SELECT * FROM market WHERE marketname = '$marketname'";
-           
+           //Start the query
             try{
                 $result = $connection->query($sql);
                 while($row = mysqli_fetch_object($result)){
@@ -52,10 +61,10 @@ class marketservice{
                 
             }
             catch(Exception $e){
-                var_dump(http_response_code(404));
+                http_response_code(404);
                 $output = array();
                 $output['status'] = 'error';
-                $output['code'] = '1991';
+                $output['code'] = '1992';
                 $output['message'] = 'Not Found';
                 echo json_encode($output);
             }}
@@ -100,20 +109,22 @@ class marketservice{
             }
             //Error Handling
             catch(Exception $e){
-                var_dump(http_response_code(404));
+                http_response_code(404);
                 $output = array();
                 $output['status'] = 'error';
                 $output['code'] = '1991';
-                $output['message'] = 'SQL execution failure';
+                $output['message'] = 'Error Occur after querying the database.';
+                echo json_encode($output);
             }
 
         }
         if(empty($genre)){
-            http_response_code(424);
-            $error = array();
-            $error['code'] = "1990";
-            $error["message"] = "Invalid Input";
-            echo json_encode($error);
+            http_response_code(404);
+            $output = array();
+            $output['status'] = 'error';
+            $output['code'] = "1990";
+            $output["message"] = "Invalid Input";
+            echo json_encode($output);
         }
  
  
@@ -144,15 +155,16 @@ class marketservice{
 
             $marketname = array_shift($param);
             
-            if(!isset($marketname) && !is_string($marketname)){
-                http_response_code(400);
-                $error = array();
-                $error['code'] = '1990';
-                $error['message'] ='missing parameter';
+            if(!isset($marketname) || is_null($marketname)){
+                http_response_code(404);
+                $output = array();
+                $output['status'] = 'error';
+                $output['code'] = '1990';
+                $output['message'] ='missing parameter';
                 echo json_encode($error);
             }
             else{
-                $sql = "DELETE * FROM market WHERE marketname = '$marketname'";
+                $sql = "DELETE FROM market WHERE marketname = '$marketname'";
        
             try{
                 $result = $connection->query($sql);
@@ -166,11 +178,11 @@ class marketservice{
                 echo json_encode($content);
             }
             catch(Exception $e){
-                var_dump(http_response_code(404));
-                $output = array();
+                http_response_code(404);
                 $output['status'] = 'error';
                 $output['code'] = '1991';
-                $output['message'] = 'tedt';
+                $output['message'] = 'Error Occur after querying the database.';
+                echo json_encode($output);
             }}
 }   
 
@@ -202,16 +214,16 @@ class marketservice{
         }
         //Error Handling
         catch(Exception $e){
-            var_dump(http_response_code(404));
-            $output = array();
+            http_response_code(404);
             $output['status'] = 'error';
             $output['code'] = '1991';
-            $output['message'] = 'SQL execution failure';
+            $output['message'] = 'Error Occur after querying the database.';
+            echo json_encode($output);
         }
 
     }
-    if(empty($genre)){
-        http_response_code(424);
+    if(empty($genre) || is_null($genre)){
+        http_response_code(404);
         $error = array();
         $error['code'] = "1990";
         $error["message"] = "Invalid Input";
@@ -246,11 +258,11 @@ class marketservice{
     }
     //Error Handling
     catch(Exception $e){
-        var_dump(http_response_code(404));
+        http_response_code(404);
         $output = array();
         $output['status'] = 'error';
         $output['code'] = '1991';
-        $output['message'] = 'SQL execution failure';
+        $output['message'] = 'When queurying SQL';
     }
 
     }
@@ -280,7 +292,7 @@ class marketservice{
 
         require_once '../database/data/dbsetting.php';
 
-        $genre = array_shift($param);
+        $genre = array_push($param);
     
         //Search the market by MarketID
         if($genre ==='district'){
@@ -426,28 +438,39 @@ class marketservice{
     // MISSION:
     // CREATE A NEW MARKET RECORDS
     // CREATE A NEW TENANCY FROM THE EXISTING/ NEW RECORDS
-    /*function restservicePOST($param){
-        echo "restservicePOST is triggered";
-        echo "<br>";
-        echo "You have reached the service";
-
-        print_r($param);
+    function restservicePOST($param){
+        //echo "restservicePOST is triggered";
+        //echo "<br>";
+        //echo "You have reached the service";
 
         require_once '../database/data/dbsetting.php';
 
         $genre = array_shift($param);
+        
+        //Validate if the user has inputted the number or blank after the "market"
+	    if(is_null($genre) || is_bool($genre)){
+            http_response_code(404);
+            $output = array();
+            $output['status'] = 'error';
+            $output['code'] = '1990';
+            $output['message'] ='Invalid Input.';
+            echo json_encode($output);
+        }
+        
     
         //Search the market by MarketID
-        if($genre ==='marketname'){
+        if($genre ==='newrecord'){
 
-            $marketname = array_shift($param);
-            
-            if(!isset($marketId) && !is_numeric($marketId)){
+            $json_string = json_encode($param);
+            print_r($param);
+
+            if(!isset($marketId) && !is_null($marketId)){
                 http_response_code(400);
-                $error = array();
-                $error['code'] = '1990';
-                $error['message'] ='missing parameter';
-                echo json_encode($error);
+                $output = array();
+                $output['status'] = "error";
+                $output['code'] = '1990';
+                $output['message'] ='missing parameter';
+                echo json_encode($output);
             }
             else{
     
@@ -534,7 +557,7 @@ class marketservice{
     }
 
     }
-    if(empty($genre)){
+    if(empty($genre) || is_null($genre) || is_numeric($genre)){
         http_response_code(424);
         $error = array();
         $error['code'] = "1990";
@@ -547,7 +570,8 @@ class marketservice{
 
 
 
-    }*/
+    }
+   
 
 }
 ?>
