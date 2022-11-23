@@ -1,3 +1,6 @@
+
+let element = document.getElementById(".accordion-button");
+
 $(function(){
   $("#navbarDropdown").click(function(){
     $(".dropdown-menu").show();
@@ -5,10 +8,12 @@ $(function(){
   $("#navbarDropdown").dbClick(function(){
     $(".dropdown-menu").hide();
   });
-  $(".accordion-button").click(function(){
-    $(".accordion").addClass("open");
-  });
-  $(".accordion-button").dbclick(function(){
-    $(".accordion").removeClass("open");
-  });
+  $("element").dbclick(function(){
+    if( element.ariaexpanded.val() == "true"){
+      element.ariaexpanded.val() == "false";
+      $(".accordion-collapse").removeClass("collapse show");
+      $(".accordion-collapse").addClass("collapsed");
+    }
+    
+  })
 });

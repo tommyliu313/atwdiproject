@@ -48,3 +48,7 @@ function displaythese(data){
     display += '<td>' + data['nosstall'] + '</td>';
     display += '</tr>';
 };
+
+function insertrecords(){
+    
+}

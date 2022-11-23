@@ -283,9 +283,9 @@ class marketservice{
         $genre = array_shift($param);
     
         //Search the market by MarketID
-        if($genre ==='marketId'){
+        if($genre ==='district'){
 
-            $marketId = array_shift($param);
+            $district = array_shift($param);
             
             if(!isset($marketId) && !is_numeric($marketId)){
                 http_response_code(400);
@@ -295,7 +295,8 @@ class marketservice{
                 echo json_encode($error);
             }
             else{
-                $sql = "SELECT * FROM market WHERE marketId = '$marketId'";
+
+                $sql = "INSERT districtname, regionname,  FROM market WHERE marketId = '$marketId'";
        
             try{
                 $result = $connection->query($sql);
@@ -420,6 +421,8 @@ class marketservice{
     }*/
     
     // POST:
+    
+    // POST:
     // MISSION:
     // CREATE A NEW MARKET RECORDS
     // CREATE A NEW TENANCY FROM THE EXISTING/ NEW RECORDS
@@ -447,7 +450,7 @@ class marketservice{
                 echo json_encode($error);
             }
             else{
-                $district
+    
                 }
 }   
 

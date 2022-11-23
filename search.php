@@ -8,11 +8,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/css/bootstrap-5.2.1-dist/css/bootstrap.min.css"></link>
-    <link rel="stylesheet" href="static/css/own.css">
-    <script src="static/css/bootstrap-5.2.1-dist/js/bootstrap.min.js"></script>
-    <script src="static/js/jquery-3.6.1.min.js"></script>
-    <script src="static/js/navbartoggle.js"></script>
-    <script src="static/css/bootstrap-5.2.1-dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="static/css/own.css"></link>
     <script src="static/js/jqueryown.js"></script>
 
@@ -22,6 +17,10 @@
 </head>
 <body>
     <script type="text/javascript" src="static/js/ajaxxhr.js"></script>
+    <script src="static/css/bootstrap-5.2.1-dist/js/bootstrap.min.js"></script>
+    <script src="static/js/jquery-3.6.1.min.js"></script>
+    <script src="static/js/navbartoggle.js"></script>
+    <script src="static/css/bootstrap-5.2.1-dist/js/bootstrap.bundle.min.js"></script>
 <!--message-->
     <!--navbarstart-->
     <nav class="navbar navbar-expand-lg bg-primary" id="top"><a class="navbar-brand"> Our Public Market</a>
@@ -41,7 +40,17 @@
 <div class="mt-4 p-5 bg-warning text-black rounded">
   <h1>Searching Page</h1></div>
 <!--Select Column-->
-    <table class="table table-striped table">
+
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+        Select Filter
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapsing" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+      <table class="table table-striped table">
         <tr><td>District</td><td>
         <select class='form-select' id='inputvalue'>
     <option selected='selected'>District</option><option> Please select the district</option>
@@ -80,6 +89,11 @@
           </td>
           </tr>
 </table>
+          
+      </div>
+    </div>
+  </div></div>
+
 <!--Selection Column-->
 <!--Demonstrate the result Start-->
     <div id="resultrevealed">
@@ -108,22 +122,34 @@
       <div class="form-group mb-3">
         <label for="districtcol" class="form-label"> District</label>
           <select name="District" id="" class="form-select custom-select" required>
+          <option selected="selected">Choose the following option where the market district is</option>
             <?php
               require_once('database/data/dbsetting.php');
               
-              $sql = "SELECT DISTINCT regionname FROM market";
+              $sql = "SELECT DISTINCT districtname FROM market";
               $result = mysqli_query($connection,$sql);
+              while($row = mysqli_fetch_object($result)){
+                $option = "<option value='$row->districtname'>$row->districtname";
+                $option .= "</option>";
+                echo $option;}
               
               ?>
-
-            <option selected="selected">Choose the following option where the market district is</option>
-            <option value=""></option>
           </select>
           
           <label for="region" class="form-label">Region</label>
             <select name="region" id="" class="form-select custom-select" required>
               <option selected="selected">Choose the following option where the market region is</option>
-              <option value=""></option>
+              <?php
+                require_once('database/data/dbsetting.php');
+            
+                $sql = "SELECT DISTINCT regionname FROM market";
+                $result = mysqli_query($connection,$sql);
+
+                while($row = mysqli_fetch_object($result)){
+                  $option = "<option value='$row->regionname'>$row->regionname";
+                  $option .= "</option>";
+                  echo $option;}
+              ?>
             </select>
             
           <label for="marketname" class="form-label"> Market Name</label><br>
@@ -158,12 +184,26 @@
           <label for="Map" class="form-label">Map Location</label><br>
           <iframe src="http://maps.google.com/maps?q=&output=embed" frameborder="0" width="400" height="500"></iframe>
           <br>
+          <label for="Tenancy Name" class="form-label"> Tenancy Name</label><br>
+          <div class="input-group mb-3 form-group">
+            <div class="input-group">
+              <input type="text" name="marketname" id="marketname" required class="form-control form-control-lg" aria-label="large">
+            </div>
+          </div>
+            <br>
+            <label for="stallnumber" class="form-label"> Stall Number</label><br>
+          <div class="input-group mb-3 form-group">
+            <div class="input-group">
+              <input type="number" name="" id="marketname" required class="form-control form-control-lg" aria-label="large" placeholder="Please Input a number">
+            </div>
+          </div>
+            <br>
       </div>
    
       </div>
       <div class="modal-footer">
       <input type="reset" value="Reset" name="Reset" class="btn btn-danger">
-      <input type="submit" value="Submit" name="Submit" class="btn btn-success">
+      <button type="submit" value="Submit" name="Submit" class="btn btn-success" onClick="insertrecords();">Insert</button>
       </div>   </form>
     </div>
   </div>
