@@ -3,15 +3,20 @@ var baseUri = "http://localhost/atwdiproject/restfulapi/index.php/market/";
 var request = new XMLHttpRequest();
 var outputArray;
 
+//Start the application
 function find(){
-    var inputvalue = "district/" + document.getElementById("inputvalue").value;
+    var inputvalue = "district/" + document.getElementById("inputvalue1").value;
     var destination = baseUri + inputvalue;
     
     request.open("GET",destination, true);
     request.onreadystatechange = update;
     request.send(null);
 };
+/*function insertrecords(){
+    var inputvalue = "/"
+}*/
 
+//Renderer Process
 function update(){
     if(request.readyState==4){
         if(request.status==200){
@@ -19,7 +24,7 @@ function update(){
             var showresult = document.getElementById('resultrevealed');
             //showresult.innerHTML = serverData;
             outputArray = JSON.parse(serverData);
-            display = "<table border='1' class='table table-success table-border table-striped table-repsonsive'>";
+            display += "<table border='1' class='table table-success table-border table-striped table-repsonsive'>";
             display += "<thead><tr><th scope='col'>Market No</th><th scope='col'>Market Name</th>";
             display += "<th scope='col'>Region</th> <th scope='col'>Market District</th>";
             display += "<th scope='col'>Market Address</th><th scope='col' colspan='2'>Market Contact</th>";
@@ -34,6 +39,7 @@ function update(){
     }
 };
 
+//Display Section
 function displaythese(data){
     display += '<tr>';
     display += '<td>' + data['marketId'] + '</td>';
@@ -49,6 +55,3 @@ function displaythese(data){
     display += '</tr>';
 };
 
-function insertrecords(){
-    
-}
