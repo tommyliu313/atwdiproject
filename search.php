@@ -53,7 +53,8 @@
       <table class="table table-striped table">
         <tr><td>District</td><td>
         <select class='form-select' id='inputvalue1'>
-    <option selected='selected'>District</option><option> Please select the district</option>
+        <option selected='selected' disabled>District</option>
+          <option disabled> Please select the district</option>
         <?php
             require_once('database/data/dbsetting.php');
             
@@ -73,8 +74,8 @@
               
               <tr><td>Region</td><td>
               <select class='form-select' id='inputvalue2'>
-              <option selected='selected'>Region</option>
-              <option> Please select the Region</option>
+              <option selected='selected' disabled>Region</option>
+              <option disabled> Please select the Region</option>
         <?php
             require_once('database/data/dbsetting.php');
             
@@ -94,8 +95,8 @@
             <td>Market Name</td>
             <td>
             <select class='form-select' id='inputvalue3'>
-              <option selected='selected'>Market Name</option>
-              <option> Please select the market name</option>
+              <option selected='selected' disabled>Market Name</option>
+              <option disabled> Please select the market name</option>
         <?php
             require_once('database/data/dbsetting.php');
             
@@ -112,9 +113,9 @@
             <td> <td><button class="btn btn-primary" onclick="find3(); return false;">Click to see Result</button></td></td>
           </tr>
           <tr><td>Option</td>
-          <td width="20%"><button class="btn btn-info" id="popupinsert" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Insert New Market</button></td>
-          <td width="20%"><button class="btn btn-danger" id="popupinsert" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete A Tenancy</button></td>
-          <td width="20%"><button class="btn btn-success" id="popupinsert" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Update A Tenancy </button></td>
+          <td width="20%"><button class="btn btn-info" id="popupinsert" type="button" data-bs-toggle="modal" data-bs-target="#InsertModal">Insert New Market</button></td>
+          <td width="20%"><button class="btn btn-danger" id="popupinsert" type="button" data-bs-toggle="modal" data-bs-target="#DeleteModal">Delete A Tenancy</button></td>
+          <td width="20%"><button class="btn btn-success" id="popupinsert" type="button" data-bs-toggle="modal" data-bs-target="#UpdateModal">Update A Tenancy </button></td>
           </tr>
 </table>
           
@@ -138,7 +139,7 @@
     </div>
 <!--Demonstrate the result End-->
  <!--Popup Modal Insert Start-->
- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ <div class="modal fade" id="InsertModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -146,13 +147,40 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <form action="/" method="POST" enctype="multipart/form-data">
+        <?php
+          $district = htmlspecialchars($_POST["district"] ?? "", ENT_QUOTES);
+          $region = htmlspecialchars($_POST["region"] ?? "", ENT_QUOTES);
+          $marketname = htmlspecialchars($_POST["marketname"] ?? "", ENT_QUOTES);
+          $address = htmlspecialchars($_POST["address"] ?? "", ENT_QUOTES);
+          $tel1 = htmlspecialchars($_POST["tel1"] ?? "", ENT_QUOTES);
+          $tel2 = htmlspecialchars($_POST["tel2"] ?? "", ENT_QUOTES);
+          $maploc = htmlspecialchars($_POST["maploc"] ?? "", ENT_QUOTES);
+          $tenancytype = htmlspecialchars($_POST["tenancytype"] ?? "", ENT_QUOTES);
+          $stallno = htmlspecialchars($_POST["stallno"] ?? "", ENT_QUOTES);
+          
+          echo "<div class='mb-3'>
+          district: $district <br>
+          region: $region <br>
+          marketname: $marketname <br>
+          address: $address <br>
+          telephone1: $tel1 <br>
+          telephone2: $tel2 <br>
+          maplocation: $maploc <br>
+          tenancytype: $tenancytype<br>
+          stallno: $stallno <br>
+          
+          </div>";
+          
+        ?>
+      <form action="" method="POST" enctype="multipart/form-data">
       <div class="form-group mb-3">
         <label for="districtcol" class="form-label"> District</label>
-          <select name="District" id="" class="form-select custom-select" required>
-          <option selected="selected">Choose the following option where the market district is</option>
+          <select name="district" id="district" class="form-select custom-select" no>
+          <option selected="selected" disabled>Choose the following option where the market district is</option>
             <?php
+
               require_once('database/data/dbsetting.php');
+              //require_once('Validate.php');
               
               $sql = "SELECT DISTINCT districtname FROM market";
               $result = mysqli_query($connection,$sql);
@@ -165,8 +193,8 @@
           </select>
           
           <label for="region" class="form-label">Region</label>
-            <select name="region" id="" class="form-select custom-select" required>
-              <option selected="selected">Choose the following option where the market region is</option>
+            <select name="region" id="region" class="form-select custom-select" no>
+              <option selected="selected" disabled>Choose the following option where the market region is</option>
               <?php
                 require_once('database/data/dbsetting.php');
             
@@ -183,14 +211,14 @@
           <label for="marketname" class="form-label"> Market Name</label><br>
           <div class="input-group mb-3 form-group">
             <div class="input-group">
-              <input type="text" name="marketname" id="marketname" required class="form-control form-control-lg" aria-label="large" placeholder="For Example: ShaTin Public Market">
+              <input type="text" name="marketname" id="marketname" no class="form-control form-control-lg" aria-label="large" placeholder="For Example: ShaTin Public Market">
             </div>
           </div>
             <br>
             <label for="address" class="form-label"> Address</label><br>
             <div class="input-group mb-3 form-group">
               <div class="input-group">
-                <input type="text" name="address" id="address" required class="form-control form-control-lg" aria-label="large" maxlength="120" placeholder="For Example: 160 TSAT TSZ MUI ROAD, NORTH POINT, HK">
+                <input type="text" name="address" id="address" no class="form-control form-control-lg" aria-label="large" maxlength="120" placeholder="For Example: 160 TSAT TSZ MUI ROAD, NORTH POINT, HK">
               </div>
             </div>
               <br>
@@ -199,30 +227,30 @@
           <div class="input-group mb-3 form-group">
             <div class="input-group-prepend"><span class="input-group-text">+852</span>
             </div>
-            <input type="tel" name="tel1" id="" pattern="[0-9]{4}-[0-9]{4}" required="required" class="form-control" placeholder="For Example: 0000-0000"><br>
+            <input type="tel" name="tel1" id="tel1" pattern="[0-9]{8}" no="no" class="form-control" placeholder="For Example: 00000000"><br>
           </div>
           
           <label for="tel2" class="form-label">Telephone 2</label><br>
             <div class="input-group mb-3 form-group">
               <div class="input-group-prepend"><span class="input-group-text">+852</span>
               </div>
-              <input type="tel" name="tel2" id="" pattern="[0-9]{4}[0-9]{4}" required="required" class="form-control" placeholder="For Example: 0000-0000">
+              <input type="tel" name="tel2" id="tel2" pattern="[0-9]{8}" no="no" class="form-control" placeholder="For Example: 00000000">
             </div>
 
           <label for="Map" class="form-label">Map Location</label><br>
-          <input type="maploc" name="maploc" id="" required="required" class="form-control" placeholder="For Example: 23.1234xx,135.123xxx">
+          <input type="maploc" name="maploc" id="maploc" no="no" class="form-control" placeholder="For Example: 23.1234xx,135.123xxx">
           <br>
           <label for="Tenancy Name" class="form-label"> Tenancy Type</label><br>
           <div class="input-group mb-3 form-group">
             <div class="input-group">
-              <input type="text" name="marketname" id="marketname" required class="form-control form-control-lg" aria-label="large">
+              <input type="text" name="tenancytype" id="tenancytype" no class="form-control form-control-lg" aria-label="large">
             </div>
           </div>
             <br>
             <label for="stallnumber" class="form-label"> Stall Number</label><br>
           <div class="input-group mb-3 form-group">
             <div class="input-group">
-              <input type="number" name="" id="marketname" required class="form-control form-control-lg" aria-label="large" placeholder="Please Input a number">
+              <input type="number" name="stallno" id="stallno" no class="form-control form-control-lg" aria-label="large" placeholder="Please Input a number">
             </div>
           </div>
             <br>
@@ -238,18 +266,18 @@
 </div>
  <!--Popup Modal Insert End-->
  <!--Popup Modal Delete Start-->
- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ <div class="modal fade" id="DeleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Insert New Market</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Delete a Market</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
       <form action="/" method="POST" enctype="multipart/form-data">
       <div class="form-group mb-3">
         <label for="districtcol" class="form-label"> District</label>
-          <select name="District" id="" class="form-select custom-select" required>
+          <select name="District" id="" class="form-select custom-select" no>
           <option selected="selected">Choose the following option where the market district is</option>
             <?php
               require_once('database/data/dbsetting.php');
@@ -265,7 +293,7 @@
           </select>
           
           <label for="region" class="form-label">Region</label>
-            <select name="region" id="" class="form-select custom-select" required>
+            <select name="region" id="" class="form-select custom-select" no>
               <option selected="selected">Choose the following option where the market region is</option>
               <?php
                 require_once('database/data/dbsetting.php');
@@ -283,14 +311,14 @@
           <label for="marketname" class="form-label"> Market Name</label><br>
           <div class="input-group mb-3 form-group">
             <div class="input-group">
-              <input type="text" name="marketname" id="marketname" required class="form-control form-control-lg" aria-label="large" placeholder="For Example: ShaTin Public Market">
+              <input type="text" name="marketname" id="marketname" no class="form-control form-control-lg" aria-label="large" placeholder="For Example: ShaTin Public Market">
             </div>
           </div>
             <br>
             <label for="address" class="form-label"> Address</label><br>
             <div class="input-group mb-3 form-group">
               <div class="input-group">
-                <input type="text" name="address" id="address" required class="form-control form-control-lg" aria-label="large" maxlength="120" placeholder="For Example: 160 TSAT TSZ MUI ROAD, NORTH POINT, HK">
+                <input type="text" name="address" id="address" no class="form-control form-control-lg" aria-label="large" maxlength="120" placeholder="For Example: 160 TSAT TSZ MUI ROAD, NORTH POINT, HK">
               </div>
             </div>
               <br>
@@ -299,14 +327,14 @@
           <div class="input-group mb-3 form-group">
             <div class="input-group-prepend"><span class="input-group-text">+852</span>
             </div>
-            <input type="tel" name="tel1" id="" pattern="[0-9]{4}-[0-9]{4}" required="required" class="form-control" placeholder="For Example: 0000-0000"><br>
+            <input type="tel" name="tel1" id="" pattern="[0-9]{4}-[0-9]{4}" no="no" class="form-control" placeholder="For Example: 0000-0000"><br>
           </div>
           
           <label for="tel2" class="form-label">Telephone 2</label><br>
             <div class="input-group mb-3 form-group">
               <div class="input-group-prepend"><span class="input-group-text">+852</span>
               </div>
-              <input type="tel" name="tel2" id="" pattern="[0-9]{4}[0-9]{4}" required="required" class="form-control" placeholder="For Example: 0000-0000">
+              <input type="tel" name="tel2" id="" pattern="[0-9]{4}[0-9]{4}" no="no" class="form-control" placeholder="For Example: 0000-0000">
             </div>
 
           <label for="Map" class="form-label">Map Location</label><br>
@@ -315,14 +343,14 @@
           <label for="Tenancy Name" class="form-label"> Tenancy Name</label><br>
           <div class="input-group mb-3 form-group">
             <div class="input-group">
-              <input type="text" name="marketname" id="marketname" required class="form-control form-control-lg" aria-label="large">
+              <input type="text" name="marketname" id="marketname" no class="form-control form-control-lg" aria-label="large">
             </div>
           </div>
             <br>
             <label for="stallnumber" class="form-label"> Stall Number</label><br>
           <div class="input-group mb-3 form-group">
             <div class="input-group">
-              <input type="number" name="" id="marketname" required class="form-control form-control-lg" aria-label="large" placeholder="Please Input a number">
+              <input type="number" name="" id="marketname" no class="form-control form-control-lg" aria-label="large" placeholder="Please Input a number">
             </div>
           </div>
             <br>
@@ -331,11 +359,87 @@
       </div>
       <div class="modal-footer">
       <input type="reset" value="Reset" name="Reset" class="btn btn-danger">
-      <button type="submit" value="Submit" name="Submit" class="btn btn-success" onClick="insertrecords();">Insert</button>
+      <button type="submit" value="Submit" name="Submit" class="btn btn-success" >Insert</button>
       </div>   </form>
     </div>
   </div>
 </div>
 <!--Popup Modal Delete End-->
+<!--Popup Modal Update Start-->
+<div class="modal fade" id="UpdateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update the Market Tenancy</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <form action="/" method="POST" enctype="multipart/form-data">
+      <div class="form-group mb-3">
+        <label for="districtcol" class="form-label"> District</label>
+          <select name="District" id="" class="form-select custom-select" no>
+          <option selected="selected">Choose the following option where the market district is</option>
+            <?php
+              require_once('database/data/dbsetting.php');
+              
+              $sql = "SELECT DISTINCT districtname FROM market";
+              $result = mysqli_query($connection,$sql);
+              while($row = mysqli_fetch_object($result)){
+                $option = "<option value='$row->districtname'>$row->districtname";
+                $option .= "</option>";
+                echo $option;}
+              
+              ?>
+          </select>
+          
+          <label for="region" class="form-label">Region</label>
+            <select name="region" id="" class="form-select custom-select" no>
+              <option selected="selected">Choose the following option where the market region is</option>
+              <?php
+                require_once('database/data/dbsetting.php');
+            
+                $sql = "SELECT DISTINCT regionname FROM market";
+                $result = mysqli_query($connection,$sql);
+
+                while($row = mysqli_fetch_object($result)){
+                  $option = "<option value='$row->regionname'>$row->regionname";
+                  $option .= "</option>";
+                  echo $option;}
+              ?>
+            </select>
+            
+          <label for="marketname" class="form-label">Target Market Name</label><br>
+          <div class="input-group mb-3 form-group">
+            <div class="input-group">
+              <input type="text" name="marketname" id="marketname" no class="form-control form-control-lg" aria-label="large" placeholder="For Example: ShaTin Public Market">
+            </div>
+          </div>
+            <br>
+            <label for="address" class="form-label"> Original Value</label><br>
+            <div class="input-group mb-3 form-group">
+              <div class="input-group">
+                <input type="text" name="address" id="address" no class="form-control form-control-lg" aria-label="large" maxlength="120" placeholder="For Example: 160 TSAT TSZ MUI ROAD, NORTH POINT, HK">
+              </div>
+            </div>
+              <br>
+
+          <label for="tel1" class="form-label">Replace Value</label><br>
+          <div class="input-group mb-3 form-group">
+              <input type="text" name="address" id="address" no class="form-control form-control-lg" aria-label="large" maxlength="120" placeholder="For Example: 160 TSAT TSZ MUI ROAD, NORTH POINT, HK">
+          </div>
+        
+      </div>
+   
+      </div>
+      <div class="modal-footer">
+      <input type="reset" value="Reset" name="Reset" class="btn btn-danger">
+      <button type="submit" value="Submit" name="Submit" class="btn btn-success" >Insert</button>
+      </div>   </form>
+    </div>
+  </div>
+</div>
+<!--Popup Modal Update End-->
 </body>
 </html>
+
+/restfulapi/index.php/newrecord

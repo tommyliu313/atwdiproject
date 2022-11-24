@@ -480,9 +480,9 @@ class marketservice{
     // CREATE A NEW MARKET RECORDS
     // CREATE A NEW TENANCY FROM THE EXISTING/ NEW RECORDS
     function restservicePOST($param){
-        //echo "restservicePOST is triggered";
-        //echo "<br>";
-        //echo "You have reached the service";
+        echo "restservicePOST is triggered";
+        echo "<br>";
+        echo "You have reached the service";
         header('Content-Type: application/json');
         require_once '../database/data/dbsetting.php';
 
