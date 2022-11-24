@@ -4,17 +4,32 @@ var request = new XMLHttpRequest();
 var outputArray;
 
 //Start the application
-function find(){
-    var inputvalue = "district/" + document.getElementById("inputvalue1").value;
-    var destination = baseUri + inputvalue;
+function find1(){
+    var inputValue = "district/" + document.getElementById("inputvalue1").value;
+    var destination = baseUri + inputValue;
     
     request.open("GET",destination, true);
     request.onreadystatechange = update;
     request.send(null);
 };
-/*function insertrecords(){
-    var inputvalue = "/"
-}*/
+
+function find2(){
+    var inputValue = document.getElementById("inputvalue2").value;
+    var destination = baseUri + "region/" +  inputValue;
+    
+    request.open("GET",destination, true);
+    request.onreadystatechange = update;
+    request.send(null);
+};
+
+function find3(){
+    var inputValue = document.getElementById("inputvalue3").value;
+    var destination = baseUri + "marketname/" +  inputValue;
+
+    request.open("GET",destination, true);
+    request.onreadystatechange = update;
+    request.send(null);
+};
 
 //Renderer Process
 function update(){
@@ -24,7 +39,7 @@ function update(){
             var showresult = document.getElementById('resultrevealed');
             //showresult.innerHTML = serverData;
             outputArray = JSON.parse(serverData);
-            display += "<table border='1' class='table table-success table-border table-striped table-repsonsive'>";
+            display = "<table border='1' class='table table-success table-border table-striped table-repsonsive'>";
             display += "<thead><tr><th scope='col'>Market No</th><th scope='col'>Market Name</th>";
             display += "<th scope='col'>Region</th> <th scope='col'>Market District</th>";
             display += "<th scope='col'>Market Address</th><th scope='col' colspan='2'>Market Contact</th>";

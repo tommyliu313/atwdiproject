@@ -66,8 +66,15 @@
               echo $option;}
               ?>
               </select>
-              </td><td>Region</td><td>
-              <select class='form-select' id='inputvalue'><option selected='selected'>Region</option><option> Please select the Region</option>
+              </td>
+              <td>
+              <td><button class="btn btn-primary" onclick="find1(); return false;">Click to see Result</button></td>
+              </td>
+              
+              <tr><td>Region</td><td>
+              <select class='form-select' id='inputvalue2'>
+              <option selected='selected'>Region</option>
+              <option> Please select the Region</option>
         <?php
             require_once('database/data/dbsetting.php');
             
@@ -81,9 +88,30 @@
               ?>
               </select>
             </td>
+          <td> <td><button class="btn btn-primary"onclick="find2(); return false;">Click to see Result</button></td></td>
+          </tr>
+          <tr>
+            <td>Market Name</td>
+            <td>
+            <select class='form-select' id='inputvalue3'>
+              <option selected='selected'>Market Name</option>
+              <option> Please select the market name</option>
+        <?php
+            require_once('database/data/dbsetting.php');
+            
+            $sql = "SELECT DISTINCT marketname FROM market";
+            $result = mysqli_query($connection,$sql);
+
+            while($row = mysqli_fetch_object($result)){
+              $option = "<option value='$row->marketname'>$row->marketname";
+              $option .= "</option>";
+              echo $option;}
+              ?>
+              </select>
+            </td>
+            <td> <td><button class="btn btn-primary" onclick="find3(); return false;">Click to see Result</button></td></td>
           </tr>
           <tr><td>Option</td>
-          <td width="20%"><button class="btn btn-primary"onclick="find(); return false;">Click to see Result</button></td>
           <td width="20%"><button class="btn btn-info" id="popupinsert" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Insert New Market</button></td>
           <td width="20%"><button class="btn btn-danger" id="popupinsert" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete A Tenancy</button></td>
           <td width="20%"><button class="btn btn-success" id="popupinsert" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Update A Tenancy </button></td>
@@ -182,9 +210,9 @@
             </div>
 
           <label for="Map" class="form-label">Map Location</label><br>
-          <iframe src="http://maps.google.com/maps?q=&output=embed" frameborder="0" width="400" height="500"></iframe>
+          <input type="maploc" name="maploc" id="" required="required" class="form-control" placeholder="For Example: 23.1234xx,135.123xxx">
           <br>
-          <label for="Tenancy Name" class="form-label"> Tenancy Name</label><br>
+          <label for="Tenancy Name" class="form-label"> Tenancy Type</label><br>
           <div class="input-group mb-3 form-group">
             <div class="input-group">
               <input type="text" name="marketname" id="marketname" required class="form-control form-control-lg" aria-label="large">

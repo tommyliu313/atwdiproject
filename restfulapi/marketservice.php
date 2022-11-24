@@ -4,11 +4,11 @@ class marketservice{
 
     function errorResponse($status,$code,$message){
         http_response_code($status);
-        $output = array();
-        $output['status'] = 'error';
-        $output['code'] =  $code;
-        $output['message'] = $message;
-        echo json_encode($output);
+        $error = array();
+        $error['status'] = 'error';
+        $error['code'] =  $code;
+        $error['message'] = $message;
+        echo json_encode($error);
     }
 
     function successResponse($status,$code,$message){
@@ -51,8 +51,8 @@ class marketservice{
             try{
                 $result = $connection->query($sql);
                 while($row = mysqli_fetch_object($result)){
-                    http_response_code(200);
                     $content = array();
+                    
                     $content['marketId'] = $row->marketId;
                     $content['marketname'] = $row->marketname;    
                     $content['districtname'] = $row->districtname;
@@ -65,8 +65,12 @@ class marketservice{
                     $content['tenancycomd']=$row->tenancycomd;
                     $content['nosstall']=$row->nosstall;
                     $content['coordinate']=$row->coordinate;
-                    echo json_encode($content);
+                    
+                    $outcome[] = $content;
+                
                 }
+                
+                echo json_encode($outcome);
 
                 
             }
@@ -100,9 +104,10 @@ class marketservice{
                     $content['coordinate']=$row['coordinate'];
                     $content['tenancycomd']=$row['tenancycomd'];
                     $content['nosstall']=$row['nosstall'];
-                    $content['coordinate']=$row['coordinate'];
-                    echo json_encode($content);
+                    $outcome[] = $content;
+                    
                 }
+                echo json_encode($outcome);
                     
             }
             //Error Handling
@@ -124,15 +129,12 @@ class marketservice{
                 $this-> errorResponse("404","1991","Missing Parameter");
             }
             else{
-                $sql = "SELECT DISTINCT marketId, districtname,regionname, marketname, coordinate, marketaddress, contact1, contact2, openinghour,
-                 tenancycomd, nosstall, coordinate FROM market WHERE regionname = '$region'";
+                $sql = "SELECT * FROM market WHERE regionname = '$region'";
            
             try{
                 $result = $connection->query($sql);
                 while($row = mysqli_fetch_assoc($result)){
                     $content = array();
-                    $success->successResponse("200","2000","Success");
-                    $content += $success;
                     $content['marketId'] = $row['marketId'];
                     $content['marketname'] = $row['marketname'];
                     $content['regionname'] = $row['regionname'];
@@ -145,10 +147,11 @@ class marketservice{
                     $content['tenancycomd']=$row['tenancycomd'];
                     $content['nosstall']=$row['nosstall'];
                     $content['coordinate']=$row['coordinate'];
-                    $output[] = $content;
+                    $outcome[] = $content;
                     
-                }
-                    echo json_encode($output);
+                }   echo json_encode($outcome);
+                    
+                   
             }
             //Error Handling
             catch(Exception $e){
@@ -182,6 +185,10 @@ class marketservice{
         require_once '../database/data/dbsetting.php';
 
         $genre = array_shift($param);
+
+        if(is_null($genre) || is_numeric($genre)){
+            $this->errorResponse("404","1990", "Invalid Input");
+        }
     
         //Search the market by MarketID
         if($genre ==='marketname'){
@@ -476,7 +483,7 @@ class marketservice{
         //echo "restservicePOST is triggered";
         //echo "<br>";
         //echo "You have reached the service";
-
+        header('Content-Type: application/json');
         require_once '../database/data/dbsetting.php';
 
         $genre = array_shift($param);
