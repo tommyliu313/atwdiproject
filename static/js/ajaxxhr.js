@@ -44,7 +44,7 @@ function update(){
             display += "<th scope='col'>Region</th> <th scope='col'>Market District</th>";
             display += "<th scope='col'>Market Address</th><th scope='col' colspan='2'>Market Contact</th>";
             display += "<th scope='col'>Openinghours</th><th scope='col'>Coordinate</th><th scope='col'>Tenancy Type</th></th>";
-            display += "<th scope='col'>Stall Number</th></tr></thead>";
+            display += "<th scope='col'>Stall Number</th><th scope='col'>Option</th></tr></thead>";
             
             outputArray.forEach(displaythese)
             display += "</table>";
@@ -67,6 +67,8 @@ function displaythese(data){
     display += '<td>' + data['coordinate'] + '</td>';
     display += '<td>' + data['tenancycomd'] + '</td>';
     display += '<td>' + data['nosstall'] + '</td>';
+    display += '<td colspan="2"><button class="btn btn-danger" id="popupinsert" type="button" data-bs-toggle="modal" data-bs-target="#DeleteModal">Delete This Record</button>';
+    display += '<br><button class="btn btn-success" id="popupinsert" type="button" data-bs-toggle="modal" data-bs-target="#UpdateModal">Edit This Record</button></td>';
     display += '</tr>';
 };
 
