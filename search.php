@@ -335,6 +335,13 @@
             </div>
           </div>
             <br>
+            <label for="marketname" class="form-label">Column</label><br>
+          <div class="input-group mb-3 form-group">
+            <div class="input-group">
+              <input type="text" name="marketname" id="marketname" no class="form-control form-control-lg" aria-label="large" placeholder="For Example: ShaTin Public Market">
+            </div>
+          </div>
+            <br>
             <label for="address" class="form-label"> Original Value</label><br>
             <div class="input-group mb-3 form-group">
               <div class="input-group">
