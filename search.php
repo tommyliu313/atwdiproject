@@ -174,7 +174,7 @@
       <form action="restfulapi/index.php/market/newrecord" method="POST" enctype="multipart/form-data">
       <div class="form-group mb-3">
         <label for="districtcol" class="form-label"> District</label>
-          <select name="district" id="district" class="form-select custom-select" no>
+          <select name="district" id="district" class="form-select custom-select" required>
           <option selected="selected" disabled>Choose the following option where the market district is</option>
             <?php
 
@@ -192,7 +192,7 @@
           </select>
           
           <label for="region" class="form-label">Region</label>
-            <select name="region" id="region" class="form-select custom-select" no>
+            <select name="region" id="region" class="form-select custom-select" required>
               <option selected="selected" disabled>Choose the following option where the market region is</option>
               <?php
                 require_once('database/data/dbsetting.php');
@@ -226,30 +226,35 @@
           <div class="input-group mb-3 form-group">
             <div class="input-group-prepend"><span class="input-group-text">+852</span>
             </div>
-            <input type="tel" name="tel1" id="tel1" pattern="[0-9]{8}" no="no" class="form-control" placeholder="For Example: 00000000"><br>
+            <input type="tel" name="tel1" id="tel1" pattern="[0-9]{8}" required class="form-control" placeholder="For Example: 00000000"><br>
           </div>
           
           <label for="tel2" class="form-label">Telephone 2</label><br>
             <div class="input-group mb-3 form-group">
               <div class="input-group-prepend"><span class="input-group-text">+852</span>
               </div>
-              <input type="tel" name="tel2" id="tel2" pattern="[0-9]{8}" no="no" class="form-control" placeholder="For Example: 00000000">
+              <input type="tel" name="tel2" id="tel2" pattern="[0-9]{8}" required class="form-control" placeholder="For Example: 00000000">
             </div>
 
           <label for="Map" class="form-label">Map Location</label><br>
-          <input type="maploc" name="maploc" id="maploc" no="no" class="form-control" placeholder="For Example: 23.1234xx,135.123xxx">
+          <input type="text" name="maploc" id="maploc" required class="form-control" placeholder="For Example: 23.1234xx,135.123xxx">
+            <br>
+          
+          <label for="openinghours" class="form-label">Opening Hours</label><br>
+          <input type="text" name="openinghours" id="openinghours" required class="form-control" placeholder="For Example: 6:00 a.m. to 8:00 p.m.">
           <br>
           <label for="Tenancy Name" class="form-label"> Tenancy Type</label><br>
           <div class="input-group mb-3 form-group">
             <div class="input-group">
-              <input type="text" name="tenancytype" id="tenancytype" no class="form-control form-control-lg" aria-label="large">
+              <input type="text" name="tenancytype" id="tenancytype" required class="form-control form-control-lg" aria-label="large">
             </div>
           </div>
             <br>
+         
             <label for="stallnumber" class="form-label"> Stall Number</label><br>
           <div class="input-group mb-3 form-group">
             <div class="input-group">
-              <input type="number" name="stallno" id="stallno" no class="form-control form-control-lg" aria-label="large" placeholder="Please Input a number">
+              <input type="number" name="stallno" id="stallno" required class="form-control form-control-lg" aria-label="large" placeholder="Please Input a number">
             </div>
           </div>
             <br>

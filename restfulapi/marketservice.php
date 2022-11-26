@@ -3,6 +3,7 @@
 class marketservice{
 
     function errorResponse($status,$code,$message){
+        header("application/json");
         http_response_code($status);
         $error = array();
         $error['status'] = 'error';
@@ -11,13 +12,13 @@ class marketservice{
         echo json_encode($error);
     }
 
-    function successResponse($status,$code,$message){
-        http_response_code($status);
-        $output = array();
-        $output['status'] = 'success';
-        $output['code'] =  $code;
-        $output['message'] = $message;
-        echo json_encode($output);
+    function successResponse(){
+        http_response_code(200);
+        $success = array();
+        $success['status'] = 'success';
+        $success['code'] = 2000;
+        $success['message'] = "Your action has been successfully accomplished.";
+        echo json_encode($success);
     }
     // GET
     // MISSION:
@@ -73,7 +74,7 @@ class marketservice{
                 $this-> errorResponse("404","1993","Error Occur after querying the database.");
             }
             finally{
-                $return[] = array($this->successResponse("200","200","1231"));
+                $return[] = array($this->successResponse());
                 echo json_encode(array_merge($return,$outcome));
             }
         }
@@ -106,9 +107,9 @@ class marketservice{
                     $content['tenancycomd']=$row['tenancycomd'];
                     $content['nosstall']=$row['nosstall'];
                     $outcome[] = $content;
-                    
+                   
                 }
-                echo json_encode($outcome);
+                 echo json_encode($outcome);
                     
             }
             //Error Handling
@@ -188,12 +189,12 @@ class marketservice{
             $this->errorResponse("404","1990", "Invalid Input");
         }
     
-        //Search the market by MarketID
-        if($genre ==='marketname'){
+        //Search the market by record
+        if($genre ==='record'){
 
-            $marketname = array_shift($param);
+            $record = array_shift($param);
             
-            if(!isset($marketname) || is_null($marketname)){
+            if(!isset($record) || is_null($record)){
                 $this-> errorResponse("404","1991","Missing Parameter");
             }
             else{
@@ -202,7 +203,7 @@ class marketservice{
             try{
                 $result = $connection->query($sql);
                 while($row = mysqli_fetch_object($result)){
-                    $this-> successResponse("202","2000","Result Success");
+                    $this-> successResponse();
                 }   
                 echo json_encode($content);
             }
@@ -215,91 +216,6 @@ class marketservice{
             }}
 }   
 
-    //Search the market by district
-    if($genre === 'district'){
-
-        $district = array_shift($param);
-
-        if(!isset($district)){
-             $this->errorResponse("404","1991", "Missing Parameters");
-        }
-        else{
-            $sql = "SELECT DISTINCT districtname, marketname FROM market WHERE districtname = '$district'";
-       
-        try{
-            $result = $connection->query($sql);
-            while($row = mysqli_fetch_object($result)){
-                http_response_code(200);
-                $content = array();
-                $content['districtname'] = $row->districtname;
-                $content['marketname'] = $row->marketname;
-                echo json_encode($content);
-            }
-            
-        }
-        //Error Handling
-        catch(Exception $e){
-            http_response_code(404);
-            $output = array();
-            $output['status'] = 'error';
-            $output['code'] = '1993';
-            $output['message'] = 'Error Occur after querying the database.';
-            echo json_encode($output);
-        }
-
-    }
-    if(empty($genre) || is_null($genre)){
-        http_response_code(404);
-        $output = array();
-        $output['code'] = "1990";
-        $output["message"] = "Invalid Input";
-        echo json_encode($error);
-    }
-
-
-}       
-    if($genre === 'district'){
-        $district = array_shift($param);
-
-    if(!isset($district)){
-        http_response_code(404);
-        $output = array();
-        $output['code'] = '1991';
-        $output['message'] ='missing parameter';
-        echo json_encode($output);
-    }
-    else{
-        $sql = "SELECT DISTINCT districtname, marketname FROM market WHERE districtname = '$district'";
-
-    try{
-        $result = $connection->query($sql);
-        while($row = mysqli_fetch_object($result)){
-            http_response_code(200);
-            $content = array();
-            $content['districtname'] = $row->districtname;
-            $content['marketname'] = $row->marketname;
-            echo json_encode($content);
-        }
-
-    }
-    //Error Handling
-    catch(Exception $e){
-        http_response_code(404);
-        $output = array();
-        $output['status'] = 'error';
-        $output['code'] = '1993';
-        $output['message'] = 'Error Occur after query the database.';
-        echo json_encode($output);
-    }
-
-    }
-    if(empty($genre)){
-        $this->errorResponse("404","1990", "Invalid Input");
-        echo json_encode($output);
-    }
-
-
-}
 
 
 
@@ -469,14 +385,13 @@ class marketservice{
     // CREATE A NEW MARKET RECORDS
     // CREATE A NEW TENANCY FROM THE EXISTING/ NEW RECORDS
     function restservicePOST($param){
-        echo "restservicePOST is triggered";
-        echo "<br>";
-        echo "You have reached the service";
-        header('Content-Type: application/json');
+        //echo "restservicePOST is triggered";
+        //echo "<br>";
+        //echo "You have reached the service";
         
-        var_dump($_POST);
-        echo "<br>";
-        var_dump(file_get_contents("php://input"));
+        //var_dump($_POST);
+        //echo "<br>";
+        //var_dump(file_get_contents("php://input"));
 
         require_once '../database/data/dbsetting.php';
 
@@ -490,119 +405,40 @@ class marketservice{
     
         //Search the market by MarketID
         if($genre ==='newrecord'){
+            $district = $_POST['district'];
+            $region = $_POST['region'];
+            $marketname = $_POST['marketname'];
+            $address = $_POST['address'];
+            $contact1 = $_POST['tel1'];
+            $contact2 = $_POST['tel2'];
+            $coordinates = $_POST['maploc'];
+            $tenancy = $_POST['tenancytype'];
+            $openinghours = $_POST['openinghours'];
+            $stallnumber = $_POST['stallno'];            
 
-            $json_string = json_encode($param);
-            print_r($param);
-
-            if(!isset($marketId) && !is_null($marketId)){
-                http_response_code(400);
-                $output = array();
-                $output['status'] = "error";
-                $output['code'] = '1990';
-                $output['message'] ='missing parameter';
-                echo json_encode($output);
-            }
-            else{
-    
-                }
-}   
-
-    //Search the market by district
-    if($genre === 'district'){
-
-        $district = array_shift($param);
-
-        if(!isset($district)){
-            http_response_code(400);
-            $error = array();
-            $error['code'] = '1990';
-            $error['message'] ='missing parameter';
-            echo json_encode($error);
-        }
-        else{
-            $sql = " FROM market WHERE districtname = '$district'";
-       
-        try{
+            //echo $district.'<br>';
+            //echo $region.'<br>';
+            //echo $marketname.'<br>';
+            $sql = "INSERT INTO market (
+                   districtname, regionname, marketname,marketaddress,contact1,contact2,
+                   tenancycomd,openinghour,stallno, maploc
+             )                
+              VALUES('$district','$region','$marketname','$address','$contact1','$contact2',
+               '$tenancy','$openinghours','$stallnumber','$coordinates')";
             $result = $connection->query($sql);
-            while($row = mysqli_fetch_object($result)){
-                http_response_code(200);
-                $content = array();
-                $content['districtname'] = $row->districtname;
-                $content['marketname'] = $row->marketname;
-                echo json_encode($content);
-            }
-            
-        }
-        //Error Handling
-        catch(Exception $e){
-            var_dump(http_response_code(404));
-            $output = array();
-            $output['status'] = 'error';
-            $output['code'] = '1991';
-            $output['message'] = 'SQL execution failure';
-        }
+          
+            if($result){
+                $this->successResponse();
+            }else{
+            $this->errorResponse("404","1992","Not Found");
+        }    }
 
-    }
-    if(empty($genre)){
-        http_response_code(424);
-        $error = array();
-        $error['code'] = "1990";
-        $error["message"] = "Invalid Input";
-        echo json_encode($error);
-    }
+        /* while($row = mysqli_fetch_object($result)){
 
-
-}       
-    if($genre === 'district'){
-        $district = array_shift($param);
-
-    if(!isset($district)){
-        http_response_code(400);
-        $error = array();
-        $error['code'] = '1990';
-        $error['message'] ='missing parameter';
-        echo json_encode($error);
-    }
-    else{
-        $sql = "SELECT DISTINCT districtname, marketname FROM market WHERE districtname = '$district'";
-
-    try{
-        $result = $connection->query($sql);
-        while($row = mysqli_fetch_object($result)){
-            http_response_code(200);
-            $content = array();
-            $content['districtname'] = $row->districtname;
-            $content['marketname'] = $row->marketname;
-            echo json_encode($content);
-        }
-
-    }
-    //Error Handling
-    catch(Exception $e){
-        var_dump(http_response_code(404));
-        $output = array();
-        $output['status'] = 'error';
-        $output['code'] = '1991';
-        $output['message'] = 'SQL execution failure';
-    }
-
-    }
-    if(empty($genre) || is_null($genre) || is_numeric($genre)){
-        http_response_code(404);
-        $error = array();
-        $error['code'] = "1990";
-        $error["message"] = "Invalid Input";
-        echo json_encode($error);
-    }
-
-
-}
-
-
-
+        }  */     
+   
     }
    
-
 }
 ?>
 
