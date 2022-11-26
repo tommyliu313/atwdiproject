@@ -29,7 +29,7 @@
         <ul class="navbar-nav">
         <li class="nav-item active"><a class="nav-link" href="index.html"> Index</a></li>
         <li class="nav-item"><a class="nav-link" href="search.php">  Search and Insert Page</a></li>
-          <li class="nav-item"><a class="nav-link" href=""> Your Record History</a></li>
+        <li class="nav-item"><a class="nav-link" href="reference.php"> Reference</a></li>
           <li class="nav-item"><a href="webmap.html" class="nav-link">Web Map</a></li>
         </ul>
       </div>
@@ -51,7 +51,26 @@
     <div id="collapseOne" class="accordion-collapse collapsing" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
       <div class="accordion-body">
       <table class="table table-striped table">
-        <tr><td>District</td><td>
+        <tr><td>Region</td><td>
+              <select class='form-select' id='inputvalue2'>
+              <option selected='selected' disabled>Region</option>
+              <option disabled> Please select the Region</option>
+        <?php
+            require_once('database/data/dbsetting.php');
+            
+            $sql = "SELECT DISTINCT regionname FROM market";
+            $result = mysqli_query($connection,$sql);
+
+            while($row = mysqli_fetch_object($result)){
+              $option = "<option value='$row->regionname'>$row->regionname";
+              $option .= "</option>";
+              echo $option;}
+              ?>
+              </select>
+            </td>
+          <td> <td><button class="btn btn-primary"onclick="find2(); return false;">Click to see Result</button></td></td>
+          </tr>
+          <tr><td>District</td><td>
         <select class='form-select' id='inputvalue1'>
         <option selected='selected' disabled>District</option>
           <option disabled> Please select the district</option>
@@ -72,25 +91,7 @@
               <td><button class="btn btn-primary" onclick="find1(); return false;">Click to see Result</button></td>
               </td>
               
-              <tr><td>Region</td><td>
-              <select class='form-select' id='inputvalue2'>
-              <option selected='selected' disabled>Region</option>
-              <option disabled> Please select the Region</option>
-        <?php
-            require_once('database/data/dbsetting.php');
-            
-            $sql = "SELECT DISTINCT regionname FROM market";
-            $result = mysqli_query($connection,$sql);
-
-            while($row = mysqli_fetch_object($result)){
-              $option = "<option value='$row->regionname'>$row->regionname";
-              $option .= "</option>";
-              echo $option;}
-              ?>
-              </select>
-            </td>
-          <td> <td><button class="btn btn-primary"onclick="find2(); return false;">Click to see Result</button></td></td>
-          </tr>
+              
           <tr>
             <td>Market Name</td>
             <td>
@@ -170,7 +171,7 @@
           </div>";
           
         ?>
-      <form action="" method="POST" enctype="multipart/form-data">
+      <form action="restfulapi/index.php/market/newrecord" method="POST" enctype="multipart/form-data">
       <div class="form-group mb-3">
         <label for="districtcol" class="form-label"> District</label>
           <select name="district" id="district" class="form-select custom-select" no>
@@ -279,7 +280,7 @@
       </div>
       <div class="modal-footer">
       <input type="reset" value="Reset" name="No" class="btn btn-danger">
-      <button type="submit" value="Submit" name="Submit" class="btn btn-success" >Yes</button>
+      <button type="submit" value="Submit" name="Submit" class="btn btn-success" onClick="()" >Yes</button>
       </div>   </form>
     </div>
   </div>
@@ -294,11 +295,11 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <form action="/" method="POST" enctype="multipart/form-data">
+      <form action="result.php" method="POST" enctype="multipart/form-data">
       <div class="form-group mb-3">
         <label for="districtcol" class="form-label"> District</label>
-          <select name="District" id="" class="form-select custom-select" no>
-          <option selected="selected">Choose the following option where the market district is</option>
+          <select name="district" id="" class="form-select custom-select" no>
+          <option selected="selected" disabled>Choose the following option where the market district is</option>
             <?php
               require_once('database/data/dbsetting.php');
               
@@ -314,7 +315,7 @@
           
           <label for="region" class="form-label">Region</label>
             <select name="region" id="" class="form-select custom-select" no>
-              <option selected="selected">Choose the following option where the market region is</option>
+              <option selected="selected" disabled>Choose the following option where the market region is</option>
               <?php
                 require_once('database/data/dbsetting.php');
             
@@ -342,13 +343,6 @@
             </div>
           </div>
             <br>
-            <label for="address" class="form-label"> Original Value</label><br>
-            <div class="input-group mb-3 form-group">
-              <div class="input-group">
-                <input type="text" name="address" id="address" no class="form-control form-control-lg" aria-label="large" maxlength="120" placeholder="For Example: 160 TSAT TSZ MUI ROAD, NORTH POINT, HK">
-              </div>
-            </div>
-              <br>
 
           <label for="tel1" class="form-label">Replace Value</label><br>
           <div class="input-group mb-3 form-group">
@@ -362,6 +356,7 @@
       <input type="reset" value="Reset" name="Reset" class="btn btn-danger">
       <button type="submit" value="Submit" name="Submit" class="btn btn-success" >Insert</button>
       </div>   </form>
+      
     </div>
   </div>
 </div>

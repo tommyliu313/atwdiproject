@@ -30,6 +30,18 @@ function find3(){
     request.onreadystatechange = update;
     request.send(null);
 };
+/*
+function delete(){
+
+}
+    var inputValue = document.getElementById("inputvalue4").value;
+    var destination = baseUri + "marketname/" +  inputValue;
+
+    request.open("GET",destination, true);
+    request.onreadystatechange = update;
+    request.send(null);
+};
+*/
 
 //Renderer Process
 function update(){

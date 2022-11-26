@@ -29,7 +29,7 @@
         <ul class="navbar-nav">
         <li class="nav-item active"><a class="nav-link" href="index.html"> Index</a></li>
         <li class="nav-item"><a class="nav-link" href="search.php">  Search and Insert Page</a></li>
-          <li class="nav-item"><a class="nav-link" href=""> Your Record History</a></li>
+          <li class="nav-item"><a class="nav-link" href="reference.php"> Reference</a></li>
           <li class="nav-item"><a href="webmap.html" class="nav-link">Web Map</a></li>
         </ul>
       </div>
@@ -39,176 +39,27 @@
 
 <div class="mt-4 p-5 bg-warning text-black rounded">
   <h1>Reference</h1></div>
-
-  <div class="accordion" id="accordionExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        Accordion Item #1
-      </button>
-    </h2>
-    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-      </div>
-    </div>
-  </div>
-          <?php
-            require_once('database/data/dbsetting.php');
-            
-            echo "<select class='form-select'><option selected='selected'>Region</option><option> Please select the region</option>";
-            $sql = "SELECT DISTINCT regionname FROM market";
-            $result = mysqli_query($connection,$sql);
-
-            while($row = mysqli_fetch_object($result)){
-              $option = "<option value='.$row->regionname.'>$row->regionname";
-              $option .= "</option>";
-              echo $option;}
-              ?>
-            </select>
-        </th>
-        <th>
-          <?php
-            require_once('database/data/dbsetting.php');
-            
-            echo "";
-            
-            $sql = "SELECT DISTINCT districtname FROM market";
-            $result = mysqli_query($connection,$sql);
-      
-            while($row = mysqli_fetch_object($result)){
-            
-              $option = "<option value='$row->districtname'>$row->districtname";
-              $option .= "</option>";
-              echo $option;}
-            
-            ?>
-            </select>
-        </th>
-        <th>
-        <button class="btn btn-success" id="search"> Submit</button>
-        <button class="btn btn-info" id="popupinsert" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Insert Market</button>
-      </th>
-    </tr>
-</table>
-<!--mysqlifearray.php start-->
-<?php
+  <?php
     require_once('database/data/dbsetting.php');
-    $sql = "SELECT * FROM market";
+    $sql = "SELECT * FROM reference";
     $result = mysqli_query($connection,$sql);
+    
     echo "<table border='1' class='table table-success table-border table-striped table-repsonsive'>";
-    echo "<thead><tr>
-    <th scope='col'>Market No</th><th scope='col'>Market Name</th>
-          <th scope='col'>Region</th> <th scope='col'>Market District</th>
-          <th scope='col'>Market Address</th><th scope='col' colspan='2'>Market Contact</th>
-          <th scope='col'>Openinghours</th></th><th scope='col'>Tenancy Type</th></th>
-          <th scope='col'>Stall Number</th>
+    echo "<thead><tr class='active'>
+          <th scope='col'>Region</th> <th scope='col'>District</th>
           </tr></thead>";
     while($row = mysqli_fetch_object($result)){
         $content = "<tr>";
-        $content .= "<td>$row->marketId</td>";
-        $content .= "<td>$row->marketname</td>";
         $content .= "<td>$row->regionname</td>";
         $content .= "<td>$row->districtname</td>";
-        $content .= "<td>$row->marketaddress</td>";
-        $content .= "<td colspan='2'>$row->contact1<br>$row->contact2</td>";
-        $content .= "<td>$row->openinghour</td>";
-        $content .= "<td>$row->tenancycomd</td>";
-        $content .= "<td>$row->nosstall</td>";
         $content .= "</tr>";
 
         echo $content;
     }
     echo "</table>";
 ?>
+  
 
-<a href="#"><button class="btn modal-button" aria-haspopup="true"><strong>Top</strong></button></a>
-
-
-<!--popup window start-->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Insert New Market</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-      <form action="/" method="POST" enctype="multipart/form-data">
-      <div class="form-group mb-3">
-        <label for="districtcol" class="form-label"> District</label>
-          <select name="District" id="" class="form-select custom-select" required>
-            <?php ?>
-            <option selected="selected">Choose the following option where the market district is</option>
-            <option value=""></option>
-          </select>
-          
-          <label for="region" class="form-label">Region</label>
-            <select name="region" id="" class="form-select custom-select" required>
-              <option selected="selected">Choose the following option where the market region is</option>
-              <option value=""></option>
-            </select>
-            
-          <label for="marketname" class="form-label"> Market Name</label><br>
-          <div class="input-group mb-3 form-group">
-            <div class="input-group">
-              <input type="text" name="marketname" id="marketname" required class="form-control form-control-lg" aria-label="large" placeholder="For Example: ShaTin Public Market">
-            </div>
-          </div>
-            <br>
-            <label for="address" class="form-label"> Address</label><br>
-            <div class="input-group mb-3 form-group">
-              <div class="input-group">
-                <input type="text" name="address" id="address" required class="form-control form-control-lg" aria-label="large" maxlength="120" placeholder="For Example: 160 TSAT TSZ MUI ROAD, NORTH POINT, HK">
-              </div>
-            </div>
-              <br>
-
-          <label for="tel1" class="form-label">Telephone 1</label><br>
-          <div class="input-group mb-3 form-group">
-            <div class="input-group-prepend"><span class="input-group-text">+852</span>
-            </div>
-            <input type="tel" name="tel1" id="" pattern="[0-9]{4}-[0-9]{4}" required="required" class="form-control" placeholder="For Example: 0000-0000"><br>
-          </div>
-          
-          <label for="tel2" class="form-label">Telephone 2</label><br>
-            <div class="input-group mb-3 form-group">
-              <div class="input-group-prepend"><span class="input-group-text">+852</span>
-              </div>
-              <input type="tel" name="tel2" id="" pattern="[0-9]{4}[0-9]{4}" required="required" class="form-control" placeholder="For Example: 0000-0000">
-            </div>
-
-          <label for="Map" class="form-label">Map Location</label><br>
-          <iframe src="http://maps.google.com/maps?q=&output=embed" frameborder="0" width="400" height="500"></iframe>
-          <br>
-      </div>
-   
-      </div>
-      <div class="modal-footer">
-      <input type="reset" value="Reset" name="Reset" class="btn btn-danger">
-      <input type="submit" value="Submit" name="Submit" class="btn btn-success">
-      </div>   </form>
-    </div>
-  </div>
-</div>
-<!--popup window end-->
-
-<!--paginationstart-->
-<nav aria-label="Page navigation">
-  <ul class="pagination">
-    <li class="page-item">
-      <a href="search.php?page=" class="page-link" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li class="page-item">
-      <a href="search.php?page=" class="page-link" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-</nav>
-<!--paginationend-->
 
 <!--redirect-->
 
