@@ -234,8 +234,7 @@ class marketservice{
 
         $genre = array_push($param);
     
-        //Search the market by MarketID
-        if($genre ==='district'){
+        if($genre ===''){
 
             $district = array_shift($param);
             
@@ -421,7 +420,7 @@ class marketservice{
             //echo $marketname.'<br>';
             $sql = "INSERT INTO market (
                    districtname, regionname, marketname,marketaddress,contact1,contact2,
-                   tenancycomd,openinghour,stallno, maploc
+                   tenancycomd,openinghour,nosstall, coordinate
              )                
               VALUES('$district','$region','$marketname','$address','$contact1','$contact2',
                '$tenancy','$openinghours','$stallnumber','$coordinates')";

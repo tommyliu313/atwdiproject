@@ -146,31 +146,6 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <?php
-          $district = htmlspecialchars($_POST["district"] ?? "", ENT_QUOTES);
-          $region = htmlspecialchars($_POST["region"] ?? "", ENT_QUOTES);
-          $marketname = htmlspecialchars($_POST["marketname"] ?? "", ENT_QUOTES);
-          $address = htmlspecialchars($_POST["address"] ?? "", ENT_QUOTES);
-          $tel1 = htmlspecialchars($_POST["tel1"] ?? "", ENT_QUOTES);
-          $tel2 = htmlspecialchars($_POST["tel2"] ?? "", ENT_QUOTES);
-          $maploc = htmlspecialchars($_POST["maploc"] ?? "", ENT_QUOTES);
-          $tenancytype = htmlspecialchars($_POST["tenancytype"] ?? "", ENT_QUOTES);
-          $stallno = htmlspecialchars($_POST["stallno"] ?? "", ENT_QUOTES);
-          
-          echo "<div class='mb-3'>
-          district: $district <br>
-          region: $region <br>
-          marketname: $marketname <br>
-          address: $address <br>
-          telephone1: $tel1 <br>
-          telephone2: $tel2 <br>
-          maplocation: $maploc <br>
-          tenancytype: $tenancytype<br>
-          stallno: $stallno <br>
-          
-          </div>";
-          
-        ?>
       <form action="restfulapi/index.php/market/newrecord" method="POST" enctype="multipart/form-data">
       <div class="form-group mb-3">
         <label for="districtcol" class="form-label"> District</label>
@@ -302,56 +277,30 @@
       <div class="modal-body">
       <form action="result.php" method="POST" enctype="multipart/form-data">
       <div class="form-group mb-3">
-        <label for="districtcol" class="form-label"> District</label>
-          <select name="district" id="" class="form-select custom-select" no>
-          <option selected="selected" disabled>Choose the following option where the market district is</option>
-            <?php
-              require_once('database/data/dbsetting.php');
-              
-              $sql = "SELECT DISTINCT districtname FROM market";
-              $result = mysqli_query($connection,$sql);
-              while($row = mysqli_fetch_object($result)){
-                $option = "<option value='$row->districtname'>$row->districtname";
-                $option .= "</option>";
-                echo $option;}
-              
-              ?>
-          </select>
-          
-          <label for="region" class="form-label">Region</label>
-            <select name="region" id="" class="form-select custom-select" no>
-              <option selected="selected" disabled>Choose the following option where the market region is</option>
-              <?php
-                require_once('database/data/dbsetting.php');
-            
-                $sql = "SELECT DISTINCT regionname FROM market";
-                $result = mysqli_query($connection,$sql);
-
-                while($row = mysqli_fetch_object($result)){
-                  $option = "<option value='$row->regionname'>$row->regionname";
-                  $option .= "</option>";
-                  echo $option;}
-              ?>
-            </select>
-            
-          <label for="marketname" class="form-label">Target Market Name</label><br>
-          <div class="input-group mb-3 form-group">
-            <div class="input-group">
-              <input type="text" name="marketname" id="marketname" no class="form-control form-control-lg" aria-label="large" placeholder="For Example: ShaTin Public Market">
-            </div>
-          </div>
-            <br>
+                  
             <label for="marketname" class="form-label">Column</label><br>
           <div class="input-group mb-3 form-group">
             <div class="input-group">
-              <input type="text" name="marketname" id="marketname" no class="form-control form-control-lg" aria-label="large" placeholder="For Example: ShaTin Public Market">
+              form[action="restfulapi/index.php/market/updaterecord"]
+            <select name="region" id="region" class="form-select custom-select" required>
+              <option value="marketname">Market Name</option>
+              <option value="districtname">Market District</option>
+              <option value="regionname">Region</option>
+              <option value="marketaddress">Market Address</option>
+              <option value="coordinate">Coordinate</option>
+              <option value="contact1">Market Contact Telephone Number 1</option>
+              <option value="contact2">Market Contact Telephone Number 2</option>
+              <option value="tenancycomd">Tenancy Type</option>
+              <option value="opeeninghour">Openinghours</option>
+              <option value="nostall">Stall Number</option>
+            </select>
             </div>
           </div>
             <br>
 
           <label for="tel1" class="form-label">Replace Value</label><br>
           <div class="input-group mb-3 form-group">
-              <input type="text" name="address" id="address" no class="form-control form-control-lg" aria-label="large" maxlength="120" placeholder="For Example: 160 TSAT TSZ MUI ROAD, NORTH POINT, HK">
+              <input type="text" name="newvalue" id="newvalue" require class="form-control form-control-lg" aria-label="large" maxlength="120" placeholder="Replace Value">
           </div>
         
       </div>
