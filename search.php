@@ -275,13 +275,12 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <form action="result.php" method="POST" enctype="multipart/form-data">
+      <form action="restfulapi/index.php/market/updaterecord" method="PUT" enctype="x-www-form-urlencoded">
       <div class="form-group mb-3">
                   
             <label for="marketname" class="form-label">Column</label><br>
           <div class="input-group mb-3 form-group">
             <div class="input-group">
-              form[action="restfulapi/index.php/market/updaterecord"]
             <select name="region" id="region" class="form-select custom-select" required>
               <option value="marketname">Market Name</option>
               <option value="districtname">Market District</option>
@@ -302,13 +301,13 @@
           <div class="input-group mb-3 form-group">
               <input type="text" name="newvalue" id="newvalue" require class="form-control form-control-lg" aria-label="large" maxlength="120" placeholder="Replace Value">
           </div>
-        
+        </form>
       </div>
    
       </div>
       <div class="modal-footer">
       <input type="reset" value="Reset" name="Reset" class="btn btn-danger">
-      <button type="submit" value="Submit" name="Submit" class="btn btn-success" >Insert</button>
+      <button type="submit" value="Submit" name="Submit" class="btn btn-success">Insert</button>
       </div>   </form>
       
     </div>
