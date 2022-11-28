@@ -25,3 +25,7 @@ button.btn.modal-button {
     margin-left: 30;
     margin-right: auto;
   }
+
+  span{
+    color: #ff0000;
+  }

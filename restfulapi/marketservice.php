@@ -190,22 +190,20 @@ class marketservice{
         }
     
         //Search the market by record
-        if($genre ==='record'){
+        if($genre ==='deleterecord'){
 
-            $record = array_shift($param);
-            
             if(!isset($record) || is_null($record)){
                 $this-> errorResponse("404","1991","Missing Parameter");
             }
             else{
-                $sql = "DELETE FROM market WHERE marketname = '$marketname'";
+                
+                $sql = "DELETE FROM market WHERE marketId = '$record'";
        
             try{
                 $result = $connection->query($sql);
                 while($row = mysqli_fetch_object($result)){
                     $this-> successResponse();
                 }   
-                echo json_encode($content);
             }
             catch(Exception $e){
                 http_response_code(404);

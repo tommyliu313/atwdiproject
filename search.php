@@ -146,9 +146,11 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <form action="restfulapi/index.php/market/newrecord" method="POST" enctype="multipart/form-data">
+      <form action="restfulapi/index.php/market/newrecord" method="POST" enctype="multipart/form-data" onsubmit="event.preventDefault();" autocomplete="off">
       <div class="form-group mb-3">
-        <label for="districtcol" class="form-label"> District</label>
+        <label for="districtcol" class="form-label"> District 
+              <span><?php require_once('validate.php'); echo $district_error; ?></span>
+        </label>
           <select name="district" id="district" class="form-select custom-select" required>
           <option selected="selected" disabled>Choose the following option where the market district is</option>
             <?php
@@ -248,21 +250,25 @@
  <div class="modal fade" id="DeleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
+      <form action="restfulapi/index.php/market/deleterecord" method="DELETE"  enctype="multipart/form-data">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Delete this record</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
       <div class="form-group mb-3">
+                
+      You are going to delete Market Number: <br>
+      <input type="text" class="form-control" name="confirmdelnum" id="confirmdelnum" placeholder="Input this market number to confirm delete this market record"><br>
       Are you sure to delete this record? The action is irreversible.
       </div>
    
       </div>
       <div class="modal-footer">
       <input type="reset" value="Reset" name="No" class="btn btn-danger">
-      <button type="submit" value="Submit" name="Submit" class="btn btn-success" onClick="()" >Yes</button>
-      </div>   </form>
-    </div>
+      <button type="submit" value="Submit" name="Submit" class="btn btn-success" onClick="deleterecord();">Yes</button>
+      </div>   
+    </div></form>
   </div>
 </div>
 <!--Popup Modal Delete End-->
@@ -316,5 +322,3 @@
 <!--Popup Modal Update End-->
 </body>
 </html>
-
-/restfulapi/index.php/newrecord

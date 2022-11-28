@@ -31,17 +31,16 @@ function find3(){
     request.send(null);
 };
 /*
-function delete(){
+*/
 
-}
-    var inputValue = document.getElementById("inputvalue4").value;
-    var destination = baseUri + "marketname/" +  inputValue;
+function deleterecord(){
 
-    request.open("GET",destination, true);
+    var inputValue = document.getElementById("confirmdelnum").value;
+    var destination = baseUri + "deleterecord/" +  inputValue;
+    request.open("DELETE",destination, true);
     request.onreadystatechange = update;
     request.send(null);
-};
-*/
+}
 
 //Renderer Process
 function update(){
@@ -79,7 +78,7 @@ function displaythese(data){
     display += '<td>' + data['coordinate'] + '</td>';
     display += '<td>' + data['tenancycomd'] + '</td>';
     display += '<td>' + data['nosstall'] + '</td>';
-    display += '<td colspan="2"><button class="btn btn-danger" id="popupinsert" type="button" data-bs-toggle="modal" data-bs-target="#DeleteModal">Delete This Record</button>';
+    display += '<td colspan="2"><button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#DeleteModal" onClick="DeleteRecord()">Delete This Record</button>';
     display += '<br><button class="btn btn-success" id="popupinsert" type="button" data-bs-toggle="modal" data-bs-target="#UpdateModal">Edit This Record</button></td>';
     display += '</tr>';
 };
