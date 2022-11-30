@@ -83,7 +83,7 @@ class marketservice{
         //Search the market by district
         if($genre === 'district'){
             $district = array_shift($param);
-            if(!isset($district) ||! is_string($district)){
+            if(!isset($district) || !is_string($district)){
                 $this-> errorResponse("404","1991","Missing Parameter");
             }
             else{
@@ -238,31 +238,31 @@ class marketservice{
                $this->errorResponse("404","1991","Missing Parameter");
             }
             else{
-                    $marketId = array_shift($param);
-                if(!isset($marketId) || !is_numeric($marketId) || is_null($marketId)){
+                $marketId = array_shift($param);
+                if(!isset($marketId) || is_null($marketId)){
                     $this->errorResponse("404","1991","Missing Parameter");
                  }
                 else{
-                    $columnname= array_shift($param);
+                    $columnname = array_shift($param);
                     if(!isset($columnname) || !is_string($columnname) || is_null($columnname)){
-                        $this->errorResponse("404","1991","Missing Parameter");
-                }
-                else{
-                    $newvalue= array_shift($param);
-                    if(!isset($newvalue) || !is_string($newvalue) || is_null($newvalue)){
-                        $this->errorResponse("404","1991","Missing Parameter");
-                    }else{
-                          $sql = "UPDATE market SET $columnname = '$newvalue' WHERE marketId = '$marketId' ";
-                          $result = $connection->query($sql);
-                        if($result){
-                            $this->successResponse();
+                        $this->errorResponse("404","1991","Missing Parameter");}
+                    else{
+                        $newvalue = array_shift($param);
+                        if(!isset($newvalue) || is_null($newvalue)){
+                            $this->errorResponse("404","1991","Missing Parameter");
                         }
                         else{
-                            $this->errorResponse("404","1992","Not Found");
+                              $sql = "UPDATE market SET $columnname = '$newvalue' WHERE marketId = '$marketId' ";
+                              $result = $connection->query($sql);
+                        if($result){
+                          $this->successResponse();
+                        }
+                        else{
+                          $this->errorResponse("404","1992","Not Found");
                         }
                     }}
                 }
-                }
+               }
             }
         }   
   

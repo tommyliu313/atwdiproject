@@ -36,7 +36,7 @@ class urlprocess{
         //echo "servicefile: " . $servicefile;
 
         if(!file_exists($servicefile)){
-            $this->errorResponse("404","1990", "Invalid Input");
+            $this->errorResponse("501","1994", "This Service Does Not Exist");
 
             exit;
         }else{
