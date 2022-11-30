@@ -33,11 +33,22 @@ function find3(){
 /*
 */
 
-function deleterecord(){
+function deleterecord($marketId){
 
-    var inputValue = document.getElementById("confirmdelnum").value;
+    var inputValue = $marketId;
+    
     var destination = baseUri + "deleterecord/" +  inputValue;
     request.open("DELETE",destination, true);
+    request.onreadystatechange = update;
+    request.send(null);
+}
+
+function editrecord($marketId){
+    var inputValue = $marketId;
+    var columnname= document.getElementById("columnname").value;
+    var newvalue = document.getElementById("newvalue").value;
+    var destination = baseUri + "updaterecord/" +  inputValue + "/" + columnname + "/" + newvalue;
+    request.open("PUT",destination, true);
     request.onreadystatechange = update;
     request.send(null);
 }
@@ -78,8 +89,11 @@ function displaythese(data){
     display += '<td>' + data['coordinate'] + '</td>';
     display += '<td>' + data['tenancycomd'] + '</td>';
     display += '<td>' + data['nosstall'] + '</td>';
-    display += '<td colspan="2"><button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#DeleteModal" onClick="DeleteRecord()">Delete This Record</button>';
-    display += '<br><button class="btn btn-success" id="popupinsert" type="button" data-bs-toggle="modal" data-bs-target="#UpdateModal">Edit This Record</button></td>';
+    display += '<td colspan="2">';
+    display += '<button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#DeleteModal" ';
+    display += 'onclick="javascript:deleterecord('+"'"+data['marketId']+"'"+')">Delete This Record</button>';
+    display += '<br><button class="btn btn-success" id="popupinsert" type="button" data-bs-toggle="modal" data-bs-target="#UpdateModal" ';
+    display += 'onclick="javascript:editrecord('+"'"+data['marketId']+"'"+')">Edit This Record</button></td>';
     display += '</tr>';
 };
 

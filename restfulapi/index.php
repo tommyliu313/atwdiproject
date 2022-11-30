@@ -3,6 +3,16 @@ class urlprocess{
     private $pinfo;
     private $spliturl;
 
+    function errorResponse($status,$code,$message){
+        header("application/json");
+        http_response_code($status);
+        $error = array();
+        $error['status'] = 'error';
+        $error['code'] =  $code;
+        $error['message'] = $message;
+        echo json_encode($error);
+    }
+
     function __construct(){
         if(!isset($_SERVER['PATH_INFO'])){
             echo 'Usage: index.php/{resource name}';
@@ -26,12 +36,7 @@ class urlprocess{
         //echo "servicefile: " . $servicefile;
 
         if(!file_exists($servicefile)){
-            http_response_code(404);
-            $output = array();
-            $output['status'] = 'error';
-            $output['code'] = '1990';
-            $output['message'] = "Invalid Input";
-            echo json_encode($output);
+            $this->errorResponse("404","1990", "Invalid Input");
 
             exit;
         }else{

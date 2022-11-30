@@ -185,96 +185,78 @@ class marketservice{
 
         $genre = array_shift($param);
 
-        if(is_null($genre) || is_numeric($genre)){
-            $this->errorResponse("404","1990", "Invalid Input");
+        $errorlist = array();
+
+        if(!is_numeric($genre) || is_null($genre)){
+            array_push($errorlist,array($this->errorResponse("404","1990", "Invalid Input")));
+            echo $errorlist;
         }
     
         //Search the market by record
         if($genre ==='deleterecord'){
 
-            if(!isset($record) || is_null($record)){
+            $number = array_shift($param);
+
+            if(is_null($number) || !is_numeric($number)){
                 $this-> errorResponse("404","1991","Missing Parameter");
             }
             else{
                 
-                $sql = "DELETE FROM market WHERE marketId = '$record'";
+                $sql = "DELETE FROM market WHERE marketId = $number";
        
-            try{
+           
                 $result = $connection->query($sql);
-                while($row = mysqli_fetch_object($result)){
+                if($result){
                     $this-> successResponse();
-                }   
-            }
-            catch(Exception $e){
-                http_response_code(404);
-                $output['status'] = 'error';
-                $output['code'] = '1993';
-                $output['message'] = 'Error Occur after querying the database.';
-                echo json_encode($output);
+                }else{
+                    $this-> errorResponse("404","1993","Error Occur after querying the database. Maybe You have already deleted the record");
+                }
             }}
-}   
-
-
-
-
-    }
+            }   
 
     // PUT:
     // JUST UPDATE A VALUE OF A COLUMN FROM A Record
     function restservicePUT($param){
-        echo "restservicePUT is triggered";
-        echo "<br>";
-        echo "You have reached the service";
+        //echo "restservicePUT is triggered";
+        //echo "<br>";
+        //echo "You have reached the service";
 
         print_r($param);
 
         require_once '../database/data/dbsetting.php';
 
-        $genre = array_push($param);
+        $genre = array_shift($param);
+
+        if(is_null($genre)){
+            $this->errorResponse("404","1991", "Missing Parameter");
+        }
     
         if($genre ==='updaterecord'){
 
             $updaterecord = array_shift($param);
-            
-            if(!isset($marketId) && !is_numeric($marketId)){
-                http_response_code(400);
-                $output = array();
-                $output['status'] = 'error';
-                $output['code'] = '1990';
-                $output['message'] ='missing parameter';
-                echo json_encode($output);
+            if(!isset($updaterecord) || !is_numeric($updaterecord)){
+               $this->errorResponse("404","1990","Missing Parameter");
             }
             else{
+                $columnname= array_shift($param);
+                if(!isset($column) || !is_numeric($columnname)){
+                    $this->errorResponse("404","1990","Missing Parameter");
+                }
+                else{
+                    $newvalue= array_shift($param);
+                    if(!isset($newvalue) || !is_numeric($newvalue)){
+                        $this->errorResponse("404","1990","Missing Parameter");
+                    }else{
+                        try{
+                            $sql = "UPDATE market SET $columnname  = $newvalue WHERE marketId = $marketId ";
+                        }catch(Exception $e){
 
-                $sql = "INSERT districtname, regionname,  FROM market WHERE marketId = '$marketId'";
-       
-            try{
-                $result = $connection->query($sql);
-                while($row = mysqli_fetch_object($result)){
-                    http_response_code(200);
-                    $content = array();
-                    $content['marketId'] = $row->marketId;
-                    $content['marketname'] = $row->marketname;
-                    $content['regionname'] = $row->regionname;
-                    $content['districtname'] = $row->districtname;
-                    $content['address']=$row->address;
-                    $content['contact']['contact1']= $row->contact1;
-                    $content['contact']['contact2']= $row->contact2;
-                    $content['openinghour']=$row->openinghour;
-                    $content['tenancycomd']=$row->tenancycomd;
-                    $content['nosstall']=$row->nosstall;
-                }   
-                echo json_encode($content);
+                        }
+                    }}
+                    
+                }
             }
-            catch(Exception $e){
-                var_dump(http_response_code(404));
-                $output = array();
-                $output['status'] = 'error';
-                $output['code'] = '1991';
-                $output['message'] = 'SQL execution failure';
-                echo json_encode($output);
-            }}
-}   
+        }   
 }       
 
 
@@ -302,18 +284,18 @@ class marketservice{
         }
         
     
-        //Search the market by MarketID
+        //Insert the market record by 
         if($genre ==='newrecord'){
-            $district = $_POST['district'];
-            $region = $_POST['region'];
-            $marketname = $_POST['marketname'];
-            $address = $_POST['address'];
-            $contact1 = $_POST['tel1'];
-            $contact2 = $_POST['tel2'];
-            $coordinates = $_POST['maploc'];
-            $tenancy = $_POST['tenancytype'];
-            $openinghours = $_POST['openinghours'];
-            $stallnumber = $_POST['stallno'];            
+            $district = $_POST['insertdistrict'];
+            $region = $_POST['insertregion'];
+            $marketname = $_POST['insertmarketname'];
+            $address = $_POST['insertaddress'];
+            $contact1 = $_POST['inserttel1'];
+            $contact2 = $_POST['inserttel2'];
+            $coordinates = $_POST['insertmaploc'];
+            $tenancy = $_POST['inserttenancytype'];
+            $openinghours = $_POST['insertopeninghours'];
+            $stallnumber = $_POST['insertstallno'];            
 
             //echo $district.'<br>';
             //echo $region.'<br>';
