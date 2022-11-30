@@ -13,6 +13,7 @@ class marketservice{
     }
 
     function successResponse(){
+        header("application/json");
         http_response_code(200);
         $success = array();
         $success['status'] = 'success';
@@ -65,17 +66,18 @@ class marketservice{
                     $content['tenancycomd']=$row->tenancycomd;
                     $content['nosstall']=$row->nosstall;
                     $content['coordinate']=$row->coordinate;
-                    
                     $outcome[] = $content;
-                
-                }               
+                }  
+                if($result){
+                    echo json_encode($outcome);
+                    
+                }
+                else{
+                    $this->errorResponse("404","1990", "Invalid Input");
+                }
             }
             catch(exception $e){
                 $this-> errorResponse("404","1993","Error Occur after querying the database.");
-            }
-            finally{
-                $return[] = array($this->successResponse());
-                echo json_encode(array_merge($return,$outcome));
             }
         }
     }   
