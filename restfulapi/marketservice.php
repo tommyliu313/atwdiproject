@@ -221,7 +221,7 @@ class marketservice{
         //echo "<br>";
         //echo "You have reached the service";
 
-        print_r($param);
+        //print_r($param);
 
         require_once '../database/data/dbsetting.php';
 
@@ -234,30 +234,38 @@ class marketservice{
         if($genre ==='updaterecord'){
 
             $updaterecord = array_shift($param);
-            if(!isset($updaterecord) || !is_numeric($updaterecord)){
-               $this->errorResponse("404","1990","Missing Parameter");
+            if(!isset($updaterecord) || is_null($updaterecord)){
+               $this->errorResponse("404","1991","Missing Parameter");
             }
             else{
-                $columnname= array_shift($param);
-                if(!isset($column) || !is_numeric($columnname)){
-                    $this->errorResponse("404","1990","Missing Parameter");
+                    $marketId = array_shift($param);
+                if(!isset($marketId) || !is_numeric($marketId) || is_null($marketId)){
+                    $this->errorResponse("404","1991","Missing Parameter");
+                 }
+                else{
+                    $columnname= array_shift($param);
+                    if(!isset($columnname) || !is_string($columnname) || is_null($columnname)){
+                        $this->errorResponse("404","1991","Missing Parameter");
                 }
                 else{
                     $newvalue= array_shift($param);
-                    if(!isset($newvalue) || !is_numeric($newvalue)){
-                        $this->errorResponse("404","1990","Missing Parameter");
+                    if(!isset($newvalue) || !is_string($newvalue) || is_null($newvalue)){
+                        $this->errorResponse("404","1991","Missing Parameter");
                     }else{
-                        try{
-                            $sql = "UPDATE market SET $columnname  = $newvalue WHERE marketId = $marketId ";
-                        }catch(Exception $e){
-
+                          $sql = "UPDATE market SET $columnname = '$newvalue' WHERE marketId = '$marketId' ";
+                          $result = $connection->query($sql);
+                        if($result){
+                            $this->successResponse();
+                        }
+                        else{
+                            $this->errorResponse("404","1992","Not Found");
                         }
                     }}
-                    
+                }
                 }
             }
         }   
-}       
+  
 
 
         
@@ -319,7 +327,7 @@ class marketservice{
         }  */     
    
     }
-   
 }
+
 ?>
 

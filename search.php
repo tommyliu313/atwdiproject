@@ -294,8 +294,8 @@
               <option value="contact1">Market Contact Telephone Number 1</option>
               <option value="contact2">Market Contact Telephone Number 2</option>
               <option value="tenancycomd">Tenancy Type</option>
-              <option value="opeeninghour">Openinghours</option>
-              <option value="nostall">Stall Number</option>
+              <option value="openinghour">Openinghours</option>
+              <option value="nosstall">Stall Number</option>
             </select>
             </div>
           </div>
