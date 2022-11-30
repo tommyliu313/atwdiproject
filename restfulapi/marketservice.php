@@ -252,15 +252,16 @@ class marketservice{
                             $this->errorResponse("404","1991","Missing Parameter");
                         }
                         else{
-                              $sql = "UPDATE market SET $columnname = '$newvalue' WHERE marketId = '$marketId' ";
+                              $sql = "UPDATE market SET $columnname = $newvalue WHERE marketId = $marketId ";
                               $result = $connection->query($sql);
-                        if($result){
-                          $this->successResponse();
-                        }
-                        else{
-                          $this->errorResponse("404","1992","Not Found");
-                        }
-                    }}
+                            if($result){
+                            $this->successResponse();
+                            }
+                            else{
+                            $this->errorResponse("404","1992","Not Found");
+                            }
+                    }
+                    }
                 }
                }
             }

@@ -45,7 +45,7 @@ function deleterecord($marketId){
 
 function editrecord($marketId){
     var inputValue = $marketId;
-    var columnname= document.getElementById("columnname").value;
+    var columnname = document.getElementById("columnname").value;
     var newvalue = document.getElementById("newvalue").value;
     var destination = baseUri + "updaterecord/" +  inputValue + "/" + columnname + "/" + newvalue;
     request.open("PUT",destination, true);
@@ -92,7 +92,7 @@ function displaythese(data){
     display += '<td colspan="2">';
     display += '<button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#DeleteModal" ';
     display += 'onclick="javascript:deleterecord('+"'"+data['marketId']+"'"+')">Delete This Record</button>';
-    display += '<br><button class="btn btn-success" id="popupinsert" type="button" data-bs-toggle="modal" data-bs-target="#UpdateModal" ';
+    display += '<br><button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#UpdateModal" ';
     display += 'onclick="javascript:editrecord('+"'"+data['marketId']+"'"+')">Edit This Record</button></td>';
     display += '</tr>';
 };

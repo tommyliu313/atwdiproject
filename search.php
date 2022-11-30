@@ -275,6 +275,7 @@
 <div class="modal fade" id="UpdateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
+    <form action="restfulapi/index.php/market/updaterecord" method="PUT">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Update the Market Tenancy</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -310,10 +311,10 @@
       </div>
       <div class="modal-footer">
       <input type="reset" value="Reset" name="Reset" class="btn btn-danger">
-      <button type="submit" value="Submit" name="Submit" class="btn btn-success" onClick="editrecord()">Insert</button>
+      <button type="submit" value="Submit" name="Submit" class="btn btn-success" onClick="editrecord();">Submit</button>
       </div>
       
-    </div>
+    </div></form>
   </div>
 </div>
 <!--Popup Modal Update End-->
