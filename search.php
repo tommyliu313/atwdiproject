@@ -311,7 +311,7 @@
       </div>
       <div class="modal-footer">
       <input type="reset" value="Reset" name="Reset" class="btn btn-danger">
-      <button type="submit" value="Submit" name="Submit" class="btn btn-success" onClick="editrecord();">Submit</button>
+      <button type="submit" value="Submit" name="Submit" class="btn btn-success" id="editbuttonsubmit">Submit</button>
       </div>
       
     </div></form>

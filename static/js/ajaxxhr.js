@@ -3,6 +3,8 @@ var baseUri = "http://localhost/atwdiproject/restfulapi/index.php/market/";
 var request = new XMLHttpRequest();
 var outputArray;
 
+var editbutton = document.getElementById("editbuttonsubmit");
+
 //Start the application
 function find1(){
     var inputValue = "district/" + document.getElementById("inputvalue1").value;
@@ -92,8 +94,9 @@ function displaythese(data){
     display += '<td colspan="2">';
     display += '<button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#DeleteModal" ';
     display += 'onclick="javascript:deleterecord('+"'"+data['marketId']+"'"+')">Delete This Record</button>';
-    display += '<br><button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#UpdateModal" ';
-    display += 'onclick="javascript:editrecord('+"'"+data['marketId']+"'"+')">Edit This Record</button></td>';
+    display += '<br><button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#UpdateModal">Edit This Record</button></td> ';
+    //display += 'onclick="javascript:editrecord('+"'"+data['marketId']+"'"+')">';
     display += '</tr>';
 };
 
+editbuttonsubmit.addEventListener('click', editrecord(data['marketId']));
