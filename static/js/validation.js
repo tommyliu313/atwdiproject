@@ -20,25 +20,25 @@ insertform.addEventListener('submit',(e) => {
         error.push("should not be empty")
     }
     if (insertmarketname === '' || insertmarketname == null){
-        error.push("should not be empty")
+        error.push("market name should not be empty")
     }
     if (insertaddress === '' || insertaddress == null){
-        error.push("should not be empty")
+        error.push("Address should not be empty")
     }
     if (inserttel1 === '' || inserttel1 == null){
-        error.push("should not be empty")
+        error.push("Telephone 1 should not be empty")
     }
     if (inserttel2 === '' || inserttel2 == null){
-        error.push("should not be empty")
+        error.push("Telephone 2 should not be empty")
     }
     if (insertopeninghours === '' || insertopeninghours == null){
-        error.push("should not be empty")
+        error.push("Opening hours should not be empty")
     }
     if (inserttenancytype === '' || inserttenancytype == null){
-
+        error.push('Tenancy type should not be empty')
     }
     if (insertstallno == '' || insertstallno == null){
-
+        error.push("Stall Number should not be empty")
     }
     if(error.length > 0){
         e.preventDefault()

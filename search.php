@@ -19,7 +19,7 @@
     <script type="text/javascript" src="static/js/ajaxxhr.js"></script>
     <script src="static/css/bootstrap-5.2.1-dist/js/bootstrap.min.js"></script>
     <script src="static/js/jquery-3.6.1.min.js"></script>
-    <script src="static/js/navbartoggle.js"></script>
+    <script src="static/js/jqueryown.js"></script>
     <script src="static/js/validation.js"></script>
     <script src="static/css/bootstrap-5.2.1-dist/js/bootstrap.bundle.min.js"></script>
 <!--message-->
@@ -246,77 +246,6 @@
   </div>
 </div>
  <!--Popup Modal Insert End-->
- <!--Popup Modal Delete Start-->
- <div class="modal fade" id="DeleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <form action="restfulapi/index.php/market/deleterecord" method="DELETE">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Delete this record</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-      <div class="form-group mb-3">
-                
-      You are going to delete this record.<br>
-      Are you sure to delete this record? The action is irreversible.
-      </div>
-   
-      </div>
-      <div class="modal-footer">
-      <input type="reset" value="Reset" name="No" class="btn btn-danger">
-      <button type="submit" value="Submit" name="Submit" class="btn btn-success" onClick="deleterecord();">Yes</button>
-      </div>   
-    </div></form>
-  </div>
-</div>
-<!--Popup Modal Delete End-->
-<!--Popup Modal Update Start-->
-<div class="modal fade" id="UpdateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-    <form method="PUT">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Update the Market Tenancy</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-      <div class="form-group mb-3">
-                  
-            <label for="marketname" class="form-label">Column</label><br>
-          <div class="input-group mb-3 form-group">
-            <div class="input-group">
-            <select name="columnname" id="columnname" class="form-select custom-select" required>
-              <option value="marketname">Market Name</option>
-              <option value="districtname">Market District</option>
-              <option value="regionname">Region</option>
-              <option value="marketaddress">Market Address</option>
-              <option value="coordinate">Coordinate</option>
-              <option value="contact1">Market Contact Telephone Number 1</option>
-              <option value="contact2">Market Contact Telephone Number 2</option>
-              <option value="tenancycomd">Tenancy Type</option>
-              <option value="openinghour">Openinghours</option>
-              <option value="nosstall">Stall Number</option>
-            </select>
-            </div>
-          </div>
-            <br>
 
-          <label for="tel1" class="form-label">Replace Value</label><br>
-          <div class="input-group mb-3 form-group">
-              <input type="text" name="newvalue" id="newvalue" require class="form-control form-control-lg" aria-label="large" maxlength="120" placeholder="Replace Value">
-          </div>
-      </div>
-   
-      </div>
-      <div class="modal-footer">
-      <input type="reset" value="Reset" name="Reset" class="btn btn-danger">
-      <button type="submit" value="Submit" name="Submit" class="btn btn-success" id="editbuttonsubmit">Submit</button>
-      </div>
-      
-    </div></form>
-  </div>
-</div>
-<!--Popup Modal Update End-->
 </body>
 </html>

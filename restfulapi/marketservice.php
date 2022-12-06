@@ -178,10 +178,10 @@ class marketservice{
     // DELETE A MARKET RECORD (ALL)
     // DELETE A TENANCY FROM A RECORD
     function restserviceDELETE($param){
-        echo "restserviceDELETE is triggered";
-        echo "<br>";
-        echo "You have reached the service";
-        print_r($param);
+        //echo "restserviceDELETE is triggered";
+        //echo "<br>";
+        //echo "You have reached the service";
+        //print_r($param);
 
         require_once '../database/data/dbsetting.php';
 
@@ -235,27 +235,21 @@ class marketservice{
     
         if($genre ==='updaterecord'){
 
-            $updaterecord = array_shift($param);
-            if(!isset($updaterecord) || is_null($updaterecord)){
-               $this->errorResponse("404","1991","Missing Parameter");
-            }
+            $marketId = array_shift($param);
+            if(!isset($marketId) || is_null($marketId)){
+                $this->errorResponse("404","1991","Missing Parameter");
+             }
             else{
-                $marketId = array_shift($param);
-                if(!isset($marketId) || is_null($marketId)){
-                    $this->errorResponse("404","1991","Missing Parameter");
-                 }
-                else{
+
                     $columnname = array_shift($param);
                     if(!isset($columnname) || !is_string($columnname) || is_null($columnname)){
                         $this->errorResponse("404","1991","Missing Parameter");}
                     else{
                         $newvalue = array_shift($param);
-                        if(!isset($newvalue) || is_null($newvalue)){
-                            $this->errorResponse("404","1991","Missing Parameter");
-                        }
-                        else{
-                              $sql = "UPDATE market SET $columnname = $newvalue WHERE marketId = $marketId ";
-                              $result = $connection->query($sql);
+                        
+                            
+                            $sql = "UPDATE market"." SET $columnname = '$newvalue'"." WHERE marketId = $marketId ";
+                            $result = $connection->query($sql);
                             if($result){
                             $this->successResponse();
                             }
@@ -264,11 +258,10 @@ class marketservice{
                             }
                     }
                     }
-                }
+                
                }
             }
-        }   
-  
+       
 
 
         
@@ -330,7 +323,7 @@ class marketservice{
         }  */     
    
     }
-}
+}   
 
 ?>
 
