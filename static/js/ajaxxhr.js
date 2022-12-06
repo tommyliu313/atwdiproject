@@ -5,12 +5,12 @@ var outputArray;
 
 var editbutton = document.getElementById("editbuttonsubmit");
 
-var deleteModal=`<div class="modal fade" id="DeleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+var deleteModal=`<div class="modal fade" id="DeleteModal" tabindex="-1"  aria-hidden="true">
 <div class="modal-dialog">
   <div class="modal-content">
     <form action="restfulapi/index.php/market/deleterecord" method="DELETE">
     <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">Delete this record</h5>
+      <h5 class="modal-title" >Delete this record</h5>
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
     <div class="modal-body">
@@ -23,12 +23,12 @@ var deleteModal=`<div class="modal fade" id="DeleteModal" tabindex="-1" aria-lab
     </div>
     <div class="modal-footer">`;
 
-var updateModal = `<div class="modal fade" id="UpdateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+var updateModal = `<div class="modal fade" id="UpdateModal" tabindex="-1" aria-hidden="true">
 <div class="modal-dialog">
   <div class="modal-content">
   <form  action="restfulapi/index.php/market/updaterecord" method="PUT">
     <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">Update the Market Tenancy</h5>
+      <h5 class="modal-title" >Update the Market Tenancy</h5>
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
     <div class="modal-body">
@@ -152,7 +152,7 @@ function displaythese(data){
     display += '<td colspan="2">';
     display += '<button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#DeleteModal">Delete This Record</button> ';
     display += deleteModal;
-    display += `<button class="btn btn-danger" onclick="redirect()";>No</button>`;
+    display += `<button class="btn btn-danger" data-bs-dismiss="modal">No</button>`;
     display += '<button type="submit" value="Submit" name="Submit" class="btn btn-success" onClick="deleterecord('+"'"+data['marketId']+"'"+');">Yes</button>';
     display += `</div></div></form></div></div>`;
     display += '<br><button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#UpdateModal">Edit This Record</button></td> ';

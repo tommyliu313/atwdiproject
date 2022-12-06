@@ -129,11 +129,11 @@
     </div>
 <!--Demonstrate the result End-->
  <!--Popup Modal Insert Start-->
- <div class="modal fade" id="InsertModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ <div class="modal fade" id="InsertModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Insert New Market</h5>
+        <h5 class="modal-title">Insert New Market</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -177,14 +177,14 @@
           <label for="marketname" class="form-label"> Market Name</label><br>
           <div class="input-group mb-3 form-group">
             <div class="input-group">
-              <input type="text" name="insertmarketname" id="insertmarketname" no class="form-control form-control-lg" aria-label="large" placeholder="For Example: ShaTin Public Market">
+              <input type="text" name="insertmarketname" id="insertmarketname" class="form-control form-control-lg" aria-label="large" placeholder="For Example: ShaTin Public Market">
             </div>
           </div>
             <br>
             <label for="address" class="form-label"> Address</label><br>
             <div class="input-group mb-3 form-group">
               <div class="input-group">
-                <input type="text" name="insertaddress" id="insertaddress" no class="form-control form-control-lg" aria-label="large" maxlength="120" placeholder="For Example: 160 TSAT TSZ MUI ROAD, NORTH POINT, HK">
+                <input type="text" name="insertaddress" id="insertaddress" class="form-control form-control-lg" aria-label="large" maxlength="120" placeholder="For Example: 160 TSAT TSZ MUI ROAD, NORTH POINT, HK">
               </div>
             </div>
               <br>
