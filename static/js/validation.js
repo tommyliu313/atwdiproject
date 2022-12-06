@@ -48,3 +48,7 @@ function validateinputform(){
         return false;
     }
 }
+
+function redirect(){
+    window.location = 'search.php';
+}

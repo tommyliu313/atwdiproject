@@ -152,7 +152,7 @@ function displaythese(data){
     display += '<td colspan="2">';
     display += '<button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#DeleteModal">Delete This Record</button> ';
     display += deleteModal;
-    display += `<button class="btn btn-danger" id="no">No</button>`;
+    display += `<button class="btn btn-danger" onclick="redirect()";>No</button>`;
     display += '<button type="submit" value="Submit" name="Submit" class="btn btn-success" onClick="deleterecord('+"'"+data['marketId']+"'"+');">Yes</button>';
     display += `</div></div></form></div></div>`;
     display += '<br><button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#UpdateModal">Edit This Record</button></td> ';
