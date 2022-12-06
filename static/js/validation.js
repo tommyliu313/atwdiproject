@@ -1,47 +1,50 @@
 const insertform = document.getElementById('insertform');
 
-const district  = document.getElementById("insertdistrict");
-const region = document.getElementById("insertregion");
-const insertmarketname = document.getElementById("insertmarketname");
-const insertaddress = document.getElementById("insertaddress");
-const inserttel1 = document.getElementById("inserttel1");
-const inserttel2 = document.getElementById("inserttel2");
-const insertmaploc = document.getElementById("insertmaploc");
-const insertopeninghours = document.getElementById("insertopeninghours");
-const inserttenancytype = document.getElementById("inserttenancytype");
-const insertstallno = document.getElementById("insertstallno");
+const district  = document.getElementById("insertdistrict").value;
+const region = document.getElementById("insertregion").value;
+const insertmarketname = document.getElementById("insertmarketname").value;
+const insertaddress = document.getElementById("insertaddress").value;
+const inserttel1 = document.getElementById("inserttel1").value;
+const inserttel2 = document.getElementById("inserttel2").value;
+const insertmaploc = document.getElementById("insertmaploc").value;
+const insertopeninghours = document.getElementById("insertopeninghours").value;
+const inserttenancytype = document.getElementById("inserttenancytype").value;
+const insertstallno = document.getElementById("insertstallno").value;
 
-insertform.addEventListener('submit',(e) => {
-    let error = []
-    if (district.value === '' || district.value == null){
-        error.push("should not be empty")
+function validateinputform(){
+    if (district === '' || district == null){
+        alert("district should not be empty")
     }
-    if (region.value === '' || region.value == null){
-        error.push("should not be empty")
+    if (region === '' || region == null){
+        alert("should not be empty");
+        return false;
     }
     if (insertmarketname === '' || insertmarketname == null){
-        error.push("market name should not be empty")
+        alert("market name should not be empty");
+        return false;
     }
     if (insertaddress === '' || insertaddress == null){
-        error.push("Address should not be empty")
+        alert("Address should not be empty");
+        return false;
     }
     if (inserttel1 === '' || inserttel1 == null){
-        error.push("Telephone 1 should not be empty")
+        alert("Telephone 1 should not be empty");
+        return false;
     }
     if (inserttel2 === '' || inserttel2 == null){
-        error.push("Telephone 2 should not be empty")
+        alert("Telephone 2 should not be empty");
+        return false;
     }
     if (insertopeninghours === '' || insertopeninghours == null){
-        error.push("Opening hours should not be empty")
+        alert("Opening hours should not be empty");
+        return false;
     }
     if (inserttenancytype === '' || inserttenancytype == null){
-        error.push('Tenancy type should not be empty')
+        alert('Tenancy type should not be empty');
+        return false;
     }
     if (insertstallno == '' || insertstallno == null){
-        error.push("Stall Number should not be empty")
+        alert("Stall Number should not be empty");
+        return false;
     }
-    if(error.length > 0){
-        e.preventDefault()
-        window.alert("Error: " + error)
-    }
-})
+}

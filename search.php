@@ -147,7 +147,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <form action="restfulapi/index.php/market/newrecord" method="POST" enctype="x-www-form-urlencoded" onsubmit="e.preventDefault()" autocomplete="off" name="insertform" id="insertform">
+      <form action="restfulapi/index.php/market/newrecord" method="POST" enctype="x-www-form-urlencoded" onsubmit="return validateinputform()" autocomplete="off" name="insertform" id="insertform">
       <div class="form-group mb-3">
         <label for="districtcol" class="form-label"> District 
               <span></span>
