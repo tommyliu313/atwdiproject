@@ -6,6 +6,10 @@
         <li class="nav-item active"><a class="nav-link" href="index.php"> Index</a></li>
         <li class="nav-item"><a class="nav-link" href="search.php">  Search and Insert Page</a></li>
         <li class="nav-item"><a class="nav-link" href="reference.php"> Reference</a></li>
+<<<<<<< HEAD
+=======
+          <li class="nav-item"><a href="webmap.php" class="nav-link">Web Map</a></li>
+>>>>>>> d431cf1f458725d86cd73bb6a55ad15467a97c80
         </ul>
       </div>
     </nav>
