@@ -236,6 +236,8 @@
   </div>
 </div>
  <!--Popup Modal Insert End-->
-
+<!--footerstart-->
+<?php include('component/footer.php'); ?>
+    <!--footerstart-->
 </body>
 </html>

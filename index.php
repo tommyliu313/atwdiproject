@@ -83,36 +83,8 @@
     </div>
 
     <!--footerstart-->
-    <footer class="bg-info">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="row">
-              <h1>Web Description</h1>
-            </div>
-            <div class="row">
-              <h6>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime, ad, sequi illum debitis, pariatur ducimus officiis assumenda aut delectus facilis incidunt dolorum. Pariatur quis, id error rerum cupiditate vitae officia.
-                </h6>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="row"><h1>Web Map</h1></div>
-            <div class="row">
-              <h3><a href="index.html">Index</a></h3>
-            </div>
-            <div class="row">
-              <h3><a href="search.php">Search and Insert Page</a></h3>
-            </div>
-            <div class="row">
-              <h3>Refernece</h3>
-            </div>
-          </div>
-          <div class="col-lg-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam sit accusantium, amet esse numquam, quis ea quisquam labore necessitatibus soluta autem tenetur, consectetur qui nostrum omnis praesentium vel itaque ratione!</div>
-        </div>
-      </div>
-      </div></footer>
-    <!--footerend-->
+    <?php include('component/footer.php'); ?>
+    <!--footerstart-->
 
     <!--cookiesetting-->
     <!---->

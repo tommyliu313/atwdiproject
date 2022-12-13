@@ -26,7 +26,7 @@ var deleteModal=`<div class="modal fade" id="DeleteModal" tabindex="-1"  aria-hi
 var updateModal = `<div class="modal fade" id="UpdateModal" tabindex="-1" aria-hidden="true">
 <div class="modal-dialog">
   <div class="modal-content">
-  <form  action="restfulapi/index.php/market/updaterecord" method="PUT">
+  <form action="restfulapi/index.php/market/updaterecord" method="PUT" id="updatemodal">
     <div class="modal-header">
       <h5 class="modal-title" >Update the Market Tenancy</h5>
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -111,6 +111,7 @@ function editrecord($marketId){
     request.open("PUT",destination, true);
     request.onreadystatechange = update;
     request.send(null);
+    location.replace('search.php');
 }
 
 //Renderer Process
