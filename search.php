@@ -140,10 +140,10 @@
       <form action="restfulapi/index.php/market/newrecord" method="POST" enctype="x-www-form-urlencoded" onsubmit="return validateinputform()" autocomplete="off" name="insertform" id="insertform">
       <div class="form-group mb-3">
         <label for="districtcol" class="form-label"> District 
-              <span></span>
+              <span>*</span>
         </label>
           <select name="insertdistrict" id="insertdistrict" class="form-select custom-select" required>
-          <option selected="selected" disabled>Choose the following option where the market district is</option>
+          <option selected="selected" disabled value="disabled">Choose the following option where the market district is</option>
             <?php
 
               require_once('database/data/dbsetting.php');
@@ -159,8 +159,9 @@
           </select>
           
           <label for="region" class="form-label">Region</label>
+          <span>*</span>
             <select name="insertregion" id="insertregion" class="form-select custom-select" required>
-              <option selected="selected" disabled>Choose the following option where the market region is</option>
+              <option selected="selected" disabled value="disabled">Choose the following option where the market region is</option>
               <?php
                 require_once('database/data/dbsetting.php');
             
@@ -174,14 +175,18 @@
               ?>
             </select>
             
-          <label for="marketname" class="form-label"> Market Name</label><br>
+          <label for="marketname" class="form-label"> Market Name</label>
+          <span>*</span>
+          <br>
+          
           <div class="input-group mb-3 form-group">
             <div class="input-group">
               <input type="text" name="insertmarketname" id="insertmarketname" class="form-control form-control-lg" aria-label="large" placeholder="For Example: ShaTin Public Market">
             </div>
           </div>
             <br>
-            <label for="address" class="form-label"> Address</label><br>
+            <label for="address" class="form-label"> Address</label>
+            <span>*</span><br>
             <div class="input-group mb-3 form-group">
               <div class="input-group">
                 <input type="text" name="insertaddress" id="insertaddress" class="form-control form-control-lg" aria-label="large" maxlength="120" placeholder="For Example: 160 TSAT TSZ MUI ROAD, NORTH POINT, HK">
@@ -189,28 +194,33 @@
             </div>
               <br>
 
-          <label for="tel1" class="form-label">Telephone 1</label><br>
+          <label for="tel1" class="form-label">Telephone 1</label>
+          <span>*</span><br>
           <div class="input-group mb-3 form-group">
             <div class="input-group-prepend"><span class="input-group-text">+852</span>
             </div>
             <input type="tel" name="inserttel1" id="inserttel1" pattern="[0-9]{8}" required class="form-control" placeholder="For Example: 00000000"><br>
           </div>
           
-          <label for="tel2" class="form-label">Telephone 2</label><br>
+          <label for="tel2" class="form-label">Telephone 2</label>
+          <span>*</span><br>
             <div class="input-group mb-3 form-group">
               <div class="input-group-prepend"><span class="input-group-text">+852</span>
               </div>
               <input type="tel" name="inserttel2" id="inserttel2" pattern="[0-9]{8}" required class="form-control" placeholder="For Example: 00000000">
             </div>
 
-          <label for="Map" class="form-label">Map Location</label><br>
+          <label for="Map" class="form-label">Map Location</label>
+          <span>*</span><br>
           <input type="text" name="insertmaploc" id="insertmaploc" required class="form-control" placeholder="For Example: 23.1234xx,135.123xxx">
             <br>
           
-          <label for="openinghours" class="form-label">Opening Hours</label><br>
+          <label for="openinghours" class="form-label">Opening Hours</label>
+          <span>*</span><br>
           <input type="text" name="insertopeninghours" id="insertopeninghours" required class="form-control" placeholder="For Example: 6:00 a.m. to 8:00 p.m.">
           <br>
-          <label for="Tenancy Name" class="form-label"> Tenancy Type</label><br>
+          <label for="Tenancy Name" class="form-label"> Tenancy Type</label>
+          <span>*</span><br>
           <div class="input-group mb-3 form-group">
             <div class="input-group">
               <input type="text" name="inserttenancytype" id="inserttenancytype" required class="form-control form-control-lg" aria-label="large">
@@ -218,7 +228,8 @@
           </div>
             <br>
          
-            <label for="stallnumber" class="form-label"> Stall Number</label><br>
+            <label for="stallnumber" class="form-label"> Stall Number</label>
+            <span>*</span><br>
           <div class="input-group mb-3 form-group">
             <div class="input-group">
               <input type="number" name="insertstallno" id="insertstallno" required class="form-control form-control-lg" aria-label="large" placeholder="Please Input a number">

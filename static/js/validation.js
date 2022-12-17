@@ -11,30 +11,31 @@ function validateinputform(){
     let inserttenancytype = document.insertform.inserttenancytype.value;
     let insertstallno = document.insertform.insertstallno.value;
 
-    if (district === '' || district === null){
-        alert("district should not be empty");
-    }
-    if (region === '' || region === null){
-        alert("should not be empty");
+    if (district === '' || district === null || district ==='disabled' || district === disabled){
+        alert("District should not be empty");
         return false;
     }
-    if (insertmarketname === '' || insertmarketname === null){
-        alert("market name should not be empty");
+    if (region === '' || region === null || region === 'disabled' || region === disabled){
+        alert("Region should not be empty");
         return false;
     }
-    if(insertmaploc  === '' || insertmarketname === null){
-        alert("market name should not be empty");
+    if (insertmarketname === '' || insertmarketname === null || typeof insertmarketname !== 'string'){
+        alert("Market name should not be empty or the type should be string");
+        return false;
+    }
+    if(insertmaploc  === '' || insertmaploc === null){
+        alert("Location should not be empty or the type should be number");
         return false;
     }
     if (insertaddress === '' || insertaddress === null){
         alert("Address should not be empty");
         return false;
     }
-    if (inserttel1 === '' || inserttel1 === null){
+    if (inserttel1 === '' || inserttel1 === null || typeof inserttel1 !== 'number'){
         alert("Telephone 1 should not be empty");
         return false;
     }
-    if (inserttel2 === '' || inserttel2 === null){
+    if (inserttel2 === '' || inserttel2 === null || typeof inserttel2 !== 'number'){
         alert("Telephone 2 should not be empty");
         return false;
     }
@@ -42,7 +43,7 @@ function validateinputform(){
         alert("Opening hours should not be empty");
         return false;
     }
-    if (inserttenancytype === '' || inserttenancytype === null){
+    if (inserttenancytype === '' || inserttenancytype === null || typeof inserttenancytype !=="string"){
         alert('Tenancy type should not be empty');
         return false;
     }
