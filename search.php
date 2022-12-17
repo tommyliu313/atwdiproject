@@ -158,8 +158,8 @@
               ?>
           </select>
           
-          <label for="region" class="form-label">Region</label>
-          <span>*</span>
+          <label for="region" class="form-label">Region
+          <span>*</span></label>
             <select name="insertregion" id="insertregion" class="form-select custom-select" required>
               <option selected="selected" disabled value="disabled">Choose the following option where the market region is</option>
               <?php
