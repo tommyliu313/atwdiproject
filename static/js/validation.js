@@ -1,7 +1,4 @@
-const insertform = document.getElementById("insertform");
-
-insertform.addEventListener("Submit",function(e){
-    e.preventDefault()
+function validateinputform(){
 
     let district  = document.insertform.insertdistrict.value;
     let region = document.insertform.insertregion.value;
@@ -55,7 +52,7 @@ insertform.addEventListener("Submit",function(e){
     }
     return true;
 
-})
+}
     
 
 function redirect(){
