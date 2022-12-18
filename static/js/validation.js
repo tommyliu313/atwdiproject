@@ -1,6 +1,6 @@
 function validateinputform(){
 
-    let district  = document.insertform.insertdistrict.value;
+    let district = document.insertform.insertdistrict.value;
     let region = document.insertform.insertregion.value;
     let insertmarketname = document.insertform.insertmarketname.value;
     let insertaddress = document.insertform.insertaddress.value;
@@ -51,7 +51,8 @@ function validateinputform(){
         alert("Stall Number should not be empty");
         return false;
     }
-    return true;
+
+    return false;
 
 }
     
